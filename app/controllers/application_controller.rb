@@ -24,6 +24,14 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
+  private
+  
+  def check_signed_in
+    if signed_in?
+      redirect_to static_pages_url
+    end
+  end
+
 
 
 end

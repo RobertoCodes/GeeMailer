@@ -2,7 +2,11 @@
 
 <form action="<%= users_url %>" method="POST">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"></input>
-  <input type="text" value="" name="user[username]">Username</input>
-  <input type="password" value="" name="user[password]">Password</input>
-  <button type="submit" value="Sign In">Sign Up</button>
+  <input type="text" value="" name="user[username]">Username</input><br>
+  <input type="password" value="" name="user[password]">Password</input><br>
+  <button class="log_button" type="submit" value="Sign In">Sign Up</button>
 </form>
+<p>
+</p>
+
+<%=link_to "Sign In", new_session_url %>

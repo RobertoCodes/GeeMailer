@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :check_signed_in
+
   def new
 
   end
@@ -9,10 +11,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
-      render json: "you are in!"
+      redirect_to staticpages_url
     else
       flash.now[:errors] = @user.errors.full_messages
-      render json: "you not in"
+      render :new
     end
   end
 
