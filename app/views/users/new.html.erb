@@ -1,0 +1,8 @@
+<h1> Please Sign Up</h1>
+
+<form action="<%= users_url %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"></input>
+  <input type="text" value="" name="user[username]">Username</input>
+  <input type="password" value="" name="user[password]">Password</input>
+  <button type="submit" value="Sign In">Sign Up</button>
+</form>

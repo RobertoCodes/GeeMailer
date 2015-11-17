@@ -5,12 +5,16 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: {message: "Password can't be blank"}
   validates :password, length: { minimum: 6, allow_nil: true}
 
+  after_initialize :ensure_session_token
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64
   end
 
   def reset_session_token!
     self.session_token = User.generate_session_token
+    self.save!
+    self.session_token
   end
 
   def password=(password)
@@ -31,6 +35,13 @@ class User < ActiveRecord::Base
         User.errors.full_messages = "Invalid Username or Password"
       end
     end
+  end
+
+  private
+
+  def ensure_session_token
+    self.session_token ||= User.generate_session_token
+    self.save!
   end
 
 

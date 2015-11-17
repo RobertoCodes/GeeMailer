@@ -1,16 +1,18 @@
 class UsersController < ApplicationController
 
   def new
-    
+
   end
 
 
   def create
     @user = User.new(user_params)
-    if @user
-      sign_in(user)
+    if @user.save
+      sign_in(@user)
+      render json: "you are in!"
     else
-      flash.now[:errors] = User.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
+      render json: "you not in"
     end
   end
 

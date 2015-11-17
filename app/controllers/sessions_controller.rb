@@ -5,14 +5,19 @@ class SessionsController < ApplicationController
 
 
   def create
-    @user = User.find_by_credentials(session[:username], session[:password])
+    @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
     if @user
-      sign_in(user)
-      render json: "you're in!"
+      sign_in(@user)
+      redirect_to user_url(@user)
     else
-      flash.now[:errors] = User.errors.full_messages
+      flash.now[:errors] = "Invalid username/password"
       render :new
     end
+  end
+
+  def destroy
+    sign_out
+    render :new
   end
 
 end
