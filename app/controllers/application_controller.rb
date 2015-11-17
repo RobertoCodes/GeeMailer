@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
 
   def sign_in(user)
     session[:session_token] = user.reset_session_token!
-    debugger
   end
 
   def sign_out
@@ -25,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  
+
   def check_signed_in
     if signed_in?
       redirect_to static_pages_url
