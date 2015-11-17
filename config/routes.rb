@@ -5,7 +5,12 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
-  resource :static_pages, only: [:show] 
+  resource :static_pages, only: [:show]
+
+  namespace :api, defaults: {format: :json} do
+    resources :emails
+  end 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

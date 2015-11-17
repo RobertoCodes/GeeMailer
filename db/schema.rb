@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117141037) do
+ActiveRecord::Schema.define(version: 20151117190127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "emails", force: :cascade do |t|
+    t.string  "subject",                         null: false
+    t.text    "body",                            null: false
+    t.integer "sender_id",                       null: false
+    t.integer "parent_email_id"
+    t.string  "type",                            null: false
+    t.integer "category_id",                     null: false
+    t.boolean "starred",         default: false
+    t.boolean "trashed",         default: false
+  end
+
+  add_index "emails", ["category_id"], name: "index_emails_on_category_id", using: :btree
+  add_index "emails", ["parent_email_id"], name: "index_emails_on_parent_email_id", using: :btree
+  add_index "emails", ["sender_id"], name: "index_emails_on_sender_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string "username",        null: false
