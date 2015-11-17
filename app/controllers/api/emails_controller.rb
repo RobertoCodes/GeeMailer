@@ -20,6 +20,7 @@ class Api::EmailsController < ApplicationController
 
   def show
     @email = Email.find(params[:id])
+    @children = @email.children
     render :show
   end
 
