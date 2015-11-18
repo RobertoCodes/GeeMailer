@@ -20,11 +20,13 @@ window.EmailsIndex = React.createClass({
 
   render: function () {
     return(
+      <div>
       <ul>
         {this.state.emails.map(function (email) {
-          <li>return <EmailsIndexItem key={email.id} email={email}/></li>;
+          return <EmailsIndexItem key={email.id} email={email}/>;
         })}
       </ul>
+      </div>
     );
   }
 

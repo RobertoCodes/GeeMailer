@@ -4,10 +4,12 @@ $(function () {
   var IndexRoute = ReactRouter.IndexRoute;
 
   var rootEl = document.getElementById('gmail');
-
-  React.render((
-    <Router>
-      <Route path="/static_pages" component={index}/>
-    </Router>
-  ), rootEl);
+  $(document).ready(function () {
+    React.render((
+      <Index/>
+      // <Router>
+      //   <Route path="/static_pages" component={Index}/>
+      // </Router>
+    ), rootEl);
+  });
 });

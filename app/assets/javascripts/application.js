@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require flux
-//= requre eventemitter
+//= require eventemitter
 //= require react
-//= require components
 //= require react_ujs
 //= require ReactRouter
 //= require gmail
+//= require components
 //= require_tree .
