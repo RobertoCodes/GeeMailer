@@ -17,7 +17,16 @@
       return email;
     },
 
-    
+    dispatcherID: AppDispatcher.register(function (payload) {
+      switch(payload.actionType) {
+        case EmailConstants.EMAILS_RECEIVED
+      }
+    }
+
+
+  )
+
+
 
 
 
