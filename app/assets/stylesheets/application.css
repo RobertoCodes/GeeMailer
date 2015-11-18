@@ -61,13 +61,13 @@ h1, h2, p, li, ul, div, a {
 .emails-index {
   margin: auto;
   width: 800px;
-  border: 20px, solid, gray;
+  border: 20px solid gray;
 
 
 }
 
 .email-list-item {
-  width: 800px
+  width: 800px;
   font-weight: bold;
   text-decoration: none;
   font-family: sans-serif;
@@ -77,6 +77,6 @@ h1, h2, p, li, ul, div, a {
 
 .inbox-row {
   display: block;
-  border: 5px, solid, gray;
+  border: 5px solid gray;
 
 }
