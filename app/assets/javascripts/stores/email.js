@@ -12,7 +12,6 @@
     var switched = false;
     _emails.forEach(function (em) {
       if (em.id === email.id) {
-        debugger;
         _emails[_emails.indexOf(em)] = email;
         switched = true;
       }

@@ -27,21 +27,23 @@ window.EmailDetail = React.createClass({
 
   render: function () {
     if (this.state.email) {
-    var parsedChildren = [];
-    this.state.email.children.forEach(function (child) {
-      parsedChildren.push(child);
-    });
-
-    return (
-      <div className="Email Detail">
-        <ul>
-          <li> {this.state.email.body} </li>
-            {parsedChildren.map(function (child) {
-              return <li key={child.id}>{child.body}</li>;
-            })}
-        </ul>
-      </div>
-    );
+      var parsedChildren = [];
+        if (this.state.email.children) {
+          this.state.email.children.forEach(function (child) {
+            parsedChildren.push(child);
+          });
+        }
+      return (
+        <div className="Email Detail">
+          <h3> {this.state.email.subject} </h3>
+          <h4> {this.state.email.body} </h4>
+          <ul>
+              {parsedChildren.map(function (child) {
+                return <EmailsIndexItem key={child.id} email={child}/>;
+              })}
+          </ul>
+        </div>
+      );
     } else {
       return (<div></div>);
     }
