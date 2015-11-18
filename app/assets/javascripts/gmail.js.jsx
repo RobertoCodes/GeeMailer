@@ -8,6 +8,7 @@ $(function () {
       <Router>
         <Route path="/" component={Index}>
         </Route>
+        <Route path="email/:emailId" component={EmailDetail}/>
       </Router>
     ), rootEl);
   });

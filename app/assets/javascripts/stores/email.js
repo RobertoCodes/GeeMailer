@@ -8,6 +8,18 @@
     _emails = emails;
   };
 
+  var resetEmail = function (email) {
+    var switched = false;
+    _emails.forEach(function (em) {
+      if (em.id === email.id) {
+        debugger;
+        _emails[_emails.indexOf(em)] = email;
+        switched = true;
+      }
+    });
+    if(!switched) {_emails.push(email);}
+  };
+
   window.EmailStore = $.extend({}, EventEmitter.prototype, {
 
     all: function () {
