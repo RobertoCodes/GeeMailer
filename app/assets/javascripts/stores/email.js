@@ -1,6 +1,12 @@
 (function () {
 
+  var EMAILS_INDEX_CHANGE_EVENT = "emailsIndexChangeEvent";
+  var EMAIL_DETAIL_CHANGE_EVENT = "emailDetailChangeEvent";
 
+  var _emails = [];
+  var resetEmails = function (emails) {
+    _emails = emails;
+  };
 
   window.EmailStore = $.extend({}, EventEmitter.prototype, {
 
@@ -17,14 +23,35 @@
       return email;
     },
 
+    addEmailsIndexChangeListener: function (callback) {
+      this.on(EMAILS_INDEX_CHANGE_EVENT, callback);
+    },
+
+    removeEmailsIndexChangeListener: function (callback) {
+      this.removeListener(EMAILS_INDEX_CHANGE_EVENT, callback);
+    },
+
+    addEmailDetailChangeListener: function (callback) {
+      this.on(EMAIL_DETAIL_CHANGE_EVENT, callback);
+    },
+
+    removeEmailDetailChangeListener: function (callback) {
+      this.removeListener(EMAIL_DETAIL_CHANGE_EVENT, callback);
+    },
+
+
     dispatcherID: AppDispatcher.register(function (payload) {
       switch(payload.actionType) {
-        case EmailConstants.EMAILS_RECEIVED
+        case EmailConstants.EMAILS_RECEIVED:
+          resetEmails(payload.emails);
+          EmailStore.emit(EMAILS_INDEX_CHANGE_EVENT);
+          break;
+        case EmailConstants.EMAIL_RECEIVED:
+          resetEmail(payload.email);
+          EmailStore.emit(EMAIL_DETAIL_CHANGE_EVENT);
+          break;
       }
-    }
-
-
-  )
+    })
 
 
 
