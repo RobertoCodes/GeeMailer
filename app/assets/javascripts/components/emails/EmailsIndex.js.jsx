@@ -8,9 +8,15 @@ window.EmailsIndex = React.createClass({
   },
 
   componentDidMount: function () {
+    var category = "/inbox";
     EmailStore.addEmailsIndexChangeListener(this._onChange);
     EmailStore.addEmailDetailChangeListener(this._onChange);
-    ApiUtil.fetchAllEmails();
+    ApiUtil.fetchAllEmails(category);
+  },
+
+  componentWillReceiveProps: function (newCategory) {
+    ApiUtil.fetchAllEmails(newCategory);
+
   },
 
   componentWillUnmount: function () {

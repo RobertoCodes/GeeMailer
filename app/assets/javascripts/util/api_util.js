@@ -1,7 +1,8 @@
 window.ApiUtil = {
-  fetchAllEmails: function () {
+  fetchAllEmails: function (category) {
     $.ajax({
       url: "/api/emails",
+      data: {category : category},
       success: function (emails) {
         ApiActions.receiveAllEmails(emails);
       }

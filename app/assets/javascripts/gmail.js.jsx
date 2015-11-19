@@ -9,6 +9,15 @@ $(function () {
         <Route path="/" component={Index}>
           <Route path="/compose" component={EmailForm}/>
         </Route>
+        <Route path="/starred" component={Index}>
+          <Route path="/compose" component={EmailForm}/>
+        </Route>
+        <Route path="/important" component={Index}>
+          <Route path="/compose" component={EmailForm}/>
+        </Route>
+        <Route path="/sent" component={Index}>
+          <Route path="/compose" component={EmailForm}/>
+        </Route>
         <Route path="email/:emailId" component={EmailDetail}/>
       </Router>
     ), rootEl);

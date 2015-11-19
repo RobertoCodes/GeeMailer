@@ -16,7 +16,7 @@ class Api::EmailsController < ApplicationController
   end
 
   def index
-    @emails = Email.all
+    @emails = Email.find_by_category(params[:category])
     render :index
   end
 

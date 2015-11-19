@@ -10,9 +10,4 @@ window.EmailsIndexItem = React.createClass({
       </ReactRouter.Link>
     );
   }
-
-
-
-
-
 });

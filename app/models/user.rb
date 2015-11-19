@@ -37,6 +37,8 @@ class User < ActiveRecord::Base
     end
   end
 
+
+
   private
 
   def ensure_session_token
