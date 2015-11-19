@@ -1,5 +1,5 @@
 window.EmailForm = React.createClass({
-
+  mixins: [ReactRouter.History],
 
   getInitialState: function () {
     return ({ recipient_email: "", subject: "", body: "" });
@@ -23,7 +23,9 @@ window.EmailForm = React.createClass({
     Object.keys(this.state).forEach(function (key) {
       email[key] = this.state[key];
     }.bind(this));
-    ApiUtil.createEmail(email);
+    ApiUtil.createEmail(email, function () {
+      this.history.pushState(null, "/", {});
+    }.bind(this));
     this.setState({ recipient_email: "", subject: "", body: "" });
   },
 
@@ -33,20 +35,18 @@ window.EmailForm = React.createClass({
   render: function () {
     return (
       <div className="email-form">
-      <label>New Message</label>
+      <label className="new-message-label">New Message</label><br/>
         <form onSubmit={this.createEmail}>
-          <label>To</label>
             <input className="email-form-to-input" type="email" value={this.state.recipient_email}
-              onChange={this.handleToChange}/>
-
-          <label>Subject</label>
+              onChange={this.handleToChange} placeholder="To"/>
+          <br/>
             <input className="email-form-subject-input" type="text" value={this.state.subject}
               onChange={this.handleSubjectChange} placeholder="Subject"/>
-
+          <br/>
             <input type="textarea" className="email-form-body-input"
               value={this.state.body} onChange={this.handleBodyChange}/>
-
-            <button className="email-form-send-button"></button>
+          <br/>
+            <button>Send</button>
 
         </form>
       </div>

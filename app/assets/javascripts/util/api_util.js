@@ -18,13 +18,14 @@ window.ApiUtil = {
     });
   },
 
-  createEmail: function (email) {
+  createEmail: function (email, callback) {
     $.ajax({
       url: "/api/emails",
       method: "POST",
       data: {email: email},
       success: function (email) {
         ApiActions.receiveOneEmail(email);
+        callback && callback();
       }
 
     });

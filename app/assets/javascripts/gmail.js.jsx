@@ -7,6 +7,7 @@ $(function () {
     React.render((
       <Router>
         <Route path="/" component={Index}>
+          <Route path="/compose" component={EmailForm}/>
         </Route>
         <Route path="email/:emailId" component={EmailDetail}/>
       </Router>

@@ -1,8 +1,12 @@
 window.SideBar = React.createClass({
+
+
   render: function () {
     return (
       <div id="#sidebar">
-        <button className="compose-button" onClick={this.handleCompose}>Compose</button>
+        <ReactRouter.Link to="/compose">
+          <button className="compose-button">Compose</button>
+        </ReactRouter.Link>
         <ul className="sidebar-list">
           <li onClick={this.handleInbox}>Inbox</li>
           <li onClick={this.handleInbox}>Starred</li>
