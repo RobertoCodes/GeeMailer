@@ -4,12 +4,14 @@ class Api::EmailsController < ApplicationController
   end
 
   def create
-    @email = Email.new(email_params)
+    @email = Email.new(email_params) #subject, recipient_email, body,
+    @email.sender_id = current_user.id
+    @email.email_type = "sent"
+    @email.category_id = 1
     if @email.save
-      render :index
+      render :show
     else
-      flash.now[:errors] = @email.errors.full_messages
-      render :create
+      render json: @email.errors.full_messages
     end
   end
 
@@ -36,8 +38,8 @@ class Api::EmailsController < ApplicationController
   private
 
   def email_params
-    params.require(:email).permit(:id, :subject, :body, :sender_id,
-      :parent_email_id, :type, :category_id, :starred, :trashed)
+    params.require(:email).permit(:id, :subject, :body, :recipient_email, :sender_id,
+      :parent_email_id, :email_type, :category_id, :starred, :trashed)
   end
 
 

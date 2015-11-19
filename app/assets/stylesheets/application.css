@@ -22,6 +22,7 @@ h1, h2, p, li, ul, div, a {
   outline: 0;
   box-sizing: inherit;
   font: inherit;
+  font-family: sans-serif;
   text-decoration: inherit;
   text-align: inherit;
   color: inherit;
@@ -61,7 +62,6 @@ h1, h2, p, li, ul, div, a {
 .emails-index {
   margin: auto;
   width: 800px;
-  border: 20px solid gray;
 
 
 }
@@ -71,12 +71,13 @@ h1, h2, p, li, ul, div, a {
   font-weight: bold;
   text-decoration: none;
   font-family: sans-serif;
-  background: gray;
 
 }
 
 .inbox-row {
+  padding: 10px;
   display: block;
-  border: 5px solid gray;
+  border: thin solid gray;
+  font-size: 12px;
 
 }

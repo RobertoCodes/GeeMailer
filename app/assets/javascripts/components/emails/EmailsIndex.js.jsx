@@ -25,6 +25,7 @@ window.EmailsIndex = React.createClass({
         {this.state.emails.map(function (email) {
           return <div className="inbox-row"> <EmailsIndexItem key={email.id} email={email}/></div>;
         })}
+        <EmailForm/>
       </ul>
       </div>
     );

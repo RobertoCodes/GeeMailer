@@ -16,6 +16,18 @@ window.ApiUtil = {
       }
 
     });
+  },
+
+  createEmail: function (email) {
+    $.ajax({
+      url: "/api/emails",
+      method: "POST",
+      data: {email: email},
+      success: function (email) {
+        ApiActions.receiveOneEmail(email);
+      }
+
+    });
   }
 
 

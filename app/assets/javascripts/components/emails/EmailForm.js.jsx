@@ -1,28 +1,30 @@
 window.EmailForm = React.createClass({
 
-  blankAttrs: {
-    
-  }
 
   getInitialState: function () {
-    return ({ to: "", subject: "", body: "" });
+    return ({ recipient_email: "", subject: "", body: "" });
   },
 
   handleToChange: function (e) {
-    this.setState({to: e.currentTarget.value()});
+    this.setState({recipient_email: e.currentTarget.value});
   },
 
   handleSubjectChange: function (e) {
-    this.setState({subject: e.currentTarget.value()});
+    this.setState({subject: e.currentTarget.value});
   },
 
   handleBodyChange: function (e) {
-    this.setState({body: e.currentTarget.value()});
+    this.setState({body: e.currentTarget.value});
   },
 
-  handleSubmit: function (e) {
+  createEmail: function (e) {
     e.preventDefault();
-    ApiUtil.createEmail()
+    var email = {};
+    Object.keys(this.state).forEach(function (key) {
+      email[key] = this.state[key];
+    }.bind(this));
+    ApiUtil.createEmail(email);
+    this.setState({ recipient_email: "", subject: "", body: "" });
   },
 
 
@@ -34,12 +36,18 @@ window.EmailForm = React.createClass({
       <label>New Message</label>
         <form onSubmit={this.createEmail}>
           <label>To</label>
-            <input className="email-form-to-input" type="email" value={this.state.to} onChange={this.handleToChange}/>
+            <input className="email-form-to-input" type="email" value={this.state.recipient_email}
+              onChange={this.handleToChange}/>
+
           <label>Subject</label>
             <input className="email-form-subject-input" type="text" value={this.state.subject}
               onChange={this.handleSubjectChange} placeholder="Subject"/>
-            <input type="textarea" className="email-form-body-input" value={this.state.body} onChange={this.handleBodyChange}/>
+
+            <input type="textarea" className="email-form-body-input"
+              value={this.state.body} onChange={this.handleBodyChange}/>
+
             <button className="email-form-send-button"></button>
+
         </form>
       </div>
     );
