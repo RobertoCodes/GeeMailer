@@ -1,9 +1,12 @@
 window.Index = React.createClass({
   render: function () {
     return(
-      <div>
+      <div className="main-container group">
         <div className="email-index">
           <EmailsIndex/>
+        </div>
+        <div className="sidebar">
+          <SideBar/>
         </div>
 
         {this.props.children}

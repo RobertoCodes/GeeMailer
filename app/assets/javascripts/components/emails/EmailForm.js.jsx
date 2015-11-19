@@ -32,7 +32,7 @@ window.EmailForm = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className="email-form">
       <label>New Message</label>
         <form onSubmit={this.createEmail}>
           <label>To</label>

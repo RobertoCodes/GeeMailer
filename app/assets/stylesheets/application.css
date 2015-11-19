@@ -29,6 +29,12 @@ h1, h2, p, li, ul, div, a {
   background: transparent;
 }
 
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
  button.log_button {
    color: white;
    font-size: 14px;
@@ -58,12 +64,22 @@ h1, h2, p, li, ul, div, a {
   height: 35px;
   padding: 0px, 10px;
 }
+.email-index {
+  margin: auto;
+  width: 90%;
+}
 
 .emails-index {
+  float: right;
   margin: auto;
-  width: 800px;
+  margin-top: 100px;
+  width: 90%;
 
 
+}
+
+.emails-index > ul {
+  position: relative;
 }
 
 .email-list-item {
@@ -77,7 +93,42 @@ h1, h2, p, li, ul, div, a {
 .inbox-row {
   padding: 10px;
   display: block;
-  border: thin solid gray;
+  border-top: thin solid gray;
+  border-bottom: thin solid gray;
   font-size: 12px;
+
+}
+
+.compose-button {
+  background: #d14836;
+  border-radius: 2px;
+  border: thin solid #d14836;
+  color: white;
+  font-weight: bold;
+  width: 100px;
+  height: 30px;
+}
+
+.sidebar {
+  margin-top: 100px;
+  margin-left: 10px;
+  float: left;
+  width: 200px;
+  padding-left: 10px;
+
+}
+
+.sidebar-list {
+  padding-top: 10px;
+  list-style: none;
+}
+
+.sidebar-list > li {
+  padding: 5px;
+
+}
+
+.email-form {
+
 
 }
