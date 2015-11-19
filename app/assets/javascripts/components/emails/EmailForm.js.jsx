@@ -1,5 +1,9 @@
 window.EmailForm = React.createClass({
 
+  blankAttrs: {
+    
+  }
+
   getInitialState: function () {
     return ({ to: "", subject: "", body: "" });
   },
@@ -16,9 +20,10 @@ window.EmailForm = React.createClass({
     this.setState({body: e.currentTarget.value()});
   },
 
-  handleSubmit: function () {
+  handleSubmit: function (e) {
     e.preventDefault();
-  }
+    ApiUtil.createEmail()
+  },
 
 
 
@@ -27,14 +32,14 @@ window.EmailForm = React.createClass({
     return (
       <div>
       <label>New Message</label>
-        <form>
+        <form onSubmit={this.createEmail}>
           <label>To</label>
             <input className="email-form-to-input" type="email" value={this.state.to} onChange={this.handleToChange}/>
           <label>Subject</label>
             <input className="email-form-subject-input" type="text" value={this.state.subject}
               onChange={this.handleSubjectChange} placeholder="Subject"/>
             <input type="textarea" className="email-form-body-input" value={this.state.body} onChange={this.handleBodyChange}/>
-            <button className="email-form-send-button" onChange={this.handleSubmit}/>
+            <button className="email-form-send-button"></button>
         </form>
       </div>
     );
