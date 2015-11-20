@@ -1,5 +1,6 @@
 window.Index = React.createClass({
   render: function () {
+    debugger;
     var category = this.props.location.pathname;
     return(
       <div className="main-container group">

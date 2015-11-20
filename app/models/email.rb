@@ -6,6 +6,7 @@ class Email < ActiveRecord::Base
   end
 
   def self.find_by_category(category)
+    debugger;
     case category
     when "/starred"
       Email.where("starred = true")

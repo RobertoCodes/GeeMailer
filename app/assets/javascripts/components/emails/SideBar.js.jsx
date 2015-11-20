@@ -9,7 +9,7 @@ window.SideBar = React.createClass({
         </ReactRouter.Link>
         <ul className="sidebar-list">
           <ReactRouter.Link to="/inbox" className="sidebar-link">
-            <li>Inbox</li>
+            <li>aInbox</li>
           </ReactRouter.Link>
           <ReactRouter.Link to="/starred" className="sidebar-link">
             <li>Starred</li>
