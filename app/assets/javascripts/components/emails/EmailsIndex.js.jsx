@@ -14,9 +14,9 @@ window.EmailsIndex = React.createClass({
   },
 
   componentWillReceiveProps: function (newParams) {
-    ApiUtil.fetchAllEmails(newParams.category);
-
+    ApiUtil.fetchAllEmails(newParams.category.split("/")[1]);
   },
+
 
   componentWillUnmount: function () {
     EmailStore.removeEmailsIndexChangeListener(this._onChange);
@@ -31,6 +31,7 @@ window.EmailsIndex = React.createClass({
           return <div className="inbox-row"> <EmailsIndexItem key={email.id} email={email}/></div>;
         })}
       </ul>
+      {this.props.children}
       </div>
     );
   }

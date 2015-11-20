@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
   private
 
   def check_signed_in
-    if signed_in?
-      redirect_to static_pages_url
+    if !signed_in?
+      redirect_to new_session_url
     end
   end
 

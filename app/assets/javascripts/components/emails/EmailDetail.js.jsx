@@ -34,12 +34,12 @@ window.EmailDetail = React.createClass({
           });
         }
       return (
-        <div className="Email Detail">
+        <div className="emails-index">
           <h3> {this.state.email.subject} </h3>
           <h4> {this.state.email.body} </h4>
           <ul>
               {parsedChildren.map(function (child) {
-                return <EmailsIndexItem key={child.id} email={child}/>;
+                return <div className="inbox-row"> <EmailsIndexItem key={child.id} email={child}/></div>;
               })}
           </ul>
         </div>

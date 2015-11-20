@@ -1,12 +1,19 @@
 window.SideBar = React.createClass({
 
+   mixins: [ReactRouter.History],
+
+  showForm: function (e) {
+    e.preventDefault();
+    url = this.props.location.pathname + "/compose";
+    this.history.pushState(null, url, {});
+  },
+
 
   render: function () {
     return (
       <div id="#sidebar">
-        <ReactRouter.Link to="/compose">
-          <button className="compose-button">Compose</button>
-        </ReactRouter.Link>
+          <button onClick={this.showForm}className="compose-button">Compose</button>
+
         <ul className="sidebar-list">
             <li><a href="#/inbox">Inbox</a></li>
 

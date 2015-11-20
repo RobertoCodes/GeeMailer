@@ -7,18 +7,21 @@ $(function () {
     React.render((
       <Router>
         <Route path="/" component={Index}>
-          <Route path="/compose" component={EmailForm}/>
         </Route>
         <Route path="/starred" component={Index}>
-          <Route path="/compose" component={EmailForm}/>
+          <Route path="compose" component={EmailForm}/>
         </Route>
         <Route path="/important" component={Index}>
-          <Route path="/compose" component={EmailForm}/>
+          <Route path="compose" component={EmailForm}/>
         </Route>
         <Route path="/sent" component={Index}>
-          <Route path="/compose" component={EmailForm}/>
+          <Route path="compose" component={EmailForm}/>
         </Route>
-        <Route path="email/:emailId" component={EmailDetail}/>
+        <Route path="/inbox" component={Index}>
+          <Route path="compose" component={EmailForm}/>
+        </Route>
+        <Route path="email/:emailId" component={EmailDetail}>
+        </Route>
       </Router>
     ), rootEl);
   });

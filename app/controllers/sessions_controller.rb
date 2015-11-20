@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  before_action :check_signed_in, only: [:new]
+  before_action :check_signed_in, only: [:destroy]
 
   def new
 
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
     if @user
       sign_in(@user)
-      redirect_to static_pages_url
+      redirect_to root_url
     else
       flash.now[:errors] = ["Invalid username/password"]
       render :new
