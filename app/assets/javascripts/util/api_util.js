@@ -1,6 +1,5 @@
 window.ApiUtil = {
   fetchAllEmails: function (category) {
-  debugger;
     $.ajax({
       url: "/api/emails",
       data: {category : category},

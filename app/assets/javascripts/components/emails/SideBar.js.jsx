@@ -8,18 +8,13 @@ window.SideBar = React.createClass({
           <button className="compose-button">Compose</button>
         </ReactRouter.Link>
         <ul className="sidebar-list">
-          <ReactRouter.Link to="/inbox" className="sidebar-link">
-            <li>aInbox</li>
-          </ReactRouter.Link>
-          <ReactRouter.Link to="/starred" className="sidebar-link">
-            <li>Starred</li>
-          </ReactRouter.Link>
-          <ReactRouter.Link to="/important" className="sidebar-link">
-            <li>Important</li>
-          </ReactRouter.Link>
-          <ReactRouter.Link to="/sent" className="sidebar-link">
-            <li>Sent Mail</li>
-          </ReactRouter.Link>
+            <li><a href="#/inbox">Inbox</a></li>
+
+            <li><a href="#/starred">Starred</a></li>
+
+            <li><a href="#/important">Important</a></li>
+
+            <li><a href="#/sent">Sent Mail</a></li>
         </ul>
       </div>
     );

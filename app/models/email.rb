@@ -6,7 +6,6 @@ class Email < ActiveRecord::Base
   end
 
   def self.find_by_category(category)
-    debugger;
     case category
     when "/starred"
       Email.where("starred = true")
@@ -15,7 +14,7 @@ class Email < ActiveRecord::Base
     when "/", "/inbox"
       Email.where("email_type = 'received'")
     when "/sent"
-      Email.where("email_type = sent")
+      Email.where("email_type = 'sent'")
     end
 
   end
