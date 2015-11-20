@@ -1,7 +1,7 @@
 json.extract!(
   email,
   :id, :subject, :body, :sender_id, :parent_email_id, :email_type, :category_id,
-  :starred, :trashed
+  :starred, :trashed, :sender_email, :recipient_email
 )
 if show_children
   json.children email.children do |child|

@@ -35,7 +35,13 @@ window.EmailDetail = React.createClass({
         }
       return (
         <div className="emails-index">
-          <h3> {this.state.email.subject} </h3>
+          <h4>From: {this.state.email.sender_email}</h4>
+          <h4>To: {this.state.email.recipient_email}</h4>
+          <br/>
+          <br/>
+          <h3>{this.state.email.subject} </h3>
+          <br/>
+          <br/>
           <h4> {this.state.email.body} </h4>
           <ul>
               {parsedChildren.map(function (child) {

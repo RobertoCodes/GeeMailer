@@ -175,6 +175,15 @@ h1, h2, p, li, ul, div, a {
   float: right;
 }
 
+.email-name {
+  float: left;
+}
+
+.email-subject {
+  float: right;
+  margin-right: 60%;
+}
+
 .email-form > form > button {
   margin-top: 5%;
   margin-left: 5px;
