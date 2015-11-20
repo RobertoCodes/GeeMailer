@@ -1,17 +1,17 @@
 window.Index = React.createClass({
+
+
   render: function () {
-    var category = this.props.location.pathname;
     return(
       <div className="main-container group">
         <div className="email-index">
-          <EmailsIndex category={category}/>
+          {this.props.children}
         </div>
         <div className="sidebar">
           <SideBar/>
         </div>
 
-        {this.props.children}
-      </div>
+       </div>
     );
   }
 });

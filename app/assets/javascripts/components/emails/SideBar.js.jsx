@@ -3,8 +3,15 @@ window.SideBar = React.createClass({
    mixins: [ReactRouter.History],
 
   showForm: function (e) {
+    debugger;
     e.preventDefault();
-    url = this.props.location.pathname + "/compose";
+    var category;
+    if (location.hash.split("/")[1].split("?")[0] === "") {
+      category = "/inbox";
+    } else {
+      category = location.hash.split("/")[1].split("?")[0];
+    }
+    url = category + "/compose";
     this.history.pushState(null, url, {});
   },
 

@@ -7,14 +7,19 @@ window.EmailsIndex = React.createClass({
     this.setState({ emails: EmailStore.all()});
   },
 
+
   componentDidMount: function () {
+    var category;
+    if (!Object.keys({}).length) {
+      category = "/inbox";
+    }
     EmailStore.addEmailsIndexChangeListener(this._onChange);
     EmailStore.addEmailDetailChangeListener(this._onChange);
-    ApiUtil.fetchAllEmails(this.props.category);
+    ApiUtil.fetchAllEmails(category);
   },
 
-  componentWillReceiveProps: function (newParams) {
-    ApiUtil.fetchAllEmails(newParams.category.split("/")[1]);
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fetchAllEmails(newProps.params.category);
   },
 
 

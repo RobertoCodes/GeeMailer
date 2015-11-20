@@ -29,13 +29,19 @@ window.EmailForm = React.createClass({
     this.setState({ recipient_email: "", subject: "", body: "" });
   },
 
+  closeForm: function (e) {
+    e.preventDefault();
+    this.history.pushState(null, "/", {});
+  },
+
 
 
 
   render: function () {
     return (
       <div className="email-form">
-      <label className="new-message-label">New Message</label><br/>
+      <label className="new-message-label">New Message<button onClick={this.closeForm}>X</button>
+      </label><br/>
         <form onSubmit={this.createEmail}>
             <input className="email-form-to-input" type="email" value={this.state.recipient_email}
               onChange={this.handleToChange} placeholder="To"/>
