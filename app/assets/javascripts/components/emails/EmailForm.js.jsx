@@ -31,7 +31,7 @@ window.EmailForm = React.createClass({
 
   closeForm: function (e) {
     e.preventDefault();
-    this.history.pushState(null, "/", {});
+    this.history.goBack();
   },
 
 

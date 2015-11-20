@@ -168,9 +168,10 @@ h1, h2, p, li, ul, div, a {
 
 .email-form > label > button {
   color: gray;
+  background: transparent;
+  border: none;
   font-size: 80%;
   display: block;
-  padding: 5px;
   float: right;
 }
 
