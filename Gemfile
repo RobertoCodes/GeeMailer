@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'bcrypt'
 
+gem 'bootstrap-sass'
+
 gem 'react-rails'
 
 gem 'flux-rails-assets'

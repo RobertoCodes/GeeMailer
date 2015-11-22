@@ -30,8 +30,26 @@ window.ApiUtil = {
       }
 
     });
+  },
+
+  fetchAllContacts: function () {
+    $.ajax({
+      url: "/api/contacts",
+      success: function (contacts) {
+        ApiActions.receiveAllContacts(contacts);
+
+      }
+    });
+  },
+
+  fetchSingleContact: function (id) {
+    $.ajax({
+      url: "/api/contacts/" + id,
+      success: function (contact) {
+        ApiActions.receiveOneContact(contact);
+      }
+
+    });
   }
-
-
 
 };

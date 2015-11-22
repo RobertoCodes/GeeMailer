@@ -5,6 +5,11 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: {message: "Password can't be blank"}
   validates :password, length: { minimum: 6, allow_nil: true}
 
+  has_many :contacts,
+    primary_key: :id,
+    foreign_key: :owner_id,
+    class_name: "Contact"
+
   after_initialize :ensure_session_token
 
   def self.generate_session_token

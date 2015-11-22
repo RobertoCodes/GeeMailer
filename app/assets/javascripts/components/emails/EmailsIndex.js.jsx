@@ -31,11 +31,11 @@ window.EmailsIndex = React.createClass({
   render: function () {
     return(
       <div className="emails-index">
-      <ul>
-        {this.state.emails.map(function (email) {
-          return <div className="inbox-row"> <EmailsIndexItem key={email.id} email={email}/></div>;
-        })}
-      </ul>
+        <ul>
+          {this.state.emails.map(function (email) {
+            return <div className="inbox-row"> <EmailsIndexItem key={email.id} email={email}/></div>;
+          })}
+        </ul>
       {this.props.children}
       </div>
     );
