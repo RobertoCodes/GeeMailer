@@ -28,5 +28,9 @@ class Email < ActiveRecord::Base
     self.find_by_category(user_emails, category)
   end
 
+  def toggle_column(column)
+
+  end
+
 
 end

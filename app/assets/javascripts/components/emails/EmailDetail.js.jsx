@@ -8,6 +8,13 @@ window.EmailDetail = React.createClass({
     this.setState(this.getStateFromStore());
   },
 
+  _updateReadState: function () {
+    debugger;
+    if (!this.state.email.read) {
+      ApiUtil.markAsRead(this.state.email.id);
+    }
+  },
+
   getInitialState: function () {
     return this.getStateFromStore();
   },
@@ -17,6 +24,7 @@ window.EmailDetail = React.createClass({
   },
 
   componentDidMount: function () {
+    this._updateReadState();
     EmailStore.addEmailDetailChangeListener(this._onChange);
     ApiUtil.fetchSingleEmail(parseInt(this.props.params.emailId));
   },

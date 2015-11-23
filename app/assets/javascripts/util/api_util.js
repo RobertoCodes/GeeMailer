@@ -32,6 +32,17 @@ window.ApiUtil = {
     });
   },
 
+  markAsRead: function (id) {
+    $.ajax({
+      url: "/api/emails/" + id,
+      method: "PATCH",
+      data: {column: "read"},
+      success: function (email) {
+        ApiActions.receiveOneEmail(email);
+      }
+    })
+  },
+
   fetchAllContacts: function () {
     $.ajax({
       url: "/api/contacts",
@@ -51,5 +62,6 @@ window.ApiUtil = {
 
     });
   }
+
 
 };

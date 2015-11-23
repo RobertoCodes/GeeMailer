@@ -34,7 +34,8 @@ class Api::EmailsController < ApplicationController
 
   def update
     @email = Email.find(params[:id])
-    @email.toggle_category(params[:category])
+    @email.toggle! params[:column].to_sym
+    render :show
   end
 
   def edit
