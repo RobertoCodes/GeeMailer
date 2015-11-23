@@ -19,5 +19,18 @@ window.ContactsIndex = React.createClass({
     ContactStore.removeContactDetailChangeListener(this._onChange);
   },
 
+  render: function () {
+    return (
+      <div className="contacts-index">
+        <ul>
+          {this.state.contacts.map(function (contact) {
+            return (<div className="contact-index-item"> <ContactsIndexItem key={contact.id} contact={contact}/></div>);
+          })}
+        </ul>
+      {this.props.children}
+      </div>
+    );
+  }
+
 
 });

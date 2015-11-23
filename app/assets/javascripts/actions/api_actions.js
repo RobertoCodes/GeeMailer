@@ -14,6 +14,20 @@ window.ApiActions = {
     });
   },
 
+  receiveOneContact: function (contact) {
+    AppDispatcher.dispatch({
+      actionType: ContactConstants.CONTACT_RECEIVED,
+      contact: contact
+    });
+  },
+
+  receiveAllContacts: function (contacts) {
+    AppDispatcher.dispatch({
+      actionType: ContactConstants.CONTACTS_RECEIVED,
+      contacts: contacts
+    });
+  },
+
 
 
 

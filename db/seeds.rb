@@ -8,6 +8,7 @@
 
 Email.destroy_all
 User.destroy_all
+Contact.destroy_all
 
 u1 = User.create!(username: "sonoflaertes@gmail.com", password: "ulysses")
 
@@ -46,3 +47,9 @@ starred: true, trashed: false)
 e7 = Email.create!(subject: "Subject3(sent)", body: "Nope, can't make it", sender_id: u1.id,
 email_type: "sent", category_id: 2, recipient_email: "frank@gmail.com",
 starred: false, trashed: true)
+
+c1 = Contact.create!(name: "Evan R.", owner_id: u1.id,
+  contact_email_address: "eVanRox@gmail.com")
+
+c2 = Contact.create!(name: "Massey", owner_id: u1.id,
+  contact_email_address: "MassWithMassey@gmail.com")
