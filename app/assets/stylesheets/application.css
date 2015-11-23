@@ -73,8 +73,9 @@ h1, h2, p, li, ul, div, a {
   float: right;
   margin: auto;
   margin-top: 100px;
-  width: 90%;
-
+  width: 70%;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
 
 }
 
@@ -83,7 +84,7 @@ h1, h2, p, li, ul, div, a {
 }
 
 .email-list-item {
-  width: 800px;
+  width: 100%;
   font-weight: bold;
   text-decoration: none;
   font-family: sans-serif;
@@ -133,6 +134,7 @@ h1, h2, p, li, ul, div, a {
 .sidebar-link > li:hover {
   background: lightgray;
 }
+
 
 .email-form {
   position: fixed;

@@ -2,8 +2,9 @@ window.EmailForm = React.createClass({
   mixins: [ReactRouter.History],
 
   getInitialState: function () {
+    debugger;
     var recipient_email = "";
-    if (this.props.location.state.contact_email !== undefined) {
+    if (this.props.location.state !== null) {
       recipient_email = this.props.location.state.contact_email
     }
     return ({ recipient_email: recipient_email, subject: "", body: "" });
@@ -34,6 +35,7 @@ window.EmailForm = React.createClass({
   },
 
   closeForm: function (e) {
+    debugger;
     e.preventDefault();
     this.history.goBack();
   },

@@ -9,9 +9,12 @@ window.Index = React.createClass({
         </div>
         <div className="sidebar">
           <SideBar/>
-        </div>
+        <p/>
+        <p/>
+        Contacts: 
         <div className="contacts">
           <ContactsIndex/>
+        </div>
         </div>
 
        </div>
