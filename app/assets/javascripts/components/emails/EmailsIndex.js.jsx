@@ -33,7 +33,12 @@ window.EmailsIndex = React.createClass({
       <div className="emails-index">
         <ul>
           {this.state.emails.map(function (email) {
-            return <div className="inbox-row"> <EmailsIndexItem key={email.id} email={email}/></div>;
+            var klass = "";
+            if (email.read) {
+              klass = "read";
+            }
+
+            return <div className={"inbox-row " + klass}> <EmailsIndexItem key={email.id} email={email}/></div>;
           })}
         </ul>
       {this.props.children}

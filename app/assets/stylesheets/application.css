@@ -96,13 +96,19 @@ h1, h2, p, li, ul, div, a {
 
 }
 
+
 .inbox-row {
   padding: 10px;
   display: block;
   border-top: thin solid gray;
   border-bottom: thin solid gray;
   font-size: 12px;
+  background: white;
 
+}
+
+.inbox-row.read {
+  background: lightgray;
 }
 
 .compose-button {
