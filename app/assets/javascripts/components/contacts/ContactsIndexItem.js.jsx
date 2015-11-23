@@ -15,9 +15,16 @@ window.ContactsIndexItem = React.createClass({
     this.history.pushState(contact_email, url);
   },
 
+  showContactForm: function (e) {
+    // setTimeout(function () {
+    //   return (this.s)
+    // }.bind(this), 1000)
+  },
+
   render: function () {
 
-    return <a onClick={this.handleContactClick} className="contact-name"> {this.props.contact.name} </a>
+    return <a onClick={this.handleContactClick} onMouseOver={this.showContactForm}
+      className="contact-name"> {this.props.contact.name} </a>
 
   }
 });
