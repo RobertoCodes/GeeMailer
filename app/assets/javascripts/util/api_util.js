@@ -32,6 +32,27 @@ window.ApiUtil = {
     });
   },
 
+  destroyConversation: function (id) {
+    $.ajax({
+      url: "/api/emails/id",
+      method: "DELETE",
+      success: function () {
+        ApiUtil.fetchAllEmails();
+      }
+    });
+  },
+
+  search: function (searchString) {
+    $.ajax({
+      url: "/api/search/",
+      method: "GET",
+      data: {search: searchString},
+      success: function (results) {
+        ApiActions.receiveAllResults(results);
+      }
+    });
+  },
+
   markAsRead: function (id) {
     $.ajax({
       url: "/api/emails/" + id,

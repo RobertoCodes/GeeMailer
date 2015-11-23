@@ -1,23 +1,30 @@
 window.Index = React.createClass({
 
+        // <header>
+        //   <nav>
+        //     <Search/>
+        //   </nav>
+        // </header>
 
   render: function () {
     return(
-      <div className="main-container group">
-        <div className="sidebar">
-          <SideBar/>
-        <p/>
-        <p/>
-        Contacts:
-        <div className="contacts">
-          <ContactsIndex/>
-        </div>
-        </div>
-        <div className="email-index">
-          {this.props.children}
-        </div>
-
-       </div>
+      <div>
+        <div className="main-container group">
+          <div className="sidebar">
+            <SideBar/>
+          <p/>
+          <p/>
+          Contacts:
+          <div className="contacts">
+            <ContactsIndex/>
+          </div>
+          </div>
+          <div className="email-index">
+            {this.props.children}
+          </div>
+         </div>
+          <Search/>
+      </div>
     );
   }
 });

@@ -1,6 +1,9 @@
 class Email < ActiveRecord::Base
   validates :subject, :body, :sender_id, :email_type, :category_id, presence: true
 
+  include PgSearch
+  multisearchable :against => [:subject, :body, :recipient_email, :sender_email]
+
   def children
     Email.where("parent_email_id = ?", self.id)
   end

@@ -18,6 +18,8 @@ gem 'bootstrap-sass'
 
 gem 'react-rails'
 
+gem 'pg_search'
+
 gem 'flux-rails-assets'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

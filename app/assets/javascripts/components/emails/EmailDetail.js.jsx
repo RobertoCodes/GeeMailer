@@ -33,6 +33,10 @@ window.EmailDetail = React.createClass({
     EmailStore.removeEmailDetailChangeListener(this._onChange);
   },
 
+  deleteConversation: function () {
+    ApiUtil.destroyConversation(this.state.email.id)
+  },
+
   render: function () {
     if (this.state.email) {
       var parsedChildren = [];
@@ -43,6 +47,7 @@ window.EmailDetail = React.createClass({
         }
       return (
         <div className="emails-index">
+          <button onClick={this.deleteConversation}>Delete Conversation</button>
           <h4>From: {this.state.email.sender_email}</h4>
           <h4>To: {this.state.email.recipient_email}</h4>
           <br/>

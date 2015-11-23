@@ -15,7 +15,7 @@
  */
 
  html, body, h3, h4,
-h1, h2, p, li, ul, div, a {
+h1, h2, p, li, ul, div, a, header {
   margin: 0;
   border: 0;
   padding: 0;
@@ -33,6 +33,20 @@ h1, h2, p, li, ul, div, a {
   content: "";
   display: block;
   clear: both;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background: lightgray;
+
+}
+
+nav {
+  width: 900px;
+  height: auto;
+  margin: auto;
+  background: gray;
 }
 
  button.log_button {
@@ -79,8 +93,6 @@ h1, h2, p, li, ul, div, a {
   margin: auto;
   margin-top: 100px;
   width: 70%;
-  /*border-left: 1px solid gray;
-  border-right: 1px solid gray;*/
 
 }
 
@@ -98,33 +110,33 @@ h1, h2, p, li, ul, div, a {
 
 .star_button{
   float:left;
-  background: lightgray;
+
   background-image: image-url("sprites/unstarred.png");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 20px 31px;
-  background-color: white;
+  background-color: inherit;
   display: block;
-  width: 22px;
+  width: 18px;
   height: 0;
   padding-top: 30px;
   overflow: hidden;
   cursor: pointer;
   transition: background-position 0.5s;
   border: none;
-
+  outline: none;
 }
 
 .star_button.starred {
-  background: lightgray;
+
   background: yellow;
   background-image: image-url("sprites/starred.png");
   background-repeat: no-repeat;
   background-position: 0 0;
-  background-size: 20px 31px;
-  background-color: white;
+  background-size: 20px 26px;
+  background-color: inherit;
   display: block;
-  width: 22px;
+  width: 18px;
   height: 0;
   padding-top: 30px;
   overflow: hidden;
@@ -135,7 +147,7 @@ h1, h2, p, li, ul, div, a {
 
 
 .inbox-row {
-  padding: 10px;
+  padding: 1px;
   display: block;
   border-top: thin solid gray;
   border-bottom: thin solid gray;
@@ -228,11 +240,14 @@ h1, h2, p, li, ul, div, a {
 
 .email-name {
   float: left;
+  margin-left: 25px;
+  margin-top: 10px;
 }
 
 .email-subject {
   float: right;
   margin-right: 60%;
+  margin-top: 10px;
 }
 
 .email-form > form > button {

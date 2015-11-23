@@ -17,13 +17,13 @@ window.ContactForm = React.createClass({
     this.setState({phoneNum: e.currentTarget.value});
   },
 
-  createEmail: function (e) {
+  createContact: function (e) {
     e.preventDefault();
-    var email = {};
+    var contact = {};
     Object.keys(this.state).forEach(function (key) {
-      email[key] = this.state[key];
+      contact[key] = this.state[key];
     }.bind(this));
-    ApiUtil.createEmail(email, function () {
+    ApiUtil.createContact(contact, function () {
       this.history.pushState(null, "/", {});
     }.bind(this));
     this.setState({ name: "", email: "", phoneNum: "" });
