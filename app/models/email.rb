@@ -18,6 +18,7 @@ class Email < ActiveRecord::Base
     end
   end
 
+
   def self.find_by_user (user_id, username)
     Email.where("sender_id = ? OR recipient_email = ?", user_id, username)
   end

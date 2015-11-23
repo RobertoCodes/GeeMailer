@@ -65,17 +65,22 @@ h1, h2, p, li, ul, div, a {
   padding: 0px, 10px;
 }
 .email-index {
+  display: block;
   margin: auto;
   width: 90%;
 }
 
 .emails-index {
-  float: right;
+  position: fixed;
+  right: 5px;
+  left: 50px;
+  display: block;
+  float: left;
   margin: auto;
   margin-top: 100px;
   width: 70%;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+  /*border-left: 1px solid gray;
+  border-right: 1px solid gray;*/
 
 }
 

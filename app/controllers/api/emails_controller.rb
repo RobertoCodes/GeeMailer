@@ -27,9 +27,14 @@ class Api::EmailsController < ApplicationController
   end
 
   def destroy
+    @email = Email.find(params[:id])
+    Email.destroy
+    render json: "Email destroyed"
   end
 
   def update
+    @email = Email.find(params[:id])
+    @email.toggle_category(params[:category])
   end
 
   def edit
