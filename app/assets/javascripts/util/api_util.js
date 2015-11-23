@@ -43,6 +43,17 @@ window.ApiUtil = {
     })
   },
 
+  toggleStar: function (id) {
+    $.ajax({
+      url: "/api/emails/" + id,
+      method: "PATCH",
+      data: {column: "starred"},
+      success: function (email) {
+        ApiActions.receiveOneEmail(email);
+      }
+    })
+  },
+
   fetchAllContacts: function () {
     $.ajax({
       url: "/api/contacts",

@@ -96,6 +96,43 @@ h1, h2, p, li, ul, div, a {
 
 }
 
+.star_button{
+  float:left;
+  background: lightgray;
+  background-image: image-url("sprites/unstarred.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 20px 31px;
+  background-color: white;
+  display: block;
+  width: 22px;
+  height: 0;
+  padding-top: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-position 0.5s;
+  border: none;
+
+}
+
+.star_button.starred {
+  background: lightgray;
+  background: yellow;
+  background-image: image-url("sprites/starred.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 20px 31px;
+  background-color: white;
+  display: block;
+  width: 22px;
+  height: 0;
+  padding-top: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-position 0.5s;
+
+}
+
 
 .inbox-row {
   padding: 10px;
@@ -104,6 +141,7 @@ h1, h2, p, li, ul, div, a {
   border-bottom: thin solid gray;
   font-size: 12px;
   background: white;
+  cursor: pointer;
 
 }
 

@@ -2,7 +2,6 @@ window.EmailForm = React.createClass({
   mixins: [ReactRouter.History],
 
   getInitialState: function () {
-    debugger;
     var recipient_email = "";
     if (this.props.location.state !== null) {
       recipient_email = this.props.location.state.contact_email
