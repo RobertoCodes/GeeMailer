@@ -1,5 +1,7 @@
 window.EmailDetail = React.createClass({
 
+  mixins: [ReactRouter.History],
+
   getStateFromStore: function () {
     return { email: EmailStore.find(parseInt(this.props.params.emailId)) };
   },
@@ -9,7 +11,6 @@ window.EmailDetail = React.createClass({
   },
 
   _updateReadState: function () {
-    debugger;
     if (!this.state.email.read) {
       ApiUtil.markAsRead(this.state.email.id);
     }
@@ -33,8 +34,11 @@ window.EmailDetail = React.createClass({
     EmailStore.removeEmailDetailChangeListener(this._onChange);
   },
 
-  deleteConversation: function () {
-    ApiUtil.destroyConversation(this.state.email.id)
+  deleteConversation: function (e) {
+    e.preventDefault();
+    ApiUtil.deleteConversation(this.state.email.id, function () {
+      this.history.pushState(null, "/", {});
+    }.bind(this));
   },
 
   render: function () {

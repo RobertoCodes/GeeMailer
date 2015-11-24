@@ -28,8 +28,17 @@ class Api::EmailsController < ApplicationController
 
   def destroy
     @email = Email.find(params[:id])
-    Email.destroy
-    render json: "Email destroyed"
+    if params[:delete] == "conversation"
+      @emails = @email.find_relatives
+      debugger;
+      @emails.each do |email|
+        email.destroy
+      end
+      render :index
+    else
+      Email.destroy
+      render :show
+    end
   end
 
   def update

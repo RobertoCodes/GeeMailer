@@ -32,12 +32,14 @@ window.ApiUtil = {
     });
   },
 
-  destroyConversation: function (id) {
+  deleteConversation: function (id, callback) {
     $.ajax({
-      url: "/api/emails/id",
+      url: "/api/emails/" + id,
       method: "DELETE",
-      success: function () {
-        ApiUtil.fetchAllEmails();
+      data: {delete: "conversation"},
+      success: function (emails) {
+        ApiActions.removeEmails(emails);
+        callback && callback();
       }
     });
   },
@@ -61,7 +63,7 @@ window.ApiUtil = {
       success: function (email) {
         ApiActions.receiveOneEmail(email);
       }
-    })
+    });
   },
 
   toggleStar: function (id) {
@@ -72,7 +74,7 @@ window.ApiUtil = {
       success: function (email) {
         ApiActions.receiveOneEmail(email);
       }
-    })
+    });
   },
 
   fetchAllContacts: function () {

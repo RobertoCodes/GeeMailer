@@ -14,6 +14,13 @@ window.ApiActions = {
     });
   },
 
+  removeEmails: function (emails) {
+    AppDispatcher.dispatch({
+      actionType: EmailConstants.EMAILS_REMOVED,
+      emails: emails
+    });
+  },
+
   receiveOneContact: function (contact) {
     AppDispatcher.dispatch({
       actionType: ContactConstants.CONTACT_RECEIVED,

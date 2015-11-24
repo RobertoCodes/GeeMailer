@@ -19,6 +19,16 @@
     if(!switched) {_emails.push(email);}
   };
 
+  var removeEmails = function (emails) {
+    for (var i = 0; i < _emails.length; i++) {
+      for (var j = 0; j < emails.length; j++) {
+        if (_emails[i].id === emails[j].id) {
+          _emails.splice(i, 1);
+        }
+      }
+    }
+  };
+
   window.EmailStore = $.extend({}, EventEmitter.prototype, {
 
     all: function () {
@@ -61,6 +71,10 @@
           resetEmail(payload.email);
           EmailStore.emit(EMAIL_DETAIL_CHANGE_EVENT);
           break;
+        case EmailConstants.EMAILS_REMOVED:
+          removeEmails(payload.emails);
+          EmailStore.emit(EMAILS_INDEX_CHANGE_EVENT);
+
       }
     })
 

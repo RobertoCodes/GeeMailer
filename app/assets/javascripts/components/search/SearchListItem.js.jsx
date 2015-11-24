@@ -5,8 +5,6 @@ mixins: [ReactRouter.History],
 goToResultPage: function (e) {
   url = "/" + this.props.searchElement._type.toLowerCase() + "/" + this.props.searchElement.id;
   this.history.pushState({}, url, {});
-  debugger;
-
 },
 
 
@@ -20,7 +18,5 @@ render: function () {
   }
   return <span onClick={this.goToResultPage}>{output}</span>;
 }
-
-
 
 });
