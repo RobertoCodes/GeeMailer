@@ -33,8 +33,8 @@ render: function () {
       });
     }
   return (
-    <div>
-      <input type="text" onChange={this.updateSearch}>{this.state.search}</input>
+    <div className="group">
+      <input className="search-input" type="text" onChange={this.updateSearch}>{this.state.search}<button className="searchSubmit">Search</button></input>
       <ul>
           {renderResults}
       </ul>

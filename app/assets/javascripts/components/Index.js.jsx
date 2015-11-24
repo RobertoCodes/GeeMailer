@@ -9,6 +9,9 @@ window.Index = React.createClass({
   render: function () {
     return(
       <div>
+        <nav>
+          <Search className="search"/>
+        </nav>
         <div className="main-container group">
           <div className="sidebar">
             <SideBar/>
@@ -23,7 +26,6 @@ window.Index = React.createClass({
             {this.props.children}
           </div>
          </div>
-          <Search/>
       </div>
     );
   }
