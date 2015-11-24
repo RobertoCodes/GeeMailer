@@ -56,7 +56,7 @@ nav {
 }
 
 .search {
-  display: block;
+  display: inline;
 }
 
 .search  > ul {
@@ -100,6 +100,32 @@ nav {
   border: 1px solid #3079ed;
   border-radius: 3px;
   padding-left: 5px;
+}
+
+.detail-view-list-item {
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+ul {
+  list-style: none;
+}
+
+
+nav > h1 {
+  width: 400px;
+  font-size: 36px;
+  color: darkgray;
+  float: left;
+}
+
+nav > h3 {
+  float: right;
+  right: 150px;
+  width: 100px;
+  height: auto;
+  display: block;
+  color: gray
 }
 
 
@@ -259,6 +285,37 @@ nav {
   width: 400px;
   border: thin solid gray;
 }
+
+.email-reply-form {
+  display: block;
+  width: 400px;
+  min-height: 200px;
+  border: thin solid gray;
+}
+
+.email-reply-form > form > input {
+  width: 99%;
+  border-right: none;
+  border-left: none;
+  border-top: thin solid gray;
+  border-bottom: thin solid gray;
+
+}
+
+.email-reply-form > form > button {
+  margin-top: 5%;
+  margin-left: 5px;
+  color: white;
+  font-size: 14px;
+  width: 20%;
+  height: 30px;
+  background: #4d90fe;
+  border: 1px solid #3079ed;
+  border-radius: 3px;
+  padding-left: 5px;
+
+}
+
 
 .email-form > form > input {
   width: 99%;

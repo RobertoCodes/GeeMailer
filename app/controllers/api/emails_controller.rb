@@ -4,8 +4,9 @@ class Api::EmailsController < ApplicationController
   end
 
   def create
-    @email = Email.new(email_params) #subject, recipient_email, body,
+    @email = Email.new(email_params)
     @email.sender_id = current_user.id
+    @email.sender_email = current_user.username
     @email.email_type = "sent"
     @email.category_id = 1
     if @email.save

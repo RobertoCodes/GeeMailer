@@ -9,9 +9,6 @@ window.Index = React.createClass({
   render: function () {
     return(
       <div>
-        <nav>
-          <Search className="search"/>
-        </nav>
         <div className="main-container group">
           <div className="sidebar">
             <SideBar/>

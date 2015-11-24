@@ -1,12 +1,9 @@
-window.EmailForm = React.createClass({
+window.ReplyForm = React.createClass({
   mixins: [ReactRouter.History],
 
   getInitialState: function () {
-    var recipient_email = "";
-    if (this.props.location.state !== null) {
-      recipient_email = this.props.location.state.contact_email
-    }
-    return ({ recipient_email: recipient_email, subject: "", body: "" });
+    return ({ recipient_email: this.props.previousEmail.sender_email, subject: "Re: " + this.props.previousEmail.subject,
+              body: "", parent_email_id: this.props.previousEmail.id });
   },
 
   handleToChange: function (e) {
@@ -27,31 +24,25 @@ window.EmailForm = React.createClass({
     Object.keys(this.state).forEach(function (key) {
       email[key] = this.state[key];
     }.bind(this));
-    ApiUtil.createEmail(email, function () {
-      this.history.pushState(null, "/", {});
-    }.bind(this));
-    this.setState({ recipient_email: "", subject: "", body: "" });
+    ApiUtil.createEmail(email);
+    this.setState({ recipient_email: "", body: "" });
   },
 
-  closeForm: function (e) {
+  clickForm: function (e) {
     e.preventDefault();
-    this.history.goBack();
   },
 
+  unselectForm: function (e) {
 
 
+  },
 
   render: function () {
     return (
-      <div className="email-form">
-      <label className="new-message-label">New Message<button onClick={this.closeForm}>X</button>
-      </label><br/>
+      <div className="email-reply-form">
         <form onSubmit={this.createEmail}>
             <input className="email-form-to-input" type="email" value={this.state.recipient_email}
-              onChange={this.handleToChange} placeholder="To"/>
-          <br/>
-            <input className="email-form-subject-input" type="text" value={this.state.subject}
-              onChange={this.handleSubjectChange} placeholder="Subject"/>
+              onChange={this.handleToChange}/>
           <br/>
             <input type="textarea" className="email-form-body-input"
               value={this.state.body} onChange={this.handleBodyChange}/>
@@ -64,9 +55,5 @@ window.EmailForm = React.createClass({
 
 
   }
-
-
-
-
 
 });

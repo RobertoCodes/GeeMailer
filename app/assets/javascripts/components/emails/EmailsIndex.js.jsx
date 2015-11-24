@@ -5,6 +5,7 @@ window.EmailsIndex = React.createClass({
 
   _onChange: function () {
     this.setState({ emails: EmailStore.all()});
+    debugger;
   },
 
 

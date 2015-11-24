@@ -28,12 +28,13 @@ class Email < ActiveRecord::Base
 
   def self.find_desired_emails (user_id, username, category)
     user_emails = self.find_by_user(user_id, username)
-    
-    self.find_by_category(user_emails, category)
+    categoy_emails = self.find_by_category(user_emails, category)
   end
 
+
+
   def find_relatives
-    [self] + Email.where("parent_email_id = ? OR id = ? AND id != ?",
+    Email.where("parent_email_id = ? OR id = ? OR id = ?",
       self.parent_email_id, self.parent_email_id, self.id)
   end
 

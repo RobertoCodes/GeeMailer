@@ -6,16 +6,23 @@ $(function () {
 
   var rootEl = document.getElementById('gmail');
     React.render((
-      <Router>
-        <Route path="/" component={Index}>
-          <IndexRoute component={EmailsIndex}/>
-          <Route path=":category" component={EmailsIndex}>
-            <Route path="compose" component={EmailForm}/>
+      <div>
+        <nav>
+          <h1>GeeMail</h1>
+          <Search className="search group"/>
+          <h3>{rootEl.dataset.user}</h3>
+        </nav>
+        <Router>
+          <Route path="/" component={Index}>
+            <IndexRoute component={EmailsIndex}/>
+            <Route path=":category" component={EmailsIndex}>
+              <Route path="compose" component={EmailForm}/>
+            </Route>
+            <Route path="compose" components={EmailForm}/>
+            <Route path="email/:emailId" component={EmailDetail}>
+            </Route>
           </Route>
-          <Route path="compose" components={EmailForm}/>
-          <Route path="email/:emailId" component={EmailDetail}>
-          </Route>
-        </Route>
-      </Router>
+        </Router>
+      </div>
     ), rootEl);
   });

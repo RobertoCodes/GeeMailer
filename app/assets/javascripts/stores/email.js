@@ -9,6 +9,7 @@
   };
 
   var resetEmail = function (email) {
+    debugger;
     var switched = false;
     _emails.forEach(function (em) {
       if (em.id === email.id) {
@@ -17,6 +18,7 @@
       }
     });
     if(!switched) {_emails.push(email);}
+    debugger;
   };
 
   var removeEmails = function (emails) {
