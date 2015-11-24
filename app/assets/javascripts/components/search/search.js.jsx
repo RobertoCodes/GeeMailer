@@ -26,7 +26,20 @@ componentWillUnmount: function () {
 },
 
 render: function () {
-  return <input type="text" onChange={this.updateSearch}>{this.state.search}</input>;
+  var renderResults="";
+  if (this.state.results) {
+      renderResults = this.state.results.map(function (result) {
+        return <li><SearchListItem searchElement={result}/></li>;
+      });
+    }
+  return (
+    <div>
+      <input type="text" onChange={this.updateSearch}>{this.state.search}</input>
+      <ul>
+          {renderResults}
+      </ul>
+    </div>
+  );
 }
 
 

@@ -4,7 +4,7 @@ json.results do
       json.partial! "api/contacts/contact", contact: result
       json._type "Contact"
     else
-      json.partial! "api/emails/email", email: result
+      json.partial! "api/emails/email", email: result, show_children: false
       json._type "Email"
     end
   end

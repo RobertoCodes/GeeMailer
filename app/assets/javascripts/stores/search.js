@@ -15,17 +15,16 @@
     },
 
     results: function () {
-      return _search_results.results;
+       return _search_results.results;
     },
 
     dispatcherId: AppDispatcher.register(function (payload) {
       switch (payload.actionType) {
 
-        case SearchResultConstants.RECEIVE_RESULTS:
+        case SearchConstants.RECEIVE_RESULTS:
           _search_results = payload.results;
           SearchResultsStore.emit(CHANGE_EVENT);
           break;
-
       }
     }),
 

@@ -28,6 +28,13 @@ window.ApiActions = {
     });
   },
 
+  receiveAllResults: function (results) {
+    AppDispatcher.dispatch({
+      actionType: SearchConstants.RECEIVE_RESULTS,
+      results: results
+    });
+  },
+
 
 
 
