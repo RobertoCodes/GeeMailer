@@ -3,7 +3,6 @@ window.SideBar = React.createClass({
    mixins: [ReactRouter.History],
 
   showForm: function (e) {
-    debugger;
     e.preventDefault();
     var category;
     if (location.hash.split("/")[1].split("?")[0] === "") {

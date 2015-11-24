@@ -25,6 +25,7 @@ componentWillUnmount: function () {
   SearchResultsStore.removeChangeHandler(this._onChange);
 },
 
+
 render: function () {
   var renderResults="";
   if (this.state.results) {
@@ -34,7 +35,9 @@ render: function () {
     }
   return (
     <div className="search group">
-      <input className="search-input" type="text" onChange={this.updateSearch}>{this.state.search}<button className="searchSubmit">Search</button></input>
+      <input className="search-input" type="text" onChange={this.updateSearch} value={this.state.search}>
+        <button className="searchSubmit">Search</button>
+      </input>
       <ul>
           {renderResults}
       </ul>

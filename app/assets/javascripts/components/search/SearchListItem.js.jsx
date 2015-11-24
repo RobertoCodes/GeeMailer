@@ -1,9 +1,11 @@
 window.SearchListItem = React.createClass({
 
+mixins: [ReactRouter.History],
 
-goToResultPage: function () {
-
-
+goToResultPage: function (e) {
+  url = "/" + this.props.searchElement._type.toLowerCase() + "/" + this.props.searchElement.id;
+  this.history.pushState({}, url, {});
+  debugger;
 
 },
 
@@ -17,7 +19,6 @@ render: function () {
     output = result.name;
   }
   return <span onClick={this.goToResultPage}>{output}</span>;
-
 }
 
 
