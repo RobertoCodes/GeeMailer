@@ -44,7 +44,7 @@ header {
 
 .current_user {
   position: fixed;
-  bottom: 75px;
+  bottom: 15px;
 }
 
 nav {
@@ -55,6 +55,25 @@ nav {
   background: lightgray;
 }
 
+.search {
+  display: block;
+}
+
+.search  > ul {
+  display: block;
+  margin-left: 30%;
+  width: 200px;
+  height: auto;
+  background: white;
+  list-style: none;
+  border: 1px solid lightgray;
+}
+
+.search  > ul > li:hover {
+  background: lightgray;
+  border-left: 2px solid #4d90fe;
+}
+
 .search-input {
   width: 200px;
   height: 25px;
@@ -62,6 +81,11 @@ nav {
   margin: auto;
   margin-left: 30%;
   float: left;
+}
+
+.search-input:focus {
+  outline: none;
+  border: 1px solid #4d90fe;
 }
 
 .search-input button{
