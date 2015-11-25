@@ -4,7 +4,7 @@ window.EmailForm = React.createClass({
   getInitialState: function () {
     var recipient_email = "";
     if (this.props.location.state !== null) {
-      recipient_email = this.props.location.state.contact_email
+      recipient_email = this.props.location.state.contact_email;
     }
     return ({ recipient_email: recipient_email, subject: "", body: "" });
   },

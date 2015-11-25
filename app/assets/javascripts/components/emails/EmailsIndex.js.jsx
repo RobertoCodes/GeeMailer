@@ -5,7 +5,6 @@ window.EmailsIndex = React.createClass({
 
   _onChange: function () {
     this.setState({ emails: EmailStore.all()});
-    debugger;
   },
 
 
@@ -38,7 +37,6 @@ window.EmailsIndex = React.createClass({
             if (email.read) {
               klass = "read";
             }
-
             return <div className={"inbox-row " + klass}> <EmailsIndexItem key={email.id} email={email}/></div>;
           })}
         </ul>

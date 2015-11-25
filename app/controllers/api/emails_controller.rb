@@ -10,6 +10,9 @@ class Api::EmailsController < ApplicationController
     @email.email_type = "sent"
     @email.category_id = 1
     if @email.save
+      if @email.parent_email_id
+        @email = Email.find(@email.parent_email_id)
+      end
       render :show
     else
       render json: @email.errors.full_messages
@@ -31,7 +34,6 @@ class Api::EmailsController < ApplicationController
     @email = Email.find(params[:id])
     if params[:delete] == "conversation"
       @emails = @email.find_relatives
-      debugger;
       @emails.each do |email|
         email.destroy
       end

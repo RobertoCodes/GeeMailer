@@ -167,12 +167,12 @@ nav > h3 {
 .emails-index {
   position: fixed;
   right: 5px;
-  left: 50px;
+  left: 60px;
   display: block;
   float: left;
   margin: auto;
-  margin-top: 100px;
-  width: 70%;
+  margin-top: 50px;
+  width: 85%;
 
 }
 
@@ -207,6 +207,8 @@ nav > h3 {
   outline: none;
 }
 
+
+
 .star_button.starred {
 
   background: yellow;
@@ -226,6 +228,46 @@ nav > h3 {
 }
 
 
+.important_button {
+  float:left;
+
+  background-image: image-url("sprites/unimportant.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 23px 24px;
+  background-color: inherit;
+  display: block;
+  width: 18px;
+  height: 0;
+  padding-top: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-position 0.5s;
+  border: none;
+  outline: none;
+
+}
+
+.important_button.important {
+  float:left;
+
+  background-image: image-url("sprites/important.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 23px 24px;
+  background-color: inherit;
+  display: block;
+  width: 18px;
+  height: 0;
+  padding-top: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-position 0.5s;
+  border: none;
+  outline: none;
+
+}
+
 .inbox-row {
   padding: 1px;
   display: block;
@@ -241,6 +283,10 @@ nav > h3 {
   background: lightgray;
 }
 
+.inbox-row:last-child {
+  margin-bottom: 40px;
+}
+
 .compose-button {
   background: #d14836;
   border-radius: 2px;
@@ -252,7 +298,7 @@ nav > h3 {
 }
 
 .sidebar {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 10px;
   float: left;
   width: 200px;
@@ -288,7 +334,8 @@ nav > h3 {
 
 .email-reply-form {
   display: block;
-  width: 400px;
+  width: 100%;
+  padding: 20px;
   min-height: 200px;
   border: thin solid gray;
 }

@@ -7,7 +7,6 @@ window.EmailDetail = React.createClass({
   },
 
   _onChange: function () {
-    ApiUtil.fetchSingleEmail(this.props.params.emailId);
     this.setState(this.getStateFromStore());
   },
 
@@ -43,7 +42,6 @@ window.EmailDetail = React.createClass({
   },
 
   render: function () {
-    debugger;
     if (this.state.email) {
       var parsedChildren = [];
         if (this.state.email.children) {

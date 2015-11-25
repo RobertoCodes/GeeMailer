@@ -1,10 +1,5 @@
 window.Index = React.createClass({
 
-        // <header>
-        //   <nav>
-        //     <Search/>
-        //   </nav>
-        // </header>
 
   render: function () {
     return(
