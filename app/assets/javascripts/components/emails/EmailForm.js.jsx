@@ -53,8 +53,8 @@ window.EmailForm = React.createClass({
             <input className="email-form-subject-input" type="text" value={this.state.subject}
               onChange={this.handleSubjectChange} placeholder="Subject"/>
           <br/>
-            <input type="textarea" className="email-form-body-input"
-              value={this.state.body} onChange={this.handleBodyChange}/>
+            <textarea rows="20" cols="5" value={this.state.body} onChange={this.handleBodyChange}>
+            </textarea>
           <br/>
             <button>Send</button>
 

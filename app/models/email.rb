@@ -31,11 +31,20 @@ class Email < ActiveRecord::Base
     category_emails = self.find_by_category(user_emails, category)
   end
 
+  def self.last_emails (category_emails)
+    last_emails = []
+    category_emails.each do |email|
+      last_emails.push(email.find_relatives.order("id DESC").first)
+    end
+    last_emails
+  end
+
+  #create conversations, stores id of last email, count of emails, emails have conversation id, 
+
 
 
   def find_relatives
-    Email.where("parent_email_id = ? OR id = ? OR id = ?",
-      self.parent_email_id, self.parent_email_id, self.id)
+    Email.where("conversation_id = ?", self.conversation_id)
   end
 
 

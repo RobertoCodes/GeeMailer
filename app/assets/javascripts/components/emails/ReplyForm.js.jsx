@@ -44,8 +44,8 @@ window.ReplyForm = React.createClass({
             <input className="email-form-to-input" type="email" value={this.state.recipient_email}
               onChange={this.handleToChange}/>
           <br/>
-            <input type="textarea" className="email-form-body-input"
-              value={this.state.body} onChange={this.handleBodyChange}/>
+            <textarea rows="20" cols="5" value={this.state.body} onChange={this.handleBodyChange} placeholder="Click Here to reply.">
+            </textarea>
           <br/>
             <button>Send</button>
 
