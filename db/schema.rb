@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125154126) do
+ActiveRecord::Schema.define(version: 20151125163229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 20151125154126) do
     t.string   "sender_email"
     t.boolean  "read"
     t.boolean  "important",       default: false
+    t.integer  "conversation_id"
   end
 
   add_index "emails", ["category_id"], name: "index_emails_on_category_id", using: :btree
+  add_index "emails", ["conversation_id"], name: "index_emails_on_conversation_id", using: :btree
   add_index "emails", ["parent_email_id"], name: "index_emails_on_parent_email_id", using: :btree
   add_index "emails", ["sender_id"], name: "index_emails_on_sender_id", using: :btree
 

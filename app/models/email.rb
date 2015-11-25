@@ -28,7 +28,7 @@ class Email < ActiveRecord::Base
 
   def self.find_desired_emails (user_id, username, category)
     user_emails = self.find_by_user(user_id, username)
-    categoy_emails = self.find_by_category(user_emails, category)
+    category_emails = self.find_by_category(user_emails, category)
   end
 
 
