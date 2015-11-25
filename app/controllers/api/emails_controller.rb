@@ -20,7 +20,7 @@ class Api::EmailsController < ApplicationController
   end
 
   def index
-    @emails = Email.find_desired_emails(current_user.id, current_user.username, params[:category])
+    @emails = Email.find_desired_emails(current_user.id, current_user.username, params[:category]).order(created_at: :desc)
     render :index
   end
 

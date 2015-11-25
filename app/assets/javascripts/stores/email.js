@@ -82,19 +82,7 @@
         case EmailConstants.EMAILS_REMOVED:
           removeEmails(payload.emails);
           EmailStore.emit(EMAILS_INDEX_CHANGE_EVENT);
-
       }
     })
-
-
-
-
-
-
-
-
-
-
-
   });
 })();

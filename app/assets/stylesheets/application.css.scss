@@ -303,7 +303,25 @@ nav > h3 {
   float: left;
   width: 200px;
   padding-left: 10px;
+  display: block;
+  padding-bottom: 20px;
 
+}
+
+
+.contacts {
+  display: block;
+  margin-left: 5px;
+}
+
+.contact-index-item {
+  display: block;
+  padding-top: 5px;
+}
+
+.contact-name {
+  display: block;
+  padding-bottom: 5px;
 }
 
 .sidebar-list {
@@ -330,6 +348,7 @@ nav > h3 {
   height: 400px;
   width: 400px;
   border: thin solid gray;
+  background: white;
 }
 
 .email-reply-form {
@@ -360,6 +379,7 @@ nav > h3 {
   border: 1px solid #3079ed;
   border-radius: 3px;
   padding-left: 5px;
+  margin-bottom: 5px;
 
 }
 
@@ -418,12 +438,22 @@ nav > h3 {
   float: left;
   margin-left: 25px;
   margin-top: 10px;
+  padding-right: 50px;
+  width: 150px;
 }
 
 .email-subject {
-  float: right;
-  margin-right: 60%;
+  float: left;
   margin-top: 10px;
+  padding-right: 5px;
+}
+
+.email-body-preview {
+  white-space: nowrap;
+  float: left;
+  display: block;
+  margin-top: 10px;
+  font-weight: lighter;
 }
 
 .email-form > form > button {

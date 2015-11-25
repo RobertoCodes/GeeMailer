@@ -7,6 +7,7 @@ window.EmailDetail = React.createClass({
   },
 
   _onChange: function () {
+    // ApiUtil.fetchSingleEmail(this.props.params.emailId);
     this.setState(this.getStateFromStore());
   },
 

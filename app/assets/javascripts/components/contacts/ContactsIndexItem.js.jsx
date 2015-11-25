@@ -11,7 +11,6 @@ window.ContactsIndexItem = React.createClass({
     }
     url = category + "/compose";
     var contact_email = {contact_email : this.props.contact.contact_email_address};
-    debugger;
     this.history.pushState(contact_email, url);
   },
 
