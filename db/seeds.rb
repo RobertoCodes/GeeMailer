@@ -9,13 +9,20 @@
 Email.destroy_all
 User.destroy_all
 Contact.destroy_all
+Conversation.destroy_all
+
+
 
 u1 = User.create!(username: "sonoflaertes@gmail.com", password: "ulysses")
+
+c1 = Conversation.create!(user_id: u1.id)
+c2 = Conversation.create!(user_id: u1.id)
+c3 = Conversation.create!(user_id: u1.id)
 
 e1 = Email.create!(subject: "Lunch", body: "Duuuude, I feel horrible I sent that shit before. That was really stupid of me. Let's get
 lunch, it's totes on me brah!", sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@gmail.com",
 sender_email: "eVanRox@gmail.com", starred: false, trashed: false)
-e1.conversation_id = e1.id
+e1.conversation_id = c1.id
 e1.save!
 
 e2 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. So, I hate to bring this up but,
@@ -24,20 +31,22 @@ you said thank you but like it didn't really seem like you were that thankful. L
 just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", sender_id: 2, read: true,
 parent_email_id: 4, email_type: "received", category_id: 3, recipient_email: "sonoflaertes@gmail.com",
 sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
-e2.conversation_id = e2.id
+e2.conversation_id = c2.id
 e2.save!
 
 e3 = Email.create!(subject: "The Church Needs You", body: "Paul, me, you, and Jesus need to talk. Come visit.", sender_id: 3,
  email_type: "received", category_id: 2, recipient_email: "sonoflaertes@gmail.com", read: true,
 sender_email: "MassWithMassey@gmail.com", starred: false, trashed: true)
-e3.conversation_id = e3.id
+e3.conversation_id = c3.id
 e3.save!
 
 e5 = Email.create!(subject: "Re: Lunch", body: "Ev, I'm down. Sunday?", sender_id: u1.id,
 parent_email_id: e1.id, email_type: "sent", category_id: 2, recipient_email: "eVanRox@gmail.com", read: true,
 sender_email: "sonoflaertes@gmail.com",
 starred: false, trashed: false)
-e5.conversation_id = e1.id
+e5.conversation_id = c1.id
+c1.num_emails += 1
+c1.save!
 e5.save!
 
 e4 = Email.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
@@ -45,7 +54,9 @@ the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: fal
 parent_email_id: e5.id,
 email_type: "received", category_id: 2, recipient_email: "sonoflaertes@gmail.com",
 sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
-e4.conversation_id = e1.id
+e4.conversation_id = c1.id
+c1.num_emails += 1
+c1.save!
 e4.save!
 
 #

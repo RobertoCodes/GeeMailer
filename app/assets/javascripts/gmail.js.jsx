@@ -14,13 +14,13 @@ $(function () {
         </nav>
         <Router>
           <Route path="/" component={Index}>
-            <IndexRoute component={EmailsIndex}/>
-            <Route path=":category" component={EmailsIndex}>
+            <IndexRoute component={ConversationsIndex}/>
+            <Route path=":category" component={ConversationsIndex}>
               <Route path="compose" component={EmailForm}/>
             </Route>
             <Route path="compose" components={EmailForm}/>
-            <Route path="email/:emailId" component={EmailDetail}>
-            </Route>
+            <Route path="email/:emailId" component={EmailDetail}/>
+            <Route path="conversation/:conversationId" component={ConversationDetail}/>
           </Route>
         </Router>
       </div>

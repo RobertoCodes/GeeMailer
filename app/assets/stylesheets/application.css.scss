@@ -165,7 +165,6 @@ nav > h3 {
 }
 
 .emails-index {
-  position: fixed;
   right: 5px;
   left: 60px;
   display: block;
@@ -439,6 +438,7 @@ nav > h3 {
   margin-top: 10px;
   padding-right: 50px;
   width: 150px;
+  white-space: nowrap;
 }
 
 .email-subject {

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :emails
     resources :contacts
     resources :search, only: :index
+    resources :conversations
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

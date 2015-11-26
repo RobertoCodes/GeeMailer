@@ -1,9 +1,12 @@
 window.EmailsIndexItem = React.createClass({
   mixins: [ReactRouter.History],
 
+  getInitialState: function () {
+    return {expanded: false};
+  },
+
   toggleStar: function (e) {
     e.preventDefault();
-    e.stopPropogation();
     ApiUtil.toggleStar(this.props.email.id);
   },
 
@@ -16,11 +19,34 @@ window.EmailsIndexItem = React.createClass({
     ApiUtil.trashEmail(this.props.email.id);
   },
 
+  handleClick: function (e) {
+    expanded = this.state.expanded;
+    debugger;
+    this.setState({expanded: !expanded});
+  },
+
   // send trashemail to database, remove parent_email_id, send back parent_email and
   // rerender detail view by emitting detail view change
 
 
   render: function () {
+    var view = "";
+    if (this.state.expanded) {
+      view = <div onClick={this.handleClick} className="email-detail">
+        <EmailDetail  email={this.props.email}/>
+      </div>;
+    } else {
+      view =
+        <div>
+          <button className={"star_button " + starClass} onClick={this.toggleStar}>Star</button>
+          <button className={"important_button " + importantClass} onClick={this.toggleImportant}>Important</button>
+          <div onClick={this.handleClick} className="email-list-item group">
+            <p className="email-name">{this.props.email.sender_email}</p>
+            <p className="email-subject">{this.props.email.subject}</p>
+            <p className="email-body-preview">{shortBody}</p>
+          </div>
+      </div>;
+    }
     var trashOrRestoreButton = "";
     if (this.props.email.trashed === false) {
       trashOrRestoreButton =   <button className="trash_button" onClick={this.handleTrashed}>Trash</button>;
@@ -43,17 +69,11 @@ window.EmailsIndexItem = React.createClass({
     var shortBody = "- " + this.props.email.body.slice(0,100);
 
     return(
-      <div className="email-list-item group">
-      <button className={"star_button " + starClass} onClick={this.toggleStar}>Star</button>
-      <button className={"important_button " + importantClass} onClick={this.toggleImportant}>Important</button>
-      <ReactRouter.Link to={url} className="email-list-item group">
-        <p className="email-name">{this.props.email.sender_email}</p>
-        <p className="email-subject">{this.props.email.subject}</p>
-        <p className="email-body-preview">{shortBody}</p>
-      </ReactRouter.Link>
-        {replyButton}
-        {trashOrRestoreButton}
-      </div>
+        <div className="email-list-item group">
+          {view}
+          {replyButton}
+          {trashOrRestoreButton}
+        </div>
     );
   }
 

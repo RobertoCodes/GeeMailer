@@ -18,13 +18,33 @@ window.ApiUtil = {
     });
   },
 
+  fetchAllConversations: function (category) {
+    $.ajax({
+      url: "/api/conversations",
+      data: {category : category},
+      success: function (conversations) {
+        ApiActions.receiveAllConversations(conversations);
+      }
+    });
+  },
+
+  fetchSingleConversation: function (id) {
+    $.ajax({
+      url: "/api/conversations/" + id,
+      success: function (conversation) {
+        debugger;
+        ApiActions.receiveOneConversation(conversation);
+      }
+    });
+  },
+
   createEmail: function (email, callback) {
     $.ajax({
       url: "/api/emails",
       method: "POST",
       data: {email: email},
-      success: function (email) {
-        ApiActions.receiveOneEmail(email);
+      success: function (conversation) {
+        ApiActions.receiveOneConversation(conversation);
         callback && callback();
       }
     });
@@ -69,8 +89,8 @@ window.ApiUtil = {
       url: "/api/emails/" + id,
       method: "PATCH",
       data: {column: "read"},
-      success: function (email) {
-        ApiActions.receiveOneEmail(email);
+      success: function (conversation) {
+        ApiActions.receiveOneConversation(conversation);
       }
     });
   },
@@ -80,8 +100,9 @@ window.ApiUtil = {
       url: "/api/emails/" + id,
       method: "PATCH",
       data: {column: "starred"},
-      success: function (email) {
-        ApiActions.receiveOneEmail(email);
+      success: function (conversation) {
+        debugger;
+        ApiActions.receiveOneConversation(conversation);
       }
     });
   },
@@ -91,8 +112,8 @@ window.ApiUtil = {
       url: "/api/emails/" + id,
       method: "PATCH",
       data: {column: "important"},
-      success: function (email) {
-        ApiActions.receiveOneEmail(email);
+      success: function (conversation) {
+        ApiActions.receiveOneConversation(conversation);
       }
     });
   },

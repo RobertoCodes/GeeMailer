@@ -43,9 +43,6 @@ window.EmailForm = React.createClass({
     }
   },
 
-
-
-
   render: function () {
     return (
       <div className="email-form">

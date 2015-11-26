@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
     foreign_key: :owner_id,
     class_name: "Contact"
 
+  has_many :conversations
+
   after_initialize :ensure_session_token
 
   def self.generate_session_token

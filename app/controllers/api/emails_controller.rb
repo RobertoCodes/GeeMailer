@@ -12,8 +12,12 @@ class Api::EmailsController < ApplicationController
     if @email.save
       if @email.parent_email_id
         @email = Email.find(@email.parent_email_id)
+      else
+        @conversation = Conversation.create!(user_id: current_user.id)
+        @email.conversation_id = @conversation.id
+        @email.save!
       end
-      render :show
+       render :template => "api/conversations/show"
     else
       render json: @email.errors.full_messages
     end
@@ -47,10 +51,8 @@ class Api::EmailsController < ApplicationController
   def update
     @email = Email.find(params[:id])
     @email.toggle! params[:column].to_sym
-    if @email.parent_email_id
-      @email = Email.find(@email.parent_email_id)
-    end
-    render :show
+    @conversation = @email.conversation
+    render :template => "api/conversations/show_no_child"
   end
 
   def edit

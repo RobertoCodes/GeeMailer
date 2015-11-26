@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125163229) do
+ActiveRecord::Schema.define(version: 20151126173352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20151125163229) do
   end
 
   add_index "contacts", ["owner_id"], name: "index_contacts_on_owner_id", using: :btree
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "first_email_id"
+    t.integer "last_email_id"
+    t.integer "user_id"
+    t.integer "num_emails",     default: 1
+  end
 
   create_table "emails", force: :cascade do |t|
     t.string   "subject",                         null: false

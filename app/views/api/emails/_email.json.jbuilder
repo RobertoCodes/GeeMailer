@@ -5,6 +5,6 @@ json.extract!(
 )
 if show_children
   json.children email.children do |child|
-    json.partial!('email', email: child, show_children: true)
+    json.partial!('api/emails/email', email: child, show_children: true)
   end
 end

@@ -22,6 +22,3 @@ window.Index = React.createClass({
     );
   }
 });
-
-
-//also would like to add the "Side Bar" component here!

@@ -1,5 +1,20 @@
 window.ApiActions = {
 
+  receiveOneConversation: function (conversation) {
+    AppDispatcher.dispatch({
+      actionType: ConversationConstants.CONVERSATION_RECEIVED,
+      conversation: conversation
+    });
+  },
+
+  receiveAllConversations: function (conversations) {
+    debugger;
+    AppDispatcher.dispatch({
+      actionType: ConversationConstants.CONVERSATIONS_RECEIVED,
+      conversations: conversations
+    });
+  },
+
   receiveOneEmail: function (email) {
     AppDispatcher.dispatch({
       actionType: EmailConstants.EMAIL_RECEIVED,
@@ -13,6 +28,7 @@ window.ApiActions = {
       emails: emails
     });
   },
+
 
   removeEmails: function (emails) {
     AppDispatcher.dispatch({
