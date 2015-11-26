@@ -2,7 +2,11 @@ window.EmailsIndexItem = React.createClass({
   mixins: [ReactRouter.History],
 
   getInitialState: function () {
-    return {expanded: false};
+    if (this.props.expand) {
+      return {expanded: true};
+    } else {
+      return {expanded: false};
+    }
   },
 
   toggleStar: function (e) {
@@ -37,8 +41,8 @@ window.EmailsIndexItem = React.createClass({
     } else {
       view =
         <div>
-          <button className={"star_button " + starClass} onClick={this.toggleStar}>Star</button>
-          <button className={"important_button " + importantClass} onClick={this.toggleImportant}>Important</button>
+            <button className={"star_button " + starClass} onClick={this.toggleStar}>Star</button>
+            <button className={"important_button " + importantClass} onClick={this.toggleImportant}>Important</button>
           <div onClick={this.handleClick} className="email-list-item group">
             <p className="email-name">{this.props.email.sender_email}</p>
             <p className="email-subject">{this.props.email.subject}</p>

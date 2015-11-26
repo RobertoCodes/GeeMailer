@@ -4,7 +4,7 @@ json.extract!(
 )
 
 if show_emails
-  json.emails conversation.emails do |email|
+  json.emails conversation.emails.order(:created_at) do |email|
     json.partial!('api/emails/email', email: email, show_children: true)
   end
 else

@@ -7,7 +7,6 @@ window.ConversationDetail = React.createClass({
   },
 
   _onChange: function () {
-    // ApiUtil.fetchSingleConversation(this.props.params.conversationId);
     this.setState(this.getStateFromStore());
   },
 

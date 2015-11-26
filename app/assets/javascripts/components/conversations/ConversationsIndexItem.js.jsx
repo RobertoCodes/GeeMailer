@@ -20,18 +20,20 @@ window.ConversationsIndexItem = React.createClass({
 
   render: function () {
     if (this.props.conversation.last_email) {
+    var emailDate = new Date(this.props.conversation.last_email.created_at);
+    emailDate = String(emailDate).split(" ").splice(1,2).join(" ");
     var email_name = this.props.conversation.last_email.sender_email +
       " (" + this.props.conversation.num_emails + ")";
-    var trashOrRestoreButton = "";
-    if (this.props.conversation.last_email.trashed === false) {
-      trashOrRestoreButton =   <button className="trash_button" onClick={this.handleTrashed}>Trash</button>;
-    } else {
-      trashOrRestoreButton = <button className="restore_button" onClick={this.handleRestore}>Restore</button>;
-    }
-    var replyButton = "";
-    if (this.props.conversation.last_email.trashed === false) {
-      replyButton = <button className="reply_button" onClick={this.handleReply}>Reply</button>;
-    }
+    // var trashOrRestoreButton = "";
+    // if (this.props.conversation.last_email.trashed === false) {
+    //   trashOrRestoreButton =   <button className="trash_button" onClick={this.handleTrashed}>Trash</button>;
+    // } else {
+    //   trashOrRestoreButton = <button className="restore_button" onClick={this.handleRestore}>Restore</button>;
+    // }
+    // var replyButton = "";
+    // if (this.props.conversation.last_email.trashed === false) {
+    //   replyButton = <button className="reply_button" onClick={this.handleReply}>Reply</button>;
+    // }
     var url = "conversation/" + this.props.conversation.id;
     var starClass = "";
     if (this.props.conversation.last_email.starred) {
@@ -51,9 +53,8 @@ window.ConversationsIndexItem = React.createClass({
         <p className="email-name">{email_name}</p>
         <p className="email-subject">{this.props.conversation.last_email.subject}</p>
         <p className="email-body-preview">{shortBody}</p>
+        <p className="email-date">{emailDate}</p>
       </ReactRouter.Link>
-        {replyButton}
-        {trashOrRestoreButton}
       </div>
     );
   }  else {
