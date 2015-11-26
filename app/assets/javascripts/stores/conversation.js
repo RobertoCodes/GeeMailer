@@ -19,14 +19,12 @@
     if(!switched) {_conversations.push(conversation);}
   };
 
-  var removeConversations = function (conversations) {
-    for (var i = 0; i < _conversations.length; i++) {
-      for (var j = 0; j < conversations.length; j++) {
-        if (_conversations[i].id === conversations[j].id) {
-          _conversations.splice(i, 1);
-        }
+  var removeConversation = function (conversation) {
+    _conversations.forEach(function (convo) {
+      if (convo.id === conversation.id) {
+        _conversations.splice(_conversations.indexOf(convo.id), 1);
       }
-    }
+    });
   };
 
   window.ConversationStore = $.extend({}, EventEmitter.prototype, {
@@ -45,7 +43,6 @@
     },
 
     addConversationsIndexChangeListener: function (callback) {
-      debugger;
       this.on(CONVERSATIONS_INDEX_CHANGE_EVENT, callback);
     },
 
@@ -73,7 +70,6 @@
     dispatcherID: AppDispatcher.register(function (payload) {
       switch(payload.actionType) {
         case ConversationConstants.CONVERSATIONS_RECEIVED:
-          debugger;
           resetConversations(payload.conversations);
           ConversationStore.emit(CONVERSATIONS_INDEX_CHANGE_EVENT);
           break;
@@ -81,8 +77,8 @@
           resetConversation(payload.conversation);
           ConversationStore.emit(CONVERSATION_DETAIL_CHANGE_EVENT);
           break;
-        case ConversationConstants.CONVERSATIONS_REMOVED:
-          removeConversations(payload.conversations);
+        case ConversationConstants.CONVERSATION_REMOVED:
+          removeConversation(payload.conversation);
           ConversationStore.emit(CONVERSATIONS_INDEX_CHANGE_EVENT);
       }
     })

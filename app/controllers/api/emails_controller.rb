@@ -9,18 +9,20 @@ class Api::EmailsController < ApplicationController
     @email.sender_email = current_user.username
     @email.email_type = "sent"
     @email.category_id = 1
-    if @email.save
-      if @email.parent_email_id
-        @email = Email.find(@email.parent_email_id)
-      else
+    if @email.parent_email_id
+      @parent_email = Email.find(@email.parent_email_id)
+        @email.conversation_id = @parent_email.conversation.id
+        @email.save!
+        @conversation = @email.conversation
+        @conversation.num_emails += 1
+        @conversation.save!
+        debugger
+    else
         @conversation = Conversation.create!(user_id: current_user.id)
         @email.conversation_id = @conversation.id
         @email.save!
-      end
-       render :template => "api/conversations/show"
-    else
-      render json: @email.errors.full_messages
     end
+    render :template => "api/conversations/show"
   end
 
   def index

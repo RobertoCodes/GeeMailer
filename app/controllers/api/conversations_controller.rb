@@ -14,6 +14,9 @@ class Api::ConversationsController < ApplicationController
   end
 
   def destroy
+    @conversation = Conversation.find(params[:id])
+    @conversation.destroy
+    render :destroy_show
   end
 
   def update

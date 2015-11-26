@@ -4,14 +4,13 @@ window.EmailsIndex = React.createClass({
   //   ApiUtil.fetchAllEmails(newProps.params.category);
   // },
   //
-  // // 
+  // //
   // componentWillUnmount: function () {
   //   EmailStore.removeEmailsIndexChangeListener(this._onChange);
   //   EmailStore.removeEmailDetailChangeListener(this._onChange);
   // },
 
   render: function () {
-    debugger;
     return(
       <div className="emails-index">
         <ul>

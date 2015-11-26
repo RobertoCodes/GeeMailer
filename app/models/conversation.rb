@@ -1,6 +1,6 @@
 class Conversation < ActiveRecord::Base
 
-  has_many :emails
+  has_many :emails, dependent: :destroy
 
   belongs_to :user
 

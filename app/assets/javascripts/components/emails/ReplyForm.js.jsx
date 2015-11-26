@@ -18,7 +18,7 @@ window.ReplyForm = React.createClass({
     this.setState({body: e.currentTarget.value});
   },
 
-  createEmail: function (e) {
+  createReply: function (e) {
     e.preventDefault();
     var email = {};
     Object.keys(this.state).forEach(function (key) {
@@ -33,14 +33,14 @@ window.ReplyForm = React.createClass({
   },
 
   unselectForm: function (e) {
-    
+
 
   },
 
   render: function () {
     return (
       <div className="email-reply-form">
-        <form onSubmit={this.createEmail}>
+        <form onSubmit={this.createReply}>
             <input className="email-form-to-input" type="email" value={this.state.recipient_email}
               onChange={this.handleToChange}/>
           <br/>

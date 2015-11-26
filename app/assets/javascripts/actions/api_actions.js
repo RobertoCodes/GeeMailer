@@ -37,6 +37,13 @@ window.ApiActions = {
     });
   },
 
+  removeConversation: function (conversation) {
+    AppDispatcher.dispatch({
+      actionType: ConversationConstants.CONVERSATION_REMOVED,
+      conversation: conversation
+    });
+  },
+
   receiveOneContact: function (contact) {
     AppDispatcher.dispatch({
       actionType: ContactConstants.CONTACT_RECEIVED,

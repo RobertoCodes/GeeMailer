@@ -21,7 +21,6 @@ window.EmailsIndexItem = React.createClass({
 
   handleClick: function (e) {
     expanded = this.state.expanded;
-    debugger;
     this.setState({expanded: !expanded});
   },
 

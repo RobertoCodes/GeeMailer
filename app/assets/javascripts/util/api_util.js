@@ -32,7 +32,6 @@ window.ApiUtil = {
     $.ajax({
       url: "/api/conversations/" + id,
       success: function (conversation) {
-        debugger;
         ApiActions.receiveOneConversation(conversation);
       }
     });
@@ -55,19 +54,18 @@ window.ApiUtil = {
       url: "/api/emails/" + id,
       method: "PATCH",
       data: {column: "trashed"},
-      success: function (email) {
-          ApiActions.receiveOneEmail(email);
+      success: function (conversation) {
+        ApiActions.receiveOneConversation(conversation);
       }
     });
   },
 
   deleteConversation: function (id, callback) {
     $.ajax({
-      url: "/api/emails/" + id,
+      url: "/api/conversations/" + id,
       method: "DELETE",
-      data: {delete: "conversation"},
-      success: function (emails) {
-        ApiActions.removeEmails(emails);
+      success: function (conversation) {
+        ApiActions.removeConversation(conversation);
         callback && callback();
       }
     });
@@ -101,7 +99,6 @@ window.ApiUtil = {
       method: "PATCH",
       data: {column: "starred"},
       success: function (conversation) {
-        debugger;
         ApiActions.receiveOneConversation(conversation);
       }
     });

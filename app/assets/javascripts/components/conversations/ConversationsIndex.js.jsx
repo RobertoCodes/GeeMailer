@@ -9,7 +9,6 @@ window.ConversationsIndex = React.createClass({
 
 
   componentDidMount: function () {
-    debugger;
     var category;
     if (!Object.keys({}).length) {
       category = "/inbox";
@@ -20,7 +19,6 @@ window.ConversationsIndex = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    debugger;
     ApiUtil.fetchAllConversations(newProps.params.category);
   },
 
