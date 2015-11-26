@@ -15,7 +15,6 @@ window.ApiUtil = {
       success: function (email) {
         ApiActions.receiveOneEmail(email);
       }
-
     });
   },
 
@@ -28,7 +27,17 @@ window.ApiUtil = {
         ApiActions.receiveOneEmail(email);
         callback && callback();
       }
+    });
+  },
 
+  trashEmail: function (id, callback) {
+    $.ajax({
+      url: "/api/emails/" + id,
+      method: "PATCH",
+      data: {column: "trashed"},
+      success: function (email) {
+          ApiActions.receiveOneEmail(email);
+      }
     });
   },
 
@@ -93,7 +102,6 @@ window.ApiUtil = {
       url: "/api/contacts",
       success: function (contacts) {
         ApiActions.receiveAllContacts(contacts);
-
       }
     });
   },
@@ -104,7 +112,6 @@ window.ApiUtil = {
       success: function (contact) {
         ApiActions.receiveOneContact(contact);
       }
-
     });
   }
 

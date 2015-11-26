@@ -47,6 +47,9 @@ class Api::EmailsController < ApplicationController
   def update
     @email = Email.find(params[:id])
     @email.toggle! params[:column].to_sym
+    if @email.parent_email_id
+      @email = Email.find(@email.parent_email_id)
+    end
     render :show
   end
 

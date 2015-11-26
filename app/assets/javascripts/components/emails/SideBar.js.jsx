@@ -28,6 +28,8 @@ window.SideBar = React.createClass({
             <li><a href="#/important">Important</a></li>
 
             <li><a href="#/sent">Sent Mail</a></li>
+
+            <li><a href="#/trash">Trash</a></li>
         </ul>
       </div>
     );

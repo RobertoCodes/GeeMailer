@@ -5,19 +5,21 @@ class Email < ActiveRecord::Base
   multisearchable :against => [:subject, :body, :recipient_email, :sender_email]
 
   def children
-    Email.where("parent_email_id = ?", self.id)
+    Email.where("parent_email_id = ? AND trashed != true", self.id)
   end
 
   def self.find_by_category(user_emails, category)
     case category
     when "starred", "/starred"
-      user_emails.where("starred = true")
+      user_emails.where("starred = true AND trashed = false")
     when "important", "/important"
-      user_emails.where("important = true")
+      user_emails.where("important = true AND trashed = false")
     when "/", "inbox", "/inbox"
-      user_emails.where("email_type = 'received'")
+      user_emails.where("email_type = 'received' AND trashed = false")
     when "sent", "/sent"
-      user_emails.where("email_type = 'sent'")
+      user_emails.where("email_type = 'sent' AND trashed = false")
+    when "trash", "/trash"
+      user_emails.where("trashed = true")
     end
   end
 
@@ -39,10 +41,7 @@ class Email < ActiveRecord::Base
     last_emails
   end
 
-  #create conversations, stores id of last email, count of emails, emails have conversation id, 
-
-
-
+  #create conversations, stores id of last email, count of emails, emails have conversation id,
   def find_relatives
     Email.where("conversation_id = ?", self.conversation_id)
   end
