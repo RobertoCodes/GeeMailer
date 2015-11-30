@@ -20,6 +20,8 @@ gem 'react-rails'
 
 gem 'pg_search'
 
+gem 'therubyracer'
+
 gem 'kaminari'
 
 gem 'flux-rails-assets'

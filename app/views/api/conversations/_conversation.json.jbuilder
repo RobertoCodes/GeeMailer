@@ -5,7 +5,7 @@ json.extract!(
 
 if show_emails
   json.emails conversation.emails.order(:created_at) do |email|
-    json.partial!('api/emails/email', email: email, show_children: true)
+    json.partial!('api/emails/email', email: email, show_children: false)
   end
 else
   last_email = conversation.emails.last

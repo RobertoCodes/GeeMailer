@@ -11,7 +11,8 @@ window.EmailsIndex = React.createClass({
   // },
 
   render: function () {
-    lastEmail = this.props.emails[this.props.emails.length-1];
+    debugger;
+    lastEmail = this.props.emails.pop();
     lastEmailKlass = "";
       if (lastEmail.read) {
         lastEmailKlass = "read";
@@ -19,7 +20,7 @@ window.EmailsIndex = React.createClass({
     return(
       <div className="emails-index">
         <ul>
-          {this.props.emails.slice(this.props.emails.length-2).map(function (email) {
+          {this.props.emails.map(function (email) {
             var klass = "";
             if (email.read) {
               klass = "read";
@@ -29,7 +30,7 @@ window.EmailsIndex = React.createClass({
           <div className={"inbox-row " + lastEmailKlass}> <EmailsIndexItem expand="true"
             key={lastEmail.id} email={lastEmail}/></div>
         </ul>
-        <ReplyForm previousEmail={this.props.emails[this.props.emails.length-1]}/>
+        <ReplyForm previousEmail={lastEmail}/>
       {this.props.children}
       </div>
     );

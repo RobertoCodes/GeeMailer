@@ -26,7 +26,8 @@ class Api::EmailsController < ApplicationController
   end
 
   def index
-    @emails = Email.find_desired_emails(current_user.id, current_user.username, params[:category]).order(created_at: :desc)
+    @emails = Email.find_desired_emails(current_user.id, current_user.username, 
+      params[:category]).order(created_at: :desc)
     render :index
   end
 
@@ -66,9 +67,5 @@ class Api::EmailsController < ApplicationController
     params.require(:email).permit(:id, :subject, :body, :recipient_email, :sender_id,
       :parent_email_id, :email_type, :category_id, :starred, :trashed, :sender_email, :read)
   end
-
-
-
-
 
 end

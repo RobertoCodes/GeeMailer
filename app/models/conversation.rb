@@ -19,6 +19,9 @@ class Conversation < ActiveRecord::Base
     when "sent", "/sent"
       current_user.conversations.includes(:emails).where("email_type = 'sent' AND trashed = false")
         .references(:emails)
+    when "trash", "/trash"
+      current_user.conversations.includes(:emails).where("trashed = true")
+        .references(:emails)
     end
 
   end

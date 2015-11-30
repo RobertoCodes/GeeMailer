@@ -65,7 +65,7 @@ window.ApiUtil = {
       url: "/api/conversations/" + id,
       method: "DELETE",
       success: function (conversation) {
-        ApiActions.removeConversation(conversation);
+        ApiActions.receiveOneConversation(conversation);
         callback && callback();
       }
     });

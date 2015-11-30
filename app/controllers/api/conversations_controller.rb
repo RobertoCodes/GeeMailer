@@ -15,8 +15,11 @@ class Api::ConversationsController < ApplicationController
 
   def destroy
     @conversation = Conversation.find(params[:id])
-    @conversation.destroy
-    render :destroy_show
+    @conversation.emails.each do |email|
+      email.trashed = "true"
+      email.save!
+    end
+    render :show
   end
 
   def update
