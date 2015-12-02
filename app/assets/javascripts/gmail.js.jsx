@@ -7,7 +7,7 @@ $(function () {
   var rootEl = document.getElementById('gmail');
     React.render((
       <div>
-        <nav>
+        <nav className="group">
           <h1>GeeMail</h1>
           <Search className="search group"/>
           <h3>{rootEl.dataset.user}</h3>

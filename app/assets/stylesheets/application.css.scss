@@ -43,7 +43,7 @@ header {
 }
 
 .current_user {
-  position: fixed;
+  float:right;
   bottom: 15px;
 }
 
@@ -56,7 +56,9 @@ nav {
 }
 
 .search {
-  display: inline;
+  display: block;
+  float: left;
+  width: 500px;
 }
 
 .search  > ul {
@@ -93,7 +95,7 @@ nav {
   float: left;
   color: white;
   font-size: 14px;
-  width: 5%;
+  width: 15%;
   height: 30px;
   background: #4d90fe;
   border: 1px solid #3079ed;
@@ -113,7 +115,7 @@ ul {
 
 
 nav > h1 {
-  width: 400px;
+  width: 140px;
   font-size: 36px;
   color: darkgray;
   float: left;
@@ -121,11 +123,14 @@ nav > h1 {
 
 nav > h3 {
   float: right;
-  right: 150px;
   width: 100px;
   height: auto;
   display: block;
   color: gray
+}
+
+.signout {
+  float: right;
 }
 
 

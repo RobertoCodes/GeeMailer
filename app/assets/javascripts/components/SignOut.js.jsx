@@ -7,7 +7,7 @@ window.SignOut = React.createClass({
 
 	render: function () {
 		return (
-			<button onClick={this.handleSignOut}>Sign Out</button>
+			<button className="signout" onClick={this.handleSignOut}>Sign Out</button>
 		);
 	}
 
