@@ -324,6 +324,7 @@ button.reply_button {
   padding-top: 5px;
 }
 
+
 .contact-name {
   display: block;
   padding-bottom: 5px;
@@ -335,13 +336,13 @@ button.reply_button {
   list-style: none;
 }
 
-.sidebar-link > li {
-  padding: 10px;
+.sidebar-list > li {
+  padding-bottom: 10px;
   font-size: 12px;
   display: block;
 }
 
-.sidebar-link > li:hover {
+.sidebar-list > li:hover {
   background: lightgray;
 }
 
