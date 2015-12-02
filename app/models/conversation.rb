@@ -7,6 +7,7 @@ class Conversation < ActiveRecord::Base
   def self.find_by_category(current_user, category)
 
     case category
+      
     when "starred", "/starred"
       current_user.conversations.includes(:emails).where("starred = true AND trashed = false")
         .references(:emails)
