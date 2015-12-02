@@ -25,6 +25,7 @@ h1, h2, p, li, ul, div, a, header {
   font-family: arial, sans-serif;
   text-decoration: inherit;
   text-align: inherit;
+  vertical-align: inherit;
   color: inherit;
   background: transparent;
 }
@@ -170,14 +171,14 @@ nav > h3 {
 }
 
 .emails-index {
+  position: fixed;
+  width: 80%;
   right: 5px;
-  left: 60px;
+  left: 100px;
   display: block;
   float: left;
   margin: auto;
   margin-top: 50px;
-  width: 85%;
-
 }
 
 .emails-index > ul {
@@ -309,6 +310,7 @@ button.reply_button {
 }
 
 .sidebar {
+  position: fixed;
   margin-top: 50px;
   margin-left: 10px;
   float: left;
@@ -326,13 +328,13 @@ button.reply_button {
 
 .contact-index-item {
   display: block;
-  padding-top: 5px;
+  margin-top: 5px;
 }
 
 
 .contact-name {
   display: block;
-  padding-bottom: 5px;
+  margin-bottom: 5px;
   cursor: pointer;
 }
 
@@ -343,8 +345,17 @@ button.reply_button {
 
 .sidebar-list > li {
   padding-bottom: 10px;
-  font-size: 12px;
+  font-size: 14px;
   display: block;
+  width: 100px;
+  text-align: center;
+  height: 15px;
+  line-height: 1.8;
+
+}
+
+.sidebar-list > li:last-child {
+  margin-bottom: 30px
 }
 
 .sidebar-list > li:hover {
