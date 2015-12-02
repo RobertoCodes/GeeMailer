@@ -8,7 +8,6 @@ window.ApiActions = {
   },
 
   receiveAllConversations: function (conversations) {
-    debugger;
     AppDispatcher.dispatch({
       actionType: ConversationConstants.CONVERSATIONS_RECEIVED,
       conversations: conversations

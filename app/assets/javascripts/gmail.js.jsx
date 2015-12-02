@@ -11,6 +11,7 @@ $(function () {
           <h1>GeeMail</h1>
           <Search className="search group"/>
           <h3>{rootEl.dataset.user}</h3>
+          <SignOut className="SignOut"/>
         </nav>
         <Router>
           <Route path="/" component={Index}>

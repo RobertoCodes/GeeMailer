@@ -1,4 +1,15 @@
 window.ApiUtil = {
+
+  signOut: function () {
+    $.ajax({
+      url: "/session",
+      method: "DELETE",
+      success: function () {
+        window.location.href= "/session/new";
+      }
+    });
+  },
+  
   fetchAllEmails: function (category) {
     $.ajax({
       url: "/api/emails",
