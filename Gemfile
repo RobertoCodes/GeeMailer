@@ -14,6 +14,10 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'bcrypt'
 
+gem 'aws-sdk'
+
+gem 'paperclip'
+
 gem 'bootstrap-sass'
 
 gem 'react-rails'
@@ -25,6 +29,8 @@ gem 'pg_search'
 gem 'therubyracer'
 
 gem 'kaminari'
+
+gem "figaro"
 
 gem 'flux-rails-assets'
 # See https://github.com/rails/execjs#readme for more supported runtimes
