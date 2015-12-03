@@ -11,7 +11,6 @@ window.EmailsIndex = React.createClass({
   // },
 
   render: function () {
-    debugger;
     lastEmail = this.props.emails.pop();
     lastEmailKlass = "";
       if (lastEmail.read) {

@@ -63,12 +63,25 @@ nav {
 }
 
 .search  > ul {
+  position: absolute;
+  margin-top: 30.5px;
   display: block;
-  margin-left: 30%;
-  width: 200px;
+  width: 350px;
   height: auto;
   background: white;
+  padding-left: 5px;
+  padding-top: 5px;
   list-style: none;
+  z-index: 1;
+}
+
+.search > ul > li {
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.search > ul > li:last-child {
+  padding-bottom: 5px;
 }
 
 
@@ -78,6 +91,7 @@ nav {
 }
 
 .search-input {
+  position: relative;
   width: 350px;
   height: 25px;
   display: block;
