@@ -29,10 +29,11 @@ window.ApiUtil = {
     });
   },
 
-  fetchAllConversations: function (category) {
+  fetchAllConversations: function (category, page) {
+    debugger;
     $.ajax({
       url: "/api/conversations",
-      data: {category : category},
+      data: {category : category, page : page},
       success: function (conversations) {
         ApiActions.receiveAllConversations(conversations);
       }
