@@ -18,6 +18,8 @@ gem 'bootstrap-sass'
 
 gem 'react-rails'
 
+gem 'sendgrid'
+
 gem 'pg_search'
 
 gem 'therubyracer'
