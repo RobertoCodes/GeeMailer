@@ -56,6 +56,12 @@ nav {
   background: rgba(243,243,243,0.85);
 }
 
+.bottom-nav {
+  background: white;
+  border-bottom: 1px solid lightgray;
+  height: 10px;
+}
+
 .search {
   display: block;
   float: left;
@@ -137,16 +143,26 @@ nav > h1 {
   padding-right: 60px;
 }
 
+nav > h2 {
+  font-size: 18px;
+  color: darkgray;
+  float: left;
+  padding-right: 60px;
+}
+
 nav > h3 {
-  float: right;
+  float: left;
   width: 100px;
   height: auto;
   display: block;
-  color: gray
+  color: gray;
+  padding-left: 150px;
+
 }
 
 .signout {
   float: right;
+  color: #427fed;
 }
 
 
@@ -232,6 +248,7 @@ nav > h3 {
   font-family: sans-serif;
 
 }
+
 
 .star_button{
   float:left;
@@ -323,20 +340,18 @@ button.reply_button {
 .inbox-row {
   padding: 1px;
   display: block;
-  border-top: thin solid gray;
   border-bottom: thin solid gray;
   font-size: 12px;
   background: white;
   cursor: pointer;
+}
 
+.emails-index > ul > .inbox-row:first-child {
+  border-top: thin solid gray;
 }
 
 .inbox-row.read {
   background: lightgray;
-}
-
-.inbox-row:last-child {
-  margin-bottom: 40px;
 }
 
 .compose-button {

@@ -6,12 +6,15 @@ $(function () {
 
   var rootEl = document.getElementById('gmail');
     React.render((
-      <div>
-        <nav className="group">
+      <div className="geemailer"> 
+        <nav className="top-nav group">
           <h1>GeeMailer</h1>
           <Search className="search group"/>
           <h3>{rootEl.dataset.user}</h3>
           <SignOut className="SignOut"/>
+        </nav>
+        <nav className="bottom-nav group">
+          <h2>by Robert Romano</h2>
         </nav>
         <Router>
           <Route path="/" component={Index}>
