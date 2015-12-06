@@ -32,6 +32,8 @@ gem 'kaminari'
 
 gem "figaro"
 
+gem 'griddler-sendgrid'
+
 gem 'flux-rails-assets'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

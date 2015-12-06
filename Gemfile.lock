@@ -79,6 +79,12 @@ GEM
       railties (>= 3.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    griddler (1.2.1)
+      htmlentities
+      rails (>= 3.2.0)
+    griddler-sendgrid (0.0.1)
+      griddler
+    htmlentities (4.3.4)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -204,6 +210,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   figaro
   flux-rails-assets
+  griddler-sendgrid
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
