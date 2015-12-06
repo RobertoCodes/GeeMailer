@@ -1,5 +1,5 @@
 <h1></h1>
 <% if current_user %>
-<div data-user="<%= current_user.username %>" id="gmail">
+<div data-user="<%= current_user.username.split("@").first %>" id="gmail">
 <% end %>
 </div>

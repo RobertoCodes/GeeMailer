@@ -8,7 +8,7 @@ $(function () {
     React.render((
       <div>
         <nav className="group">
-          <h1>GeeMail</h1>
+          <h1>GeeMailer</h1>
           <Search className="search group"/>
           <h3>{rootEl.dataset.user}</h3>
           <SignOut className="SignOut"/>

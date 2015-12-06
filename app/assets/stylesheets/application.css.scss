@@ -49,7 +49,7 @@ header {
 }
 
 nav {
-  width: 100%;
+  width: auto;
   height: 20px;
   padding: 20px;
   margin: auto;
@@ -134,6 +134,7 @@ nav > h1 {
   font-size: 36px;
   color: darkgray;
   float: left;
+  padding-right: 60px;
 }
 
 nav > h3 {
@@ -152,13 +153,19 @@ nav > h3 {
  button.log_button {
    color: white;
    font-size: 14px;
-   width: 200px;
-   height: 30px;
+   width: 274px;
+   height: 36px;
    background: #4d90fe;
    border: 1px solid #3079ed;
    border-radius: 3px;
    padding-left: 5px;
+   background-image:-webkit-linear-gradient(top,#4d90fe,#4787ed);
+ }
 
+ button.log_button:hover {
+  border: 1px solid #2f5bb7;
+  background: #357ae8;
+  background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
  }
 
  .errors {
@@ -172,6 +179,8 @@ nav > h3 {
   color: #555;
   text-align: center;
   margin-top: 150px;
+  -webkit-font-smoothing: antialiased;
+
  }
 
 .enter_form {
@@ -193,6 +202,7 @@ nav > h3 {
   font-size: 16px;
   height: 44px;
   padding: 0px, 10px;
+  margin-bottom: 10px;
 }
 .email-index {
   display: block;
@@ -378,7 +388,6 @@ button.reply_button {
   font-size: 14px;
   display: block;
   width: 100px;
-  text-align: center;
   height: 15px;
   line-height: 1.8;
 

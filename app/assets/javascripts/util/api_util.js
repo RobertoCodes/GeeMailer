@@ -30,7 +30,6 @@ window.ApiUtil = {
   },
 
   fetchAllConversations: function (category, page) {
-    debugger;
     $.ajax({
       url: "/api/conversations",
       data: {category : category, page : page},

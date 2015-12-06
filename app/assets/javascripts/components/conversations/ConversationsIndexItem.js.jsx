@@ -46,7 +46,7 @@ window.ConversationsIndexItem = React.createClass({
     if (this.props.conversation.last_email.important) {
       importantClass = "important";
     }
-    var shortBody = "- " + this.props.conversation.last_email.body.slice(0,100);
+    var shortBody = "- " + this.props.conversation.last_email.body.slice(0,70);
 
     return(
       <div className="email-list-item group">
