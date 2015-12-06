@@ -6,9 +6,10 @@ class EmailProcessor
   def process
   	@user = User.find_by_username(@email.to[0][:email])
   	if @user
-  		@user.conversations.create!.emails.create!(subject: "Dinner", body: "Dinner Brah, I feel horrible I sent that shit before. That was really stupid of me. Let's get
-lunch, it's totes on me brah!", sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: false, trashed: false)
+  		@user.conversations.create!.emails.create!(
+  			subject: @email.subject, body: @email.body, sender_id: 1, email_type: "received", category_id: 2, read: false, 
+  			recipient_email: @email.to[0][:email], sender_email: @email.from(:email), 
+  			starred: false, trashed: false)
 	end
   end
 
