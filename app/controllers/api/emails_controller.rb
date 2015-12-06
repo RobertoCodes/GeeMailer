@@ -21,7 +21,6 @@ class Api::EmailsController < ApplicationController
         @email.conversation_id = @conversation.id
         @email.save!
     end
-    debugger
     EmailMailer.send_email(@email).deliver_now
     render :template => "api/conversations/show"
   end
