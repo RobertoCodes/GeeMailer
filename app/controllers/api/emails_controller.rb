@@ -16,12 +16,13 @@ class Api::EmailsController < ApplicationController
         @conversation = @email.conversation
         @conversation.num_emails += 1
         @conversation.save!
-        debugger
     else
         @conversation = Conversation.create!(user_id: current_user.id)
         @email.conversation_id = @conversation.id
         @email.save!
     end
+    debugger
+    EmailMailer.send_email(@email).deliver_now
     render :template => "api/conversations/show"
   end
 

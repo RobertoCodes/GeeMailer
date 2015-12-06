@@ -22,8 +22,11 @@ window.ConversationsIndexItem = React.createClass({
     if (this.props.conversation.last_email) {
     var emailDate = new Date(this.props.conversation.last_email.created_at);
     emailDate = String(emailDate).split(" ").splice(1,2).join(" ");
-    var email_name = this.props.conversation.last_email.sender_email +
-      " (" + this.props.conversation.num_emails + ")";
+    var email_name = this.props.conversation.last_email.sender_email;
+    if (this.props.conversation.num_emails > 1) {
+      email_name += " (" + this.props.conversation.num_emails + ")";
+    }
+      
     // var trashOrRestoreButton = "";
     // if (this.props.conversation.last_email.trashed === false) {
     //   trashOrRestoreButton =   <button className="trash_button" onClick={this.handleTrashed}>Trash</button>;
