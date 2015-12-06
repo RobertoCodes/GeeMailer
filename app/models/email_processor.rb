@@ -8,7 +8,7 @@ class EmailProcessor
   	if @user
   		@user.conversations.create!.emails.create!(
   			subject: @email.subject, body: @email.body, sender_id: 1, email_type: "received", category_id: 2, read: false, 
-  			recipient_email: @email.to[0][:email], sender_email: @email.from(:email), 
+  			recipient_email: @email.to[0][:email], sender_email: @email.from[:email], 
   			starred: false, trashed: false)
 	end
   end
