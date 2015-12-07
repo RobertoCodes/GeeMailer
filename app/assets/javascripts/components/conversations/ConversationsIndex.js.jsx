@@ -20,6 +20,7 @@ window.ConversationsIndex = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
+    debugger;
     var queryParams = newProps.location.query;
     ApiUtil.fetchAllConversations(newProps.params.category, queryParams.page || 1);
   },
@@ -32,20 +33,10 @@ window.ConversationsIndex = React.createClass({
   },
 
   render: function () {
-    var category;
-    if (location.hash.split("/")[1].split("?")[0] === "") {
-      category = "/inbox";
-    } else {
-      category = location.hash.split("/")[1].split("?")[0];
-    }
-    var nextPage = (parseInt(this.props.location.query.page) || 1) + 1;
-
+    debugger;
 
     return(
       <div className="emails-index">
-        <a href={ "#" + category + "?page=" + nextPage }>
-            Next
-          </a>
         <ul>
           {this.state.conversations.map(function (conversation) {
             return <div className={"inbox-row "}> <ConversationsIndexItem key={conversation.id}
@@ -56,11 +47,5 @@ window.ConversationsIndex = React.createClass({
       </div>
     );
   }
-
-
-
-
-
-
 
 });

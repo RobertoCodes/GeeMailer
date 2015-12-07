@@ -13,9 +13,6 @@ $(function () {
           <h3>{rootEl.dataset.user}</h3>
           <SignOut className="SignOut"/>
         </nav>
-        <nav className="bottom-nav group">
-          <h2>by Robert Romano</h2>
-        </nav>
         <Router>
           <Route path="/" component={Index}>
             <IndexRoute component={ConversationsIndex}/>

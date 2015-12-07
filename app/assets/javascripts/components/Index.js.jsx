@@ -4,6 +4,10 @@ window.Index = React.createClass({
   render: function () {
     return(
       <div>
+        <nav className="bottom-nav group">
+          <h2>by Robert Romano</h2>
+            <Paginator/>
+        </nav>
         <div className="main-container group">
           <div className="sidebar">
             <SideBar/>

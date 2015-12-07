@@ -15,7 +15,7 @@
  */
 
  html, body, h3, h4,
-h1, h2, p, li, ul, div, a, header {
+h1, h2, p, li, ul, div, a, header, figure {
   margin: 0;
   border: 0;
   padding: 0;
@@ -234,7 +234,7 @@ nav > h3 {
   display: block;
   float: left;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .emails-index > ul {
@@ -366,7 +366,7 @@ button.reply_button {
 
 .sidebar {
   position: fixed;
-  margin-top: 50px;
+  margin-top: 10px;
   margin-left: 10px;
   float: left;
   width: 200px;
@@ -416,6 +416,49 @@ button.reply_button {
   background: lightgray;
 }
 
+.arrows-container {
+  float: right;
+  margin-right: 150px;
+  margin-top: -9px;
+
+}
+
+.arrow-container {
+  background: rgba(243,243,243,0.85);
+  width: 36px;
+  height: 29px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.arrow-container.right:hover {
+  .arrow-button.right {
+    opacity: 1;
+  }
+}
+
+.arrow-container.left:hover {
+  .arrow-button.left {
+    opacity: 1;
+  }
+}
+
+.arrow-button {
+  background-image: image-url("sprites/arrow_n_trash_icons.png");
+  background-repeat: no-repeat;
+  margin: auto;
+  width: 21px;
+  height: 21px;
+  opacity: .55;
+}
+
+.right {
+  background-position: -42px -21px;
+  border-left: none;
+}
+
+.left {
+  background-position: -21px -21px;
+}
 
 .email-form {
   position: fixed;
