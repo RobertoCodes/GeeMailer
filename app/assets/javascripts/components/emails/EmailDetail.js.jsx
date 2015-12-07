@@ -51,7 +51,7 @@ window.EmailDetail = React.createClass({
     //       });
     //     }
       return (
-        <div className="emails-index">
+        <div className="email-details">
           <h4>From: {this.props.email.sender_email}</h4>
           <h4>To: {this.props.email.recipient_email}</h4>
           <br/>

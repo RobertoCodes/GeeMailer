@@ -34,10 +34,12 @@ window.EmailsIndexItem = React.createClass({
 
   render: function () {
     var view = "";
+    var klass = "email-list-item group";
     if (this.state.expanded) {
       view = <div onClick={this.handleClick} className="email-detail">
         <EmailDetail  email={this.props.email}/>
       </div>;
+      klass += " expanded"
     } else {
       view =
         <div>
@@ -70,9 +72,9 @@ window.EmailsIndexItem = React.createClass({
       importantClass = "important";
     }
     var shortBody = "- " + this.props.email.body.slice(0,100);
-
+  
     return(
-        <div className="email-list-item group">
+        <div className={klass}>
           {view}
           {replyButton}
           {trashOrRestoreButton}
