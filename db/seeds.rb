@@ -21,7 +21,7 @@ c3 = Conversation.create!(user_id: u1.id)
 
 e1 = Email.create!(subject: "Lunch", body: "Duuuude, I feel horrible I sent that shit before. That was really stupid of me. Let's get
 lunch, it's totes on me brah!", sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: false, trashed: false)
+sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: false, trashed: false)
 e1.conversation_id = c1.id
 e1.save!
 
@@ -30,13 +30,13 @@ this has kinda been messing with my head the last couple days. We were at that c
 you said thank you but like it didn't really seem like you were that thankful. Like, I don't pick up checks for anyone. Ever! Yeah,
 just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", sender_id: 2, read: true,
 parent_email_id: 4, email_type: "received", category_id: 3, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
 e2.conversation_id = c2.id
 e2.save!
 
 e3 = Email.create!(subject: "The Church Needs You", body: "Paul, me, you, and Jesus need to talk. Come visit.", sender_id: 3,
  email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com", read: true,
-sender_email: "MassWithMassey@gmail.com", starred: false, trashed: true)
+sender_email: "MassWithMassey@gmail.com", sender_name: "Evan", starred: false, trashed: true)
 e3.conversation_id = c3.id
 e3.save!
 
