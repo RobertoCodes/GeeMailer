@@ -42,7 +42,7 @@ e3.save!
 
 e5 = Email.create!(subject: "Re: Lunch", body: "Ev, I'm down. Sunday?", sender_id: u1.id,
 parent_email_id: e1.id, email_type: "sent", category_id: 2, recipient_email: "eVanRox@gmail.com", read: true,
-sender_email: "sonoflaertes@geemailer.com",
+sender_email: "sonoflaertes@geemailer.com", sender_name: "Evan",
 starred: false, trashed: false)
 e5.conversation_id = c1.id
 c1.num_emails += 1
@@ -53,66 +53,66 @@ e4 = Email.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actua
 the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
 parent_email_id: e5.id,
 email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
 e4.conversation_id = c1.id
 c1.num_emails += 1
 c1.save!
 e4.save!
 
-c4 = Conversation.create!(user_id: u1.id)
-c4.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-parent_email_id: e5.id,
-email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
-c5 = Conversation.create!(user_id: u1.id)
-c5.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-parent_email_id: e5.id,
-email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
-c7 = Conversation.create!(user_id: u1.id)
-c7.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-parent_email_id: e5.id,
-email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
-c8 = Conversation.create!(user_id: u1.id)
-c8.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-parent_email_id: e5.id,
-email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
-c9 = Conversation.create!(user_id: u1.id)
-c9.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-parent_email_id: e5.id,
-email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
-c10 = Conversation.create!(user_id: u1.id)
-c10.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-parent_email_id: e5.id,
-email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
-c11 = Conversation.create!(user_id: u1.id)
-c11.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-parent_email_id: e5.id,
-email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
-c12 = Conversation.create!(user_id: u1.id)
-c12.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-parent_email_id: e5.id,
-email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
-c13 = Conversation.create!(user_id: u1.id)
-c13.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-parent_email_id: e5.id,
-email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
-sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+# c4 = Conversation.create!(user_id: u1.id)
+# c4.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e5.id,
+# email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+# c5 = Conversation.create!(user_id: u1.id)
+# c5.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e5.id,
+# email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+# c7 = Conversation.create!(user_id: u1.id)
+# c7.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e5.id,
+# email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+# c8 = Conversation.create!(user_id: u1.id)
+# c8.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e5.id,
+# email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+# c9 = Conversation.create!(user_id: u1.id)
+# c9.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e5.id,
+# email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+# c10 = Conversation.create!(user_id: u1.id)
+# c10.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e5.id,
+# email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+# c11 = Conversation.create!(user_id: u1.id)
+# c11.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e5.id,
+# email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+# c12 = Conversation.create!(user_id: u1.id)
+# c12.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e5.id,
+# email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
+# c13 = Conversation.create!(user_id: u1.id)
+# c13.emails.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e5.id,
+# email_type: "received", category_id: 2, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", starred: true, trashed: false)
 
 
 #
