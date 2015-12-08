@@ -4,8 +4,6 @@ class Api::SearchController < ApplicationController
     @search_results = PgSearch
      .multisearch(params[:search])
      .includes(:searchable)
- end
-
-
+  end
 
 end

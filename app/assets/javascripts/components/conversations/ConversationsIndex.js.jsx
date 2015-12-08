@@ -20,7 +20,6 @@ window.ConversationsIndex = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    debugger;
     var queryParams = newProps.location.query;
     ApiUtil.fetchAllConversations(newProps.params.category, queryParams.page || 1);
   },
@@ -33,7 +32,6 @@ window.ConversationsIndex = React.createClass({
   },
 
   render: function () {
-    debugger;
 
     return(
       <div className="emails-index">

@@ -1,22 +1,20 @@
 window.SearchListItem = React.createClass({
 
-mixins: [ReactRouter.History],
-
-goToResultPage: function (e) {
-  url = "/" + this.props.searchElement._type.toLowerCase() + "/" + this.props.searchElement.id;
-  this.history.pushState({}, url, {});
-},
-
-
 render: function () {
   var result = this.props.searchElement;
+  var url = "#/";
+
   var output;
+  var type;
   if (result._type === "Email"){
+    url += "conversation/" + result.conversation_id;
     output = result.subject;
   } else {
     output = result.name;
+    url += "contact/" + result.id;
   }
-  return <span onClick={this.goToResultPage}>{output}</span>;
+
+  return <a href={url}>{output}</a>;
 }
 
 });

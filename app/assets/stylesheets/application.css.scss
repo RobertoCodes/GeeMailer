@@ -86,6 +86,11 @@ nav {
   padding-top: 5px;
 }
 
+.search > ul > li > a {
+  display: block;
+  width: 100%;
+}
+
 .search > ul > li:last-child {
   padding-bottom: 5px;
 }
@@ -254,11 +259,60 @@ nav > h3 {
   border: none;
 }
 
+.email-name.index-item {
+  padding-right: 0px;
+  width: auto;
+}
+
+.email-senders-email {
+  float: left;
+  margin-top: 10px;
+  font-weight: normal;
+  padding-left: 3px;
+  
+}
+
+
 .email-details {
   background: white;
   border: none;
+  cursor: default;
+  font-weight: normal;
 }
 
+
+.email-details > h4 {
+  margin-left: 60px;
+}
+
+.email-details > p {
+  margin-left: 67px;
+}
+
+.email-recipient {
+  color: #777;
+  margin-top: -10px;
+  margin-left: 7px;
+}
+
+.profile-pic {
+  background-image: image-url("sprites/profile_default.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 32px 32px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  margin-top: 10px;
+  float: left;
+  background-color: #cccccc;
+}
+
+.conversation-title {
+  font-size: 1.3em;
+  margin-left: 10px;
+}
 
 .star_button{
   float:left;
@@ -361,7 +415,7 @@ button.reply_button {
 }
 
 .inbox-row.read {
-  background: lightgray;
+  background: rgba(243,243,243,0.85);
 }
 
 .compose-button {
@@ -423,7 +477,7 @@ button.reply_button {
 }
 
 .sidebar-list > li:hover {
-  background: lightgray;
+  background: rgba(243,243,243,0.85);
 }
 
 .arrows-container {
@@ -586,12 +640,29 @@ button.reply_button {
   font-weight: lighter;
 }
 
+.email-body.unexpanded {
+  margin-top: 18px;
+  margin-left: 67px;
+  white-space: nowrap;
+  display: block;
+  font-weight: lighter;
+}
+
+
+
 .email-date {
   white-space: nowrap;
   float: right;
   display: block;
   margin-right: 20px;
   margin-top: 10px;
+}
+
+.date {
+  float: right;
+  margin-right: 25px;
+  margin-top: 10px;
+  font-weight: normal;
 }
 
 .email-form > form > button {

@@ -3,7 +3,7 @@ json.results do
     if result.class == Contact
       json.partial! "api/contacts/contact", contact: result
       json._type "Contact"
-    else
+    elsif result.parent_email_id == nil
       json.partial! "api/emails/email", email: result, show_children: false
       json._type "Email"
     end

@@ -41,7 +41,7 @@ window.ConversationDetail = React.createClass({
     if (this.state) {
       return (
         <div className="emails-index">
-          <button onClick={this.deleteConversation}>Delete Conversation</button>
+          <p className="conversation-title">{this.state.conversation.emails[0].subject}</p>
           <EmailsIndex emails={this.state.conversation.emails}/>
         </div>
       );
@@ -49,4 +49,7 @@ window.ConversationDetail = React.createClass({
       return (<div></div>);
     }
   }
+
+  // <button onClick={this.deleteConversation}>Delete Conversation</button>
+
 });

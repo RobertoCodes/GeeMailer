@@ -43,23 +43,19 @@ window.EmailDetail = React.createClass({
   // },
 
   render: function () {
-    // if (this.props.email) {
-    //   var parsedChildren = [];
-    //     if (this.props.email.children) {
-    //       this.props.email.children.forEach(function (child) {
-    //         parsedChildren.push(child);
-    //       });
-    //     }
+
+    var emailReceiver;
+    if (this.props.email.email_type === "received") {
+      emailReceiver = <p className="email-recipient">to me</p>;
+    } else {
+      emailReceiver = <p className="email-recipient">to {this.props.email.recipient_email}</p>;
+    }  
       return (
         <div className="email-details">
-          <h4>From: {this.props.email.sender_email}</h4>
-          <h4>To: {this.props.email.recipient_email}</h4>
+          <h4>{emailReceiver}</h4>
           <br/>
           <br/>
-          <h3>{this.props.email.subject} </h3>
-          <br/>
-          <br/>
-          <h4> {this.props.email.body} </h4>
+          <p> {this.props.email.body} </p>
         </div>
       );
   }
