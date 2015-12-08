@@ -31,8 +31,10 @@ sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: false, trashed:
 e1.conversation_id = c1.id
 e1.save!
 
-e2 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. 
-	So, I paid for the check last weekend and you totally didn't say thank you.", sender_id: 2, read: true,
+e2 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. So, I hate to bring this up but,
+this has kinda been messing with my head the last couple days. We were at that coffee shop and I thought it would be cool to pay for your drink, and yeah,
+you said thank you but like it didn't really seem like you were that thankful. Like, I don't pick up checks for anyone. Ever! Yeah,
+just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", sender_id: 2, read: true,
 parent_email_id: 4, email_type: "received", category_id: 3, recipient_email: "sonoflaertes@geemailer.com",
 sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
 e2.conversation_id = c2.id
@@ -69,8 +71,10 @@ sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: false, trashed:
 e6.conversation_id = c4.id
 e6.save!
 
-e7 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. 
-	So, I paid for the check last weekend and you totally didn't say thank you.", sender_id: 2, read: true,
+e7 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. So, I hate to bring this up but,
+this has kinda been messing with my head the last couple days. We were at that coffee shop and I thought it would be cool to pay for your drink, and yeah,
+you said thank you but like it didn't really seem like you were that thankful. Like, I don't pick up checks for anyone. Ever! Yeah,
+just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", sender_id: 2, read: true,
 parent_email_id: 4, email_type: "received", category_id: 3, recipient_email: "sonoflaertes@geemailer.com",
 sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
 e7.conversation_id = c5.id
@@ -107,8 +111,10 @@ sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: false, trashed:
 e11.conversation_id = c7.id
 e11.save!
 
-e12 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. 
-	So, I paid for the check last weekend and you totally didn't say thank you.", sender_id: 2, read: true,
+e12 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. So, I hate to bring this up but,
+this has kinda been messing with my head the last couple days. We were at that coffee shop and I thought it would be cool to pay for your drink, and yeah,
+you said thank you but like it didn't really seem like you were that thankful. Like, I don't pick up checks for anyone. Ever! Yeah,
+just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", sender_id: 2, read: true,
 parent_email_id: 4, email_type: "received", category_id: 3, recipient_email: "sonoflaertes@geemailer.com",
 sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
 e12.conversation_id = c8.id
