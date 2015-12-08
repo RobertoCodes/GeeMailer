@@ -11,10 +11,8 @@ window.Index = React.createClass({
         <div className="main-container group">
           <div className="sidebar">
             <SideBar/>
-          <p/>
-          <p/>
-          Contacts:
           <div className="contacts">
+            Contacts:
             <ContactsIndex/>
           </div>
           </div>

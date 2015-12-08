@@ -4,7 +4,7 @@ class Api::ConversationsController < ApplicationController
   end
 
   def index
-    @conversations = Conversation.find_by_category(current_user, params[:category]).page(params[:page].to_i - 1).per(5)
+    @conversations = Conversation.find_by_category(current_user, params[:category]).page(params[:page].to_i - 1).per(25)
     render :index
   end
 

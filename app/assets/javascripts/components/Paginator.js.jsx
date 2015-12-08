@@ -37,7 +37,6 @@ window.Paginator = React.createClass({
 	},
 
 	handleNext: function () {
-		debugger;
 		var category = this.getCategory();
 		var currentPage = this.getCurrentPage();
 		var nextPage = currentPage + 1;

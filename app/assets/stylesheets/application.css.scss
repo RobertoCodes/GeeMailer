@@ -226,19 +226,21 @@ nav > h3 {
   margin-bottom: 10px;
 }
 .email-index {
+  float: left;
   display: block;
   margin: auto;
-  width: 90%;
+  width: 1040px;
+  white-space: nowrap;
+
 }
 
 .emails-index {
-  position: fixed;
-  width: 80%;
+  width: 100%;
   right: 5px;
   left: 100px;
   display: block;
   float: left;
-  margin: auto;
+  margin-left: -40px;
   margin-top: 10px;
 }
 
@@ -341,7 +343,6 @@ button.reply_button {
   float: right;
 }
 
-
 .star_button.starred {
 
   background: yellow;
@@ -359,7 +360,6 @@ button.reply_button {
   transition: background-position 0.5s;
 
 }
-
 
 .important_button {
   float:left;
@@ -429,7 +429,6 @@ button.reply_button {
 }
 
 .sidebar {
-  position: fixed;
   margin-top: 10px;
   margin-left: 10px;
   float: left;
@@ -442,16 +441,17 @@ button.reply_button {
 
 .contacts {
   display: block;
-  margin-left: 5px;
 }
 
 .contact-index-item {
   display: block;
   margin-top: 5px;
+  margin-left: 5px;
 }
 
 
 .contact-name {
+  font-size: 14px;
   display: block;
   margin-bottom: 5px;
   cursor: pointer;
@@ -473,7 +473,7 @@ button.reply_button {
 }
 
 .sidebar-list > li:last-child {
-  margin-bottom: 30px
+  margin-bottom: 10px;
 }
 
 .sidebar-list > li:hover {
@@ -536,10 +536,9 @@ button.reply_button {
 
 .email-reply-form {
   margin-top: 50px;
-
   display: block;
   width: 100%;
-  padding: 20px;
+  padding-top: 20px;
   min-height: 200px;
   border-top: thin solid gray;
 }
@@ -552,7 +551,7 @@ button.reply_button {
 }
 
 .email-reply-form > form > button {
-  margin-top: 5%;
+  margin-top: 2%;
   margin-left: 5px;
   color: white;
   font-size: 14px;
