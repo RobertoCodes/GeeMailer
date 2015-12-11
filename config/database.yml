@@ -59,16 +59,16 @@ development:
   encoding: unicode
   database: MyGmail_dev
   pool: 5
-  username: postgres
-  password: eviliago
+  username: Iago
+  password:
 
 test:
   adapter: postgresql
   encoding: unicode
   database: myGmail_test
   pool: 5
-  username: postgres
-  password: eviliago
+  username: Iago
+  password:
 
 
 # test:

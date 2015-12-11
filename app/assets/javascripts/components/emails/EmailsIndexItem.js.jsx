@@ -3,12 +3,11 @@ window.EmailsIndexItem = React.createClass({
 
   getInitialState: function () {
     if (this.props.expand) {
-      return {expanded: true};
+      return {expanded: true, contacts: ContactStore.all()};
     } else {
       return {expanded: false};
     }
   },
-
 
   toggleStar: function (e) {
     e.preventDefault();
@@ -27,6 +26,17 @@ window.EmailsIndexItem = React.createClass({
   handleClick: function (e) {
     expanded = this.state.expanded;
     this.setState({expanded: !expanded});
+  },
+
+  addContact: function (e) {
+    e.stopPropagation();
+    e.preventDefault();
+    var contact = {contact_email_address: this.props.email.sender_email,
+                    name: this.props.email.sender_name
+                  };
+    var newContactList = this.state.contacts.concat(contact);
+    this.setState({contacts : newContactList});
+    ApiUtil.addContact(contact);
   },
 
   getDate: function () {
@@ -77,15 +87,30 @@ window.EmailsIndexItem = React.createClass({
     } else {
       emailSender = <p className="email-name index-item">{this.props.email.sender_name ||
          this.props.email.sender_email}</p>;
-    }      
+    }
+
 
     if (this.state.expanded) {
-      view = 
+      var addContactButton = "";
+      if (this.state.contacts.every( function (contact) {
+        if (contact.contact_email_address !== this.props.email.sender_email) {
+          return true;
+        } else {
+          return false;
+        }
+      }.bind(this))
+        ){
+          addContactButton = <button className="Add-Contact"
+                                onClick={this.addContact}>Add to Contacts</button>;
+        }
+
+      view =
       <div className= "group">
             <div onClick={this.handleClick} className="email-list-item group">
               <fig className="profile-pic"></fig>
               {emailSender}
               <span className="email-senders-email">{"<" + this.props.email.sender_email + ">"}</span>
+              {addContactButton}
               <span className="date">{this.getDate()}</span>
             </div>
             <EmailDetail  className="email-detail" email={this.props.email}/>
@@ -123,7 +148,7 @@ window.EmailsIndexItem = React.createClass({
     if (this.props.email.important) {
       importantClass = "important";
     }
-  
+
     return(
         <div className={klass}>
           {view}

@@ -24,6 +24,8 @@ c6 = Conversation.create!(user_id: u1.id)
 c7 = Conversation.create!(user_id: u1.id)
 c8 = Conversation.create!(user_id: u1.id)
 c9 = Conversation.create!(user_id: u1.id)
+c10 = Conversation.create!(user_id: u1.id)
+
 
 e1 = Email.create!(subject: "Lunch", body: "Duuuude, I feel horrible I sent that shit before. That was really stupid of me. Let's get
 lunch, it's totes on me brah!", sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
@@ -144,6 +146,12 @@ e15.conversation_id = c7.id
 c7.num_emails += 1
 c7.save!
 e15.save!
+
+e16 = Email.create!(subject: "Catch Up", body: "Let's get lunch some time, dude!",
+  sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+e16.conversation_id = c10.id
+e16.save!
 
 
 

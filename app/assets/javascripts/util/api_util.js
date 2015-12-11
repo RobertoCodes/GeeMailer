@@ -9,7 +9,7 @@ window.ApiUtil = {
       }
     });
   },
-  
+
   fetchAllEmails: function (category) {
     $.ajax({
       url: "/api/emails",
@@ -56,6 +56,17 @@ window.ApiUtil = {
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
         callback && callback();
+      }
+    });
+  },
+
+  addContact: function (contact) {
+    $.ajax({
+      url: "/api/contacts",
+      method: "POST",
+      data: {contact: contact},
+      success: function (contact) {
+        ApiActions.receiveOneContact(contact);
       }
     });
   },

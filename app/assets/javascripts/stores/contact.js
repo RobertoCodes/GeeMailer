@@ -19,10 +19,27 @@
     if(!switched) {_contacts.push(contact);}
   };
 
+  var sortContacts = function () {
+    var sortedContacts =  _contacts.slice().sort( function (c1, c2) {
+      if (c1.toLowerCase > c2.toLowerCase) {
+        return 1;
+      } else if (c1.toLowerCase < c2.toLowerCase) {
+          return -1;
+      } else {
+          return 0;
+      }
+    });
+    return sortedContacts;
+  };
+
   window.ContactStore = $.extend({}, EventEmitter.prototype, {
 
     all: function () {
-      return _contacts.slice();
+      if (_contacts.length < 2) {
+        return _contacts.slice();
+      } else {
+       return sortContacts();
+    }
     },
 
     find: function (id) {
