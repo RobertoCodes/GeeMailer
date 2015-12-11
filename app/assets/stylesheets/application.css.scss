@@ -325,11 +325,11 @@ nav > h3 {
 
   background-image: image-url("sprites/unstarred.png");
   background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: 20px 31px;
+  background-position: 0;
+  background-size: 19px 19px;
   background-color: inherit;
   display: block;
-  width: 18px;
+  width: 19px;
   height: 0;
   padding-top: 30px;
   overflow: hidden;
@@ -337,6 +337,7 @@ nav > h3 {
   transition: background-position 0.5s;
   border: none;
   outline: none;
+  margin-right: 5px;
 }
 
 button.trash_button {
@@ -352,11 +353,11 @@ button.reply_button {
   background: yellow;
   background-image: image-url("sprites/starred.png");
   background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: 20px 26px;
+  background-position: 0;
+  background-size: 19px 19px;
   background-color: inherit;
   display: block;
-  width: 18px;
+  width: 19px;
   height: 0;
   padding-top: 30px;
   overflow: hidden;
@@ -368,20 +369,19 @@ button.reply_button {
 .important_button {
   float:left;
 
-  background-image: image-url("sprites/unimportant.png");
+  background-image: image-url("sprites/important.png");
   background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: 23px 24px;
+  background-position: 0px 0;
+  background-size: 57px 57px;
   background-color: inherit;
   display: block;
-  width: 18px;
-  height: 0;
-  padding-top: 30px;
+  width: 19px;
+  height: 19px;
   overflow: hidden;
   cursor: pointer;
-  transition: background-position 0.5s;
   border: none;
   outline: none;
+  margin-top: 7px;
 
 }
 
@@ -390,16 +390,14 @@ button.reply_button {
 
   background-image: image-url("sprites/important.png");
   background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: 23px 24px;
+  background-position: -38px 0px;
+  background-size: 57px 57px;
   background-color: inherit;
   display: block;
-  width: 18px;
-  height: 0;
-  padding-top: 30px;
+  width: 19px;
+  height: 19px;
   overflow: hidden;
   cursor: pointer;
-  transition: background-position 0.5s;
   border: none;
   outline: none;
 
@@ -408,14 +406,14 @@ button.reply_button {
 .inbox-row {
   padding: 1px;
   display: block;
-  border-bottom: thin solid gray;
+  border-bottom: thin solid lightgray;
   font-size: 12px;
   background: white;
   cursor: pointer;
 }
 
 .emails-index > ul > .inbox-row:first-child {
-  border-top: thin solid gray;
+  border-top: thin solid lightgray;
 }
 
 .inbox-row.read {
@@ -649,6 +647,7 @@ button.reply_button {
   white-space: nowrap;
   display: block;
   font-weight: lighter;
+  padding-bottom: 10px;
 }
 
 

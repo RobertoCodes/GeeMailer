@@ -22,7 +22,7 @@ window.ConversationsIndexItem = React.createClass({
     if (this.props.conversation.last_email) {
     var emailDate = new Date(this.props.conversation.last_email.created_at);
     emailDate = String(emailDate).split(" ").splice(1,2).join(" ");
-    var email_name = this.props.conversation.last_email.sender_name || 
+    var email_name = this.props.conversation.last_email.sender_name ||
       this.props.conversation.last_email.sender_email;
     if (this.props.conversation.num_emails > 1) {
       email_name += " (" + this.props.conversation.num_emails + ")";
@@ -52,8 +52,8 @@ window.ConversationsIndexItem = React.createClass({
 
     return(
       <div className="email-list-item group">
-      <button className={"star_button " + starClass} onClick={this.toggleStar}>Star</button>
-      <button className={"important_button " + importantClass} onClick={this.toggleImportant}>Important</button>
+      <button className={"star_button " + starClass} onClick={this.toggleStar}></button>
+      <button className={"important_button " + importantClass} onClick={this.toggleImportant}></button>
       <ReactRouter.Link to={url} className="email-list-item group">
         <p className="email-name">{email_name}</p>
         <p className="email-subject">{this.props.conversation.last_email.subject}</p>
