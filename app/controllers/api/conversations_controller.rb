@@ -23,6 +23,10 @@ class Api::ConversationsController < ApplicationController
   end
 
   def update
+    @conversation = Conversation.find(params[:id])
+    @conversation.read = true
+    @conversation.save!
+    render :template => "api/conversations/show_no_child"
   end
 
   def edit

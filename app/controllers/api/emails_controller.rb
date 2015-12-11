@@ -15,6 +15,7 @@ class Api::EmailsController < ApplicationController
         @email.save!
         @conversation = @email.conversation
         @conversation.num_emails += 1
+        @conversation.read = false
         @conversation.save!
     else
         @conversation = Conversation.create!(user_id: current_user.id)
@@ -26,7 +27,7 @@ class Api::EmailsController < ApplicationController
   end
 
   def index
-    @emails = Email.find_desired_emails(current_user.id, current_user.username, 
+    @emails = Email.find_desired_emails(current_user.id, current_user.username,
       params[:category]).order(created_at: :desc)
     render :index
   end

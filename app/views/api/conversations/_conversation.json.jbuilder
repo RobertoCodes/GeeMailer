@@ -1,6 +1,6 @@
 json.extract!(
   conversation,
-  :id, :first_email_id, :last_email_id, :num_emails
+  :id, :read, :num_emails
 )
 
 if show_emails

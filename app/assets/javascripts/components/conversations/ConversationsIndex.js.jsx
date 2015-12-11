@@ -7,6 +7,11 @@ window.ConversationsIndex = React.createClass({
     this.setState({ conversations: ConversationStore.all()});
   },
 
+  updateConversationReadState: function () {
+    debugger;
+
+  },
+
 
   componentDidMount: function () {
     var category;
@@ -37,9 +42,13 @@ window.ConversationsIndex = React.createClass({
       <div className="emails-index">
         <ul>
           {this.state.conversations.map(function (conversation) {
-            return <div className={"inbox-row "}> <ConversationsIndexItem key={conversation.id}
+            var readClass = "";
+            if (conversation.read) {
+              readClass = "read";
+            }
+            return <div className={"inbox-row " + readClass}> <ConversationsIndexItem key={conversation.id}
               conversation={conversation}/></div>;
-          })}
+          }.bind(this))}
         </ul>
       {this.props.children}
       </div>

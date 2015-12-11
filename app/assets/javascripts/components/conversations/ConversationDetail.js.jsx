@@ -10,9 +10,9 @@ window.ConversationDetail = React.createClass({
     this.setState(this.getStateFromStore());
   },
 
-  _updateReadState: function () {
+  _updateReadState: function (id) {
     if (!this.state.conversation.read) {
-      ApiUtil.markAsRead(this.state.conversation.id);
+      ApiUtil.markConversationAsRead(this.state.conversation.id);
     }
   },
 
@@ -27,6 +27,7 @@ window.ConversationDetail = React.createClass({
   },
 
   componentWillUnmount: function () {
+    this._updateReadState()
     ConversationStore.removeConversationDetailChangeListener(this._onChange);
   },
 

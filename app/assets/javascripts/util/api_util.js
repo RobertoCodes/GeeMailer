@@ -93,6 +93,16 @@ window.ApiUtil = {
     });
   },
 
+  markConversationAsRead: function (id) {
+    $.ajax({
+      url: "/api/conversations/" + id,
+      method: "PATCH",
+      success: function (conversation) {
+        ApiActions.receiveOneConversation(conversation);
+      }
+    });
+  },
+
   search: function (searchString) {
     $.ajax({
       url: "/api/search/",
@@ -104,7 +114,7 @@ window.ApiUtil = {
     });
   },
 
-  markAsRead: function (id) {
+  markEmailAsRead: function (id) {
     $.ajax({
       url: "/api/emails/" + id,
       method: "PATCH",

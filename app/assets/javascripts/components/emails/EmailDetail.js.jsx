@@ -13,7 +13,7 @@ window.EmailDetail = React.createClass({
 
   _updateReadState: function () {
     if (!this.props.email.read) {
-      ApiUtil.markAsRead(this.props.email.id);
+      ApiUtil.markEmailAsRead(this.props.email.id);
     }
   },
 
@@ -49,7 +49,7 @@ window.EmailDetail = React.createClass({
       emailReceiver = <p className="email-recipient">to me</p>;
     } else {
       emailReceiver = <p className="email-recipient">to {this.props.email.recipient_email}</p>;
-    }  
+    }
       return (
         <div className="email-details">
           <h4>{emailReceiver}</h4>
