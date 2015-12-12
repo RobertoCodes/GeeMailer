@@ -416,6 +416,10 @@ button.reply_button {
   border-top: thin solid lightgray;
 }
 
+.emails-index > ul > .inbox-row:last-child {
+  margin-bottom: 200px;
+}
+
 .inbox-row.read {
   background: rgba(243,243,243,0.85);
 }
@@ -528,11 +532,12 @@ button.reply_button {
 
 .email-form {
   position: fixed;
-  bottom: 0px;
+  bottom: 1px;
   right: 15px;
-  height: 400px;
-  width: 400px;
-  border: thin solid gray;
+  height: 475px;
+  width: 508px;
+  border: 1px solid #cfcfcf;
+  box-shadow: rgba(0,0,0,0.2) 0 2px 6px;
   background: white;
 }
 
@@ -540,20 +545,33 @@ button.reply_button {
   margin-top: 50px;
   display: block;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 5px;
   min-height: 200px;
   border-top: thin solid gray;
+  margin-bottom: 50px;
+}
+
+.send_reply {
+  background: #f5f5f5;
+  margin-top: -4px;
+  height: 40px;
+}
+
+.email-reply-form > form {
+  border: 1px solid gray;
 }
 
 .email-reply-form > form > input {
-  width: 99%;
-  border: thin solid gray;
-
-
+  width: 100%;
+  height: 39px;
+  outline: none;
+  border: none;
+  color: #777;
+  padding-left: 15px;
 }
 
-.email-reply-form > form > button {
-  margin-top: 2%;
+.send_reply > button {
+  margin-top: .2%;
   margin-left: 5px;
   color: white;
   font-size: 14px;
@@ -564,23 +582,51 @@ button.reply_button {
   border-radius: 3px;
   padding-left: 5px;
   margin-bottom: 5px;
+  margin-top: 5px;
 
 }
 
 .email-reply-form textarea {
-  margin-top: 30px;
-  width: 99%;
+  border-left: none;
+  border-right: none;
+  border-color: gray;
+  width: 100%;
   height: 130px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.email-reply-placeholder textarea {
+  height: 39px;
+  margin-top: 30px;
+  width: 100%;
+  height: 64px;
   resize: none;
 }
 
 
-.email-form > form > input {
-  width: 99%;
+.email-reply-form > form > input {
+  width: 100%;
   border-right: none;
   border-left: none;
   border-top: thin solid gray;
   border-bottom: thin solid gray;
+  border: none
+}
+
+.email-form > form > input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #cfcfcf;
+  box-sizing: border-box;
+  height: 41px;
+  font-size: 13px;
+  padding-left: 10px;
+}
+
+::-webkit-input-placeholder {
+  font-weight: normal;
+  color: gray;
 }
 
 .email-form > form > input:focus {
@@ -593,29 +639,72 @@ button.reply_button {
 }
 
 .email-form textarea {
-  width: 395px;
-  height: 260px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 317px;
   resize: none;
+  border: none;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.email-form textarea > focus {
+  box-shadow: none;
 }
 
 .email-form > label {
   color: white;
   font-size: 80%;
   display: block;
-  background: #333333;
+  background: #404040;
   border-bottom: thin solid gray;
   padding: 5px;
-  max-width: 400px;
-  height: auto;
+  padding-left: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 36px;
+}
+
+.email-form > label > span {
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.send_email {
+  background: #f5f5f5;
+  height: 50px;
+  margin-top: -5px;
 }
 
 .email-form > label > button {
   color: gray;
   background: transparent;
   border: none;
-  font-size: 80%;
+  font-weight: bold;
+  font-size: 100%;
   display: block;
   float: right;
+  margin-top: 3px;
+}
+
+.email-reply-form-to {
+  width: 100%;
+  color: lightgray;
+  border-right: none;
+  border-left: none;
+  border-top: thin solid gray;
+  border-bottom: thin solid gray;
+  box-sizing: border-box;
+}
+
+.email-reply-form-to:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.email-reply-form > form > textarea:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .email-name {
@@ -650,8 +739,6 @@ button.reply_button {
   padding-bottom: 10px;
 }
 
-
-
 .email-date {
   white-space: nowrap;
   float: right;
@@ -667,16 +754,24 @@ button.reply_button {
   font-weight: normal;
 }
 
-.email-form > form > button {
-  margin-top: 5%;
+.send_email > button {
+  margin-top: 1.4%;
   margin-left: 5px;
   color: white;
-  font-size: 14px;
-  width: 20%;
+  font-size: 11px;
+  font-weight: bold;
+  width: 15%;
   height: 30px;
   background: #4d90fe;
   border: 1px solid #3079ed;
   border-radius: 3px;
   padding-left: 5px;
+  background-image:-webkit-linear-gradient(top,#4d90fe,#4787ed);
 
+}
+
+.send_email > button:hover {
+ border: 1px solid #2f5bb7;
+ background: #357ae8;
+ background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
 }

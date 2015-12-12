@@ -46,19 +46,19 @@ window.EmailForm = React.createClass({
   render: function () {
     return (
       <div className="email-form">
-      <label className="new-message-label">New Message<button onClick={this.closeForm}>X</button>
-      </label><br/>
+      <label className="new-message-label"><span>New Message</span>
+        <button onClick={this.closeForm}>X</button>
+      </label>
         <form onSubmit={this.createEmail}>
             <input className="email-form-to-input" type="email" value={this.state.recipient_email}
-              onChange={this.handleToChange} placeholder="To"/>
+              onChange={this.handleToChange} placeholder="Recipient"/>
           <br/>
             <input className="email-form-subject-input" type="text" value={this.state.subject}
               onChange={this.handleSubjectChange} placeholder="Subject"/>
           <br/>
             <textarea rows="20" cols="5" value={this.state.body} onChange={this.handleBodyChange}>
             </textarea>
-          <br/>
-            <button>Send</button>
+            <div className="send_email"><button>Send</button></div>
 
         </form>
       </div>

@@ -5,7 +5,7 @@ window.EmailsIndexItem = React.createClass({
     if (this.props.expand) {
       return {expanded: true, contacts: ContactStore.all()};
     } else {
-      return {expanded: false};
+      return {expanded: false, contacts: ContactStore.all()};
     }
   },
 
@@ -91,18 +91,20 @@ window.EmailsIndexItem = React.createClass({
 
 
     if (this.state.expanded) {
-      var addContactButton = "";
-      if (this.state.contacts.every( function (contact) {
-        if (contact.contact_email_address !== this.props.email.sender_email) {
-          return true;
-        } else {
-          return false;
-        }
-      }.bind(this))
-        ){
-          addContactButton = <button className="Add-Contact"
-                                onClick={this.addContact}>Add to Contacts</button>;
-        }
+      if (this.props.email_type === "received") {
+        var addContactButton = "";
+        if (this.state.contacts.every( function (contact) {
+          if (contact.contact_email_address !== this.props.email.sender_email) {
+            return true;
+          } else {
+            return false;
+          }
+        }.bind(this))
+          ){
+            addContactButton = <button className="Add-Contact"
+                                  onClick={this.addContact}>Add to Contacts</button>;
+          }
+      }
 
       view =
       <div className= "group">
