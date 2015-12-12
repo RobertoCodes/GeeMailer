@@ -6,9 +6,11 @@ $(function () {
 
   var rootEl = document.getElementById('gmail');
     React.render((
-      <div className="geemailer"> 
+      <div className="geemailer">
         <nav className="top-nav group">
-          <h1>GeeMailer</h1>
+          <a href="#/">
+            GeeMailer
+          </a>
           <Search className="search group"/>
           <h3>{rootEl.dataset.user}</h3>
           <SignOut className="SignOut"/>

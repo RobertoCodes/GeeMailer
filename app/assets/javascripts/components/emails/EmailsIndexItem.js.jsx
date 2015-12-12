@@ -82,9 +82,12 @@ window.EmailsIndexItem = React.createClass({
     var klass = "email-list-item group";
     var shortBody = this.props.email.body.split(" ").slice(0,20).join(" ");
     var emailSender;
+    var figClass;
     if (this.props.email.email_type === "sent") {
+      figClass = "profile-pic user"
       emailSender = <p className="email-name index-item">me</p>;
     } else {
+      figClass = "profile-pic"
       emailSender = <p className="email-name index-item">{this.props.email.sender_name ||
          this.props.email.sender_email}</p>;
     }
@@ -109,7 +112,7 @@ window.EmailsIndexItem = React.createClass({
       view =
       <div className= "group">
             <div onClick={this.handleClick} className="email-list-item group">
-              <fig className="profile-pic"></fig>
+              <fig className={figClass}></fig>
               {emailSender}
               <span className="email-senders-email">{"<" + this.props.email.sender_email + ">"}</span>
               {addContactButton}
@@ -123,7 +126,7 @@ window.EmailsIndexItem = React.createClass({
       view =
         <div>
           <div onClick={this.handleClick} className="email-list-item group">
-            <fig className="profile-pic"></fig>
+            <fig className={figClass}></fig>
             {emailSender}
             <span className="date">{this.getDate()}</span>
             <br/>

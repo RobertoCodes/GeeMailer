@@ -45,7 +45,8 @@ window.ReplyForm = React.createClass({
     var viewForm;
     if (this.state.expanded) {
       viewForm =
-      <div className="email-reply-form">
+      <div className="email-reply-form group">
+        <fig className="profile-pic reply"></fig>
         <form onSubmit={this.createReply}>
           <input className="email-reply-form-to" type="email"
             value={this.state.recipient_email} onChange={this.handleToChange}/>
@@ -60,9 +61,10 @@ window.ReplyForm = React.createClass({
       </div>;
 
     } else {
-      viewForm = <div className="email-reply-placeholder">
+      viewForm = <div className="email-reply-placeholder group">
+                  <fig className="profile-pic reply"></fig>
                   <textarea onClick={this.clickForm} rows="20" cols="5" value={this.state.body}
-                    placeHolder="Click Here to Reply">
+                    placeholder="Click Here to Reply">
                   </textarea>
                 </div>;
       }
