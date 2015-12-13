@@ -56,7 +56,13 @@ class Api::EmailsController < ApplicationController
     @email = Email.find(params[:id])
     @email.toggle! params[:column].to_sym
     @conversation = @email.conversation
-    render :template => "api/conversations/show_no_child"
+    if params[:column] == "trashed"
+      @conversation.num_emails -= 1
+      @conversation.save!
+      render :template => "api/conversations/show"
+    else
+      render :template => "api/conversations/show_no_child"
+    end
   end
 
   def edit

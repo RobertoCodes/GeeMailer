@@ -39,6 +39,7 @@ window.ConversationDetail = React.createClass({
   },
 
   render: function () {
+    debugger;
     if (this.state) {
       return (
         <div className="emails-index">

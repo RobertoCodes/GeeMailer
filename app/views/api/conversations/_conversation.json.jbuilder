@@ -2,10 +2,15 @@ json.extract!(
   conversation,
   :id, :read, :num_emails
 )
-
 if show_emails
-  json.emails conversation.emails.order(:created_at) do |email|
-    json.partial!('api/emails/email', email: email, show_children: false)
+  if params[:category] == "trash"
+    json.emails conversation.emails.order(:created_at) do |email|
+      json.partial!('api/emails/email', email: email, show_children: false)
+    end
+  else
+    json.emails conversation.emails.where("trashed = false").order(:created_at) do |email|
+      json.partial!('api/emails/email', email: email, show_children: false)
+    end
   end
 else
   last_email = conversation.emails.last

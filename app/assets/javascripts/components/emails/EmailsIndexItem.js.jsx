@@ -158,6 +158,7 @@ window.EmailsIndexItem = React.createClass({
     return(
         <div className={klass}>
           {view}
+          {trashOrRestoreButton}
         </div>
     );
   }
