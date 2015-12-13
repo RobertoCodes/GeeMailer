@@ -78,6 +78,7 @@ window.EmailsIndexItem = React.createClass({
 
 
   render: function () {
+
     var view = "";
     var klass = "email-list-item group";
     var shortBody = this.props.email.body.split(" ").slice(0,20).join(" ");
@@ -94,16 +95,16 @@ window.EmailsIndexItem = React.createClass({
 
 
     if (this.state.expanded) {
-      if (this.props.email_type === "received") {
-        var addContactButton = "";
+      var addContactButton = "";
+      if (this.props.email.email_type === "received") {
         if (this.state.contacts.every( function (contact) {
           if (contact.contact_email_address !== this.props.email.sender_email) {
             return true;
           } else {
             return false;
           }
-        }.bind(this))
-          ){
+        }.bind(this)))
+          {
             addContactButton = <button className="Add-Contact"
                                   onClick={this.addContact}>Add to Contacts</button>;
           }
