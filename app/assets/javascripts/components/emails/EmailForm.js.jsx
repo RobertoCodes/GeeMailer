@@ -28,19 +28,14 @@ window.EmailForm = React.createClass({
       email[key] = this.state[key];
     }.bind(this));
     ApiUtil.createEmail(email, function () {
-      url = "/" + this.props.location.pathname.split("/")[1];
-      this.history.pushState(null, url, {});
+      this.history.goBack();
     }.bind(this));
     this.setState({ recipient_email: "", subject: "", body: "" });
   },
 
   closeForm: function (e) {
     e.preventDefault();
-    if (this.props.location.action === "PUSH") {
-      this.history.pushState(null, "/inbox", {});
-    } else {
-      this.history.goBack();
-    }
+    this.history.goBack();
   },
 
   render: function () {

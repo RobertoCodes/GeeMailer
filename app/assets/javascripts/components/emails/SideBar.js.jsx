@@ -4,13 +4,14 @@ window.SideBar = React.createClass({
 
   showForm: function (e) {
     e.preventDefault();
-    var category;
+    var url;
     if (location.hash.split("/")[1].split("?")[0] === "") {
-      category = "/inbox";
+      url = "/inbox";
     } else {
-      category = location.hash.split("/")[1].split("?")[0];
+      url = location.hash.split("?")[0];
     }
-    url = category + "/compose";
+    url += "/compose";
+    url = url.replace('#','');
     this.history.pushState(null, url, {});
   },
 

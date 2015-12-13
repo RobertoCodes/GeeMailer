@@ -7,12 +7,6 @@ window.ConversationsIndex = React.createClass({
     this.setState({ conversations: ConversationStore.all()});
   },
 
-  updateConversationReadState: function () {
-    debugger;
-
-  },
-
-
   componentDidMount: function () {
     var category;
     if (!Object.keys({}).length) {
@@ -28,8 +22,6 @@ window.ConversationsIndex = React.createClass({
     var queryParams = newProps.location.query;
     ApiUtil.fetchAllConversations(newProps.params.category, queryParams.page || 1);
   },
-
-
 
   componentWillUnmount: function () {
     ConversationStore.removeConversationsIndexChangeListener(this._onChange);

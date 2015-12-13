@@ -44,6 +44,8 @@ window.ConversationDetail = React.createClass({
         <div className="emails-index">
           <p className="conversation-title">{this.state.conversation.emails[0].subject}</p>
           <EmailsIndex emails={this.state.conversation.emails}/>
+          {this.props.children}
+
         </div>
       );
     } else {
