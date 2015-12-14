@@ -56,19 +56,26 @@ window.EmailsIndexItem = React.createClass({
     var result;
 
     var secondsPast = (now.getTime() - emailTime.getTime()) / 1000;
+    debugger;
     if(secondsPast < 60){
       clockTimeArr = emailTime.toLocaleTimeString().split(":")
       clockTimeArr[2] = clockTimeArr[2].slice(2);
 
       result = clockTime + " (" + parseInt(secondsPast) + ' seconds ago)';
     }
-    if(secondsPast < 3600){
+    else if(secondsPast < 3600){
       result = clockTime +  " (" + parseInt(secondsPast/60) + ' minutes ago)';
     }
-    if(secondsPast <= 86400){
-      result = clockTime + " (" + parseInt(secondsPast/3600) + ' hours ago)';
+    else if(secondsPast <= 86400){
+      hours = parseInt(secondsPast/3600);
+      if (hours === 1) {
+        str = " hour ago)";
+      } else {
+        str = " hours ago)";
+      }
+      result = clockTime + " (" + hours + str;
     }
-    if(secondsPast > 86400){
+    else if(secondsPast > 86400){
 
         result = emailDate + " (" + parseInt(secondsPast/86400) + " days ago)";
     }

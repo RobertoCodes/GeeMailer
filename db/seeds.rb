@@ -150,6 +150,25 @@ e16 = Email.create!(subject: "Catch Up", body: "Let's get lunch some time, dude!
 sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
 e16.conversation_id = c10.id
 e16.save!
+
+Conversation.create!.emails.create!(subject: "Where you at boy", body: "Im here, where you.",
+  sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+
+
+Conversation.create!.emails.create!(subject: "That chick hot.", body: "So hot.",
+  sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+
+Conversation.create!.emails.create!(subject: "The mets killin it.", body: "Can't believe it.",
+  sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+
+Conversation.create!.emails.create!(subject: "She cray", body: "Get this girl away!",
+  sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+
+
 #
 # c1 = Conversation.create!(user_id: u1.id)
 # c2 = Conversation.create!(user_id: u1.id)

@@ -21,9 +21,9 @@
 
   var sortContacts = function () {
     var sortedContacts =  _contacts.slice().sort( function (c1, c2) {
-      if (c1.toLowerCase > c2.toLowerCase) {
+      if (c1.name.toLowerCase() > c2.name.toLowerCase()) {
         return 1;
-      } else if (c1.toLowerCase < c2.toLowerCase) {
+      } else if (c1.name.toLowerCase() < c2.name.toLowerCase()) {
           return -1;
       } else {
           return 0;
@@ -35,6 +35,7 @@
   window.ContactStore = $.extend({}, EventEmitter.prototype, {
 
     all: function () {
+      debugger;
       if (_contacts.length < 2) {
         return _contacts.slice();
       } else {
