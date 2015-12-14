@@ -72,18 +72,18 @@ window.ApiUtil = {
     });
   },
 
-  trashEmail: function (id, callback) {
+  toggleTrashEmail: function (id, category) {
     $.ajax({
       url: "/api/emails/" + id,
       method: "PATCH",
-      data: {column: "trashed"},
+      data: {column: "trashed", category: category || ""},
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
       }
     });
   },
 
-  deleteConversation: function (id, callback) {
+  deleteConversation: function (id) {
     $.ajax({
       url: "/api/conversations/" + id,
       method: "PATCH",
@@ -91,6 +91,17 @@ window.ApiUtil = {
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
         callback && callback();
+      }
+    });
+  },
+
+  restoreConversation: function (id) {
+    $.ajax({
+      url: "/api/conversations/" + id,
+      method: "PATCH",
+      data: {change: "restore"},
+      success: function (conversation) {
+        ApiActions.receiveOneConversation(conversation);
       }
     });
   },

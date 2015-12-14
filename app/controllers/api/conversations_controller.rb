@@ -23,13 +23,14 @@ class Api::ConversationsController < ApplicationController
   # end
 
   def update
+    @conversation = Conversation.find(params[:id])
     if params[:change] == "trashed"
-      @conversation = Conversation.find(params[:id])
       @conversation.emails.update_all(trashed: true)
     elsif params[:change] == "read"
-      @conversation = Conversation.find(params[:id])
       @conversation.read = true
       @conversation.save!
+    elsif params[:change] == "restore"
+      @conversation.emails.update_all(trashed: false)
     end
     render :template => "api/conversations/show_no_child"
   end

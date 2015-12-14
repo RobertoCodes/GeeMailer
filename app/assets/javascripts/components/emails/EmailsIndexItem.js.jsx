@@ -18,9 +18,13 @@ window.EmailsIndexItem = React.createClass({
     ApiUtil.toggleImportant(this.props.email.id);
   },
 
-  handleTrashed: function (e) {
+  toggleTrashEmail: function (e) {
     e.stopPropagation();
-    ApiUtil.trashEmail(this.props.email.id);
+    if (this.props.email.trashed) {
+      ApiUtil.toggleTrashEmail(this.props.email.id, "trash");
+    } else {
+      ApiUtil.toggleTrashEmail(this.props.email.id);
+    }
   },
 
   handleClick: function (e) {
@@ -112,11 +116,12 @@ window.EmailsIndexItem = React.createClass({
       var trashOrRestoreButton = "";
       if (this.props.email.trashed === false) {
         trashOrRestoreButton =
-        <button className="trash-container" onClick={this.handleTrashed}>
+        <button className="trash-container" onClick={this.toggleTrashEmail}>
           <figure className="trash-button"></figure>
         </button>;
       } else {
-        trashOrRestoreButton = <button className="Gray-Button restore" onClick={this.handleRestore}>Restore</button>;
+        trashOrRestoreButton = <button className="Gray-Button restore email"
+          onClick={this.toggleTrashEmail}>Restore</button>;
         }
 
       view =
@@ -126,8 +131,10 @@ window.EmailsIndexItem = React.createClass({
               {emailSender}
               <span className="email-senders-email">{"<" + this.props.email.sender_email + ">"}</span>
               {addContactButton}
-              <span className="date">{this.getDate()}</span>
-              {trashOrRestoreButton}
+              <div className="date-trash-container group">
+                <span className="date">{this.getDate()}</span>
+                {trashOrRestoreButton}
+              </div>
             </div>
             <EmailDetail  className="email-detail" email={this.props.email}/>
 

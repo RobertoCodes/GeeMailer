@@ -1,3 +1,4 @@
+
 window.ConversationsIndex = React.createClass({
   getInitialState: function () {
 
@@ -10,8 +11,9 @@ window.ConversationsIndex = React.createClass({
 
   componentDidMount: function () {
     var category;
-    if (!Object.keys({}).length) {
-      category = "/inbox";
+    category = this.props.location.pathname.split("/")[1];
+    if (category === "") {
+      category = "inbox"
     }
     ConversationStore.addConversationsIndexChangeListener(this._onChange);
     ConversationStore.addConversationDetailChangeListener(this._onChange);
@@ -20,6 +22,7 @@ window.ConversationsIndex = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
+    debugger;
     var queryParams = newProps.location.query;
     ApiUtil.fetchAllConversations(newProps.params.category, queryParams.page || 1);
   },

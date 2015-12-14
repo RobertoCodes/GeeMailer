@@ -7,7 +7,6 @@ window.ConversationDetail = React.createClass({
   },
 
   _onChange: function () {
-    debugger;
     this.setState(this.getStateFromStore());
   },
 
@@ -18,7 +17,6 @@ window.ConversationDetail = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    debugger;
     ApiUtil.fetchSingleConversation(parseInt(newProps.params.conversationId));
   },
 
@@ -46,14 +44,28 @@ window.ConversationDetail = React.createClass({
     ApiUtil.deleteConversation(this.state.conversation.id);
   },
 
+  restoreConversation: function (e) {
+    e.preventDefault();
+    this.history.goBack();
+    ApiUtil.restoreConversation(this.state.conversation.id);
+  },
+
   render: function () {
+    var trashOrRestoreButton = "";
+    if (this.props.location.query.category === "trash") {
+      trashOrRestoreButton =
+      <button className="Gray-Button restore conversation" onClick={this.restoreConversation}>Restore Conversation</button>;
+    } else {
+      trashOrRestoreButton =
+      <button className="trash-container conversation" onClick={this.deleteConversation}>
+        <figure className="trash-button"></figure>
+      </button>
+    }
     if (this.state && this.state.conversation.emails.length > 0) {
       return (
         <div className="emails-index conversation">
           <span className="conversation-title">{this.state.conversation.emails[0].subject}</span>
-          <button className="trash-container conversation" onClick={this.deleteConversation}>
-            <figure className="trash-button"></figure>
-          </button>
+          {trashOrRestoreButton}
           <EmailsIndex emails={this.state.conversation.emails}/>
           {this.props.children}
         </div>
