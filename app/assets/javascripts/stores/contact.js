@@ -35,7 +35,6 @@
   window.ContactStore = $.extend({}, EventEmitter.prototype, {
 
     all: function () {
-      debugger;
       if (_contacts.length < 2) {
         return _contacts.slice();
       } else {

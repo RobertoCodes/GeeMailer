@@ -151,20 +151,20 @@ sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false,
 e16.conversation_id = c10.id
 e16.save!
 
-Conversation.create!.emails.create!(subject: "Where you at boy", body: "Im here, where you.",
+Conversation.create!(user_id: u1.id).emails.create!(subject: "Where you at boy", body: "Im here, where you.",
   sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
 sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
 
 
-Conversation.create!.emails.create!(subject: "That chick hot.", body: "So hot.",
+Conversation.create!(user_id: u1.id).emails.create!(subject: "That chick hot.", body: "So hot.",
   sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
 sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
 
-Conversation.create!.emails.create!(subject: "The mets killin it.", body: "Can't believe it.",
+Conversation.create!(user_id: u1.id).emails.create!(subject: "The mets killin it.", body: "Can't believe it.",
   sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
 sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
 
-Conversation.create!.emails.create!(subject: "She cray", body: "Get this girl away!",
+Conversation.create!(user_id: u1.id).emails.create!(subject: "She cray", body: "Get this girl away!",
   sender_id: 1, email_type: "received", category_id: 2, read: true, recipient_email: "sonoflaertes@geemailer.com",
 sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
 
