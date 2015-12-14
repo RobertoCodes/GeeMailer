@@ -39,13 +39,14 @@ window.ApiUtil = {
     });
   },
 
-  fetchSingleConversation: function (id) {
-    $.ajax({
-      url: "/api/conversations/" + id,
-      success: function (conversation) {
-        ApiActions.receiveOneConversation(conversation);
-      }
-    });
+  fetchSingleConversation: function (id, category) {
+      $.ajax({
+        url: "/api/conversations/" + id,
+        data: {category: category || ""},
+        success: function (conversation) {
+          ApiActions.receiveOneConversation(conversation);
+        }
+      });
   },
 
   createEmail: function (email, callback) {

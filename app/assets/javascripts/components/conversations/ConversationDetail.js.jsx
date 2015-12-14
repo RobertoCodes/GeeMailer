@@ -22,7 +22,8 @@ window.ConversationDetail = React.createClass({
 
   componentDidMount: function () {
     ConversationStore.addConversationDetailChangeListener(this._onChange);
-    ApiUtil.fetchSingleConversation(parseInt(this.props.params.conversationId));
+    ApiUtil.fetchSingleConversation(parseInt(this.props.params.conversationId),
+      this.props.location.query.category);
     this.getStateFromStore();
   },
 
@@ -39,7 +40,6 @@ window.ConversationDetail = React.createClass({
   },
 
   render: function () {
-    debugger;
     if (this.state) {
       return (
         <div className="emails-index">

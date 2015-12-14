@@ -15,6 +15,12 @@ window.ConversationsIndexItem = React.createClass({
     ApiUtil.trashEmail(this.props.conversation.last_email.id);
   },
 
+  handleClick: function (e) {
+    e.preventDefault();
+    var url = "conversation/" + this.props.conversation.id;
+    this.history.pushState(null, url, {category: this.props.category});
+  },
+
   // send trashemail to database, remove parent_email_id, send back parent_email and
   // rerender detail view by emitting detail view change
 
@@ -38,7 +44,6 @@ window.ConversationsIndexItem = React.createClass({
     // if (this.props.conversation.last_email.trashed === false) {
     //   replyButton = <button className="reply_button" onClick={this.handleReply}>Reply</button>;
     // }
-    var url = "conversation/" + this.props.conversation.id;
     var starClass = "";
     if (this.props.conversation.last_email.starred) {
       starClass = "starred";
@@ -54,12 +59,12 @@ window.ConversationsIndexItem = React.createClass({
       <div className="email-list-item group">
       <button className={"star_button " + starClass} onClick={this.toggleStar}></button>
       <button className={"important_button " + importantClass} onClick={this.toggleImportant}></button>
-      <ReactRouter.Link to={url} className="email-list-item group">
+      <section onClick={this.handleClick} className="email-list-item group">
         <p className="email-name">{email_name}</p>
         <p className="email-subject">{this.props.conversation.last_email.subject}</p>
         <p className="email-body-preview">{shortBody}</p>
         <p className="email-date">{emailDate}</p>
-      </ReactRouter.Link>
+      </section>
       </div>
     );
   }  else {
