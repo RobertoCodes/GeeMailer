@@ -86,7 +86,8 @@ window.ApiUtil = {
   deleteConversation: function (id, callback) {
     $.ajax({
       url: "/api/conversations/" + id,
-      method: "DELETE",
+      method: "PATCH",
+      data: {change: "trashed"},
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
         callback && callback();
@@ -98,6 +99,7 @@ window.ApiUtil = {
     $.ajax({
       url: "/api/conversations/" + id,
       method: "PATCH",
+      data: {change: "read"},
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
       }

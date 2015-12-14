@@ -7,6 +7,7 @@ window.ConversationDetail = React.createClass({
   },
 
   _onChange: function () {
+    debugger;
     this.setState(this.getStateFromStore());
   },
 
@@ -17,7 +18,14 @@ window.ConversationDetail = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
+    debugger;
     ApiUtil.fetchSingleConversation(parseInt(newProps.params.conversationId));
+  },
+
+  componentWillUpdate: function () {
+    if (this.state && this.state.conversation.emails.length < 1) {
+      this.history.goBack();
+    }
   },
 
   componentDidMount: function () {
@@ -34,19 +42,20 @@ window.ConversationDetail = React.createClass({
 
   deleteConversation: function (e) {
     e.preventDefault();
-    ApiUtil.deleteConversation(this.state.conversation.id, function () {
-      this.history.pushState(null, "/", {});
-    }.bind(this));
+    this.history.goBack();
+    ApiUtil.deleteConversation(this.state.conversation.id);
   },
 
   render: function () {
-    if (this.state) {
+    if (this.state && this.state.conversation.emails.length > 0) {
       return (
-        <div className="emails-index">
-          <p className="conversation-title">{this.state.conversation.emails[0].subject}</p>
+        <div className="emails-index conversation">
+          <span className="conversation-title">{this.state.conversation.emails[0].subject}</span>
+          <button className="trash-container conversation" onClick={this.deleteConversation}>
+            <figure className="trash-button"></figure>
+          </button>
           <EmailsIndex emails={this.state.conversation.emails}/>
           {this.props.children}
-
         </div>
       );
     } else {
@@ -54,6 +63,5 @@ window.ConversationDetail = React.createClass({
     }
   }
 
-  // <button onClick={this.deleteConversation}>Delete Conversation</button>
 
 });

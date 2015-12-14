@@ -105,10 +105,19 @@ window.EmailsIndexItem = React.createClass({
           }
         }.bind(this)))
           {
-            addContactButton = <button className="Add-Contact"
+            addContactButton = <button className="Gray-Button"
                                   onClick={this.addContact}>Add to Contacts</button>;
           }
       }
+      var trashOrRestoreButton = "";
+      if (this.props.email.trashed === false) {
+        trashOrRestoreButton =
+        <button className="trash-container" onClick={this.handleTrashed}>
+          <figure className="trash-button"></figure>
+        </button>;
+      } else {
+        trashOrRestoreButton = <button className="Gray-Button restore" onClick={this.handleRestore}>Restore</button>;
+        }
 
       view =
       <div className= "group">
@@ -118,6 +127,7 @@ window.EmailsIndexItem = React.createClass({
               <span className="email-senders-email">{"<" + this.props.email.sender_email + ">"}</span>
               {addContactButton}
               <span className="date">{this.getDate()}</span>
+              {trashOrRestoreButton}
             </div>
             <EmailDetail  className="email-detail" email={this.props.email}/>
 
@@ -130,16 +140,11 @@ window.EmailsIndexItem = React.createClass({
             <fig className={figClass}></fig>
             {emailSender}
             <span className="date">{this.getDate()}</span>
+            {trashOrRestoreButton}
             <br/>
             <p className="email-body unexpanded">{shortBody}</p>
           </div>
         </div>;
-    }
-    var trashOrRestoreButton = "";
-    if (this.props.email.trashed === false) {
-      trashOrRestoreButton =   <button className="trash_button" onClick={this.handleTrashed}>Trash</button>;
-    } else {
-      trashOrRestoreButton = <button className="restore_button" onClick={this.handleRestore}>Restore</button>;
     }
     var replyButton = "";
     if (this.props.email.trashed === false) {
@@ -158,7 +163,6 @@ window.EmailsIndexItem = React.createClass({
     return(
         <div className={klass}>
           {view}
-          {trashOrRestoreButton}
         </div>
     );
   }
