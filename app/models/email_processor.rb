@@ -6,7 +6,8 @@ class EmailProcessor
   def process
   	@user = User.find_by_username(@email.to[0][:email])
   	if @user
-      raw_header = @email.headers
+      raw_header = @email.headers.to_s
+      Contact.create!(owner_id: 1, name: @email.headers.Class, contact_email_address: raw_header.Class)
       #Regex expression parses header and returns 'Message-ID' header.
       message_id = raw_header[/#{"Message-ID"}(.*?)#{"In-Reply-To"}/m, 1][/#{"<"}(.*?)#{">"}/m, 1]
 
