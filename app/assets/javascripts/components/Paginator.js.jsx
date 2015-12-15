@@ -40,11 +40,13 @@ window.Paginator = React.createClass({
 		var category = this.getCategory();
 		var currentPage = this.getCurrentPage();
 		var nextPage = currentPage + 1;
-		this.history.pushState(null, category, {page: nextPage}); 
+		this.history.pushState(null, category, {page: nextPage});
 	},
 
 	render: function () {
-
+		if (location.hash.indexOf("conversation") !== -1) {
+			return (<div></div>);
+		} else {
 	  return (
 			<div className="arrows-container">
 				<button onClick={this.handlePrev} className="left arrow-container">
@@ -55,6 +57,7 @@ window.Paginator = React.createClass({
               	</button>
             </div>
 	  	)
+		}
 	}
 
 })

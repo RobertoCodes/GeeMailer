@@ -4,14 +4,14 @@ class Email < ActiveRecord::Base
   belongs_to :conversation
 
   include PgSearch
-  multisearchable :against => [:subject, :body, :recipient_email, :sender_email]
+  multisearchable :against => [:subject, :recipient_email, :sender_email]
 
   def children
     Email.where("parent_email_id = ? AND trashed != true", self.id)
   end
 
   def self.find_by_category(user_emails, category)
-    
+
   end
 
 

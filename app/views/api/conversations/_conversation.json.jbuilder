@@ -22,4 +22,9 @@ else
   end
 
   json.last_email do json.partial!('api/emails/email', email: last_email, show_children: false) end
+
+  json.page params[:page]
+
+  json.total_count  @conversations.total_count
+
 end

@@ -22,7 +22,6 @@ window.ConversationsIndex = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    debugger;
     var queryParams = newProps.location.query;
     ApiUtil.fetchAllConversations(newProps.params.category, queryParams.page || 1);
   },
@@ -34,12 +33,22 @@ window.ConversationsIndex = React.createClass({
 
   render: function () {
     var category = "";
+    var pageStr = "";
     if (this.props.params) {
       category = this.props.params.category;
     }
 
+    if (this.state.conversations.length > 0) {
+      var startNum = (this.state.conversations[0].page -1) * 3 + 1
+      var endNum = startNum + this.state.conversations.length - 1
+
+      pageStr = <span className="page-string"> {startNum + "-" + endNum + " of "}
+        {this.state.conversations[0].total_count}</span>;
+    }
+
     return(
       <div className="emails-index">
+        {pageStr}
         <ul>
           {this.state.conversations.map(function (conversation) {
             var readClass = "";

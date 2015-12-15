@@ -56,7 +56,6 @@ window.EmailsIndexItem = React.createClass({
     var result;
 
     var secondsPast = (now.getTime() - emailTime.getTime()) / 1000;
-    debugger;
     if(secondsPast < 60){
       clockTimeArr = emailTime.toLocaleTimeString().split(":")
       clockTimeArr[2] = clockTimeArr[2].slice(2);

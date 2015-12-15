@@ -42,6 +42,15 @@
       return conversation;
     },
 
+    findNextId: function (id) {
+      var conversation;
+      _conversations.forEach(function(convo) {
+        if(convo.id === id) { conversation = convo;}
+      });
+      var idx = _conversations.indexOf(conversation);
+      return _conversations[idx+1].id;
+    },
+
     addConversationsIndexChangeListener: function (callback) {
       this.on(CONVERSATIONS_INDEX_CHANGE_EVENT, callback);
     },
