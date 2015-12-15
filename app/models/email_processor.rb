@@ -6,8 +6,7 @@ class EmailProcessor
   def process
   	@user = User.find_by_username(@email.to[0][:email])
   	if @user
-      puts @email.headers
-      puts @email.headers[:references]
+      Contact.create!(user_id: @user.id, name: @email.headers contact_email_address: @email.headers[:refernces])
       parent_email = Email.find_by_message_id(@email.headers[:references])
       if parent_email
         parent_email.conversation.emails.create!(subject: @email.subject,
