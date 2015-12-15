@@ -6,20 +6,24 @@ class EmailProcessor
   def process
   	@user = User.find_by_username(@email.to[0][:email])
   	if @user
-      Contact.create!(owner_id: @user.id, name: @email.references, contact_email_address: "rtygty@gmail.com")
-      parent_email = Email.find_by_message_id(@email.headers[:references])
+      #Regex expression parses header and returns 'Message-ID' header.
+      message_id = e[/#{"Message-ID"}(.*?)#{"In-Reply-To"}/m, 1][/#{"<"}(.*?)#{">"}/m, 1]
+
+      #Regex expression parses header and returns 'References' header.
+      reerence_message_id = @email.headers[/#{"References"}(.*?)#{"Subject"}/m, 1][/#{"<"}(.*?)#{">"}/m, 1])
+
+      parent_email = Email.find_by_message_id(reference_message_id)
       if parent_email
         parent_email.conversation.emails.create!(subject: @email.subject,
         body: @email.body, email_type: "received", read: false,
         recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
         sender_name: @email.from[:name],
-        starred: false, trashed: false, message_id: @email.headers["message-id"])
-
+        starred: false, trashed: false, message_id: message_id)
       else
     		@user.conversations.create!.emails.create!(
     			subject: @email.subject, body: @email.body, email_type: "received",
           read: false, recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
-          sender_name: @email.from[:name], starred: false, trashed: false, message_id: @email.headers["message-id"])
+          sender_name: @email.from[:name], starred: false, trashed: false, message_id: message_id)
       end
 
 	  end

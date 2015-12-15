@@ -20,7 +20,8 @@ class Api::EmailsController < ApplicationController
         @email.save!
     end
     delivered_email = EmailMailer.send_email(@email).deliver_now
-    @email.message_id = "<" + delivered_email.message_id + ">"
+    @email.message_id = delivered_email.message_id
+    debugger
     @email.save!
 
     render :template => "api/conversations/show"
