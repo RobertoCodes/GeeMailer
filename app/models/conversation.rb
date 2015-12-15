@@ -10,19 +10,19 @@ class Conversation < ActiveRecord::Base
 
     when "starred", "/starred"
       current_user.conversations.includes(:emails).where("starred = true AND trashed = false")
-        .references(:emails)
+        .references(:emails).order(updated_at: :desc)
     when "important", "/important"
       current_user.conversations.includes(:emails).where("important = true AND trashed = false")
-        .references(:emails)
+        .references(:emails).order(updated_at: :desc)
     when "/", "inbox", "/inbox"
       current_user.conversations.includes(:emails).where("email_type = 'received' AND trashed = false")
-        .references(:emails)
+        .references(:emails).order(updated_at: :desc)
     when "sent", "/sent"
       current_user.conversations.includes(:emails).where("email_type = 'sent' AND trashed = false")
-        .references(:emails)
+        .references(:emails).order(updated_at: :desc)
     when "trash", "/trash"
       current_user.conversations.includes(:emails).where("trashed = true")
-        .references(:emails)
+        .references(:emails).order(updated_at: :desc)
     end
 
   end
