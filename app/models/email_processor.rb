@@ -6,13 +6,11 @@ class EmailProcessor
   def process
   	@user = User.find_by_username(@email.to[0][:email])
   	if @user
-      raw_header = @email.headers.to_s
-      Contact.create!(owner_id: 1, name: @email.headers.keys, contact_email_address: @email.headers.values)
       #Regex expression parses header and returns 'Message-ID' header.
-      message_id = raw_header[/#{"Message-ID"}(.*?)#{"In-Reply-To"}/m, 1][/#{"<"}(.*?)#{">"}/m, 1]
+      message_id = @email.headers["Message-ID"]
 
       #Regex expression parses header and returns 'References' header.
-      reference_message_id = raw_header[/#{"References"}(.*?)#{"Subject"}/m, 1][/#{"<"}(.*?)#{">"}/m, 1]
+      reference_message_id = @email.headers["References"]
 
       parent_email = Email.find_by_message_id(reference_message_id)
       if parent_email
