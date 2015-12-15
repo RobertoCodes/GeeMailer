@@ -32,7 +32,7 @@ window.ApiUtil = {
   fetchAllConversations: function (category, page) {
     $.ajax({
       url: "/api/conversations",
-      data: {category : category, page : page},
+      data: {category : category || "/inbox", page : page},
       success: function (conversations) {
         ApiActions.receiveAllConversations(conversations);
       }
@@ -56,6 +56,7 @@ window.ApiUtil = {
       data: {email: email},
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
+        ApiActions.receiveNotification({notification : "Your message has been sent."});
         callback && callback();
       }
     });
@@ -68,6 +69,8 @@ window.ApiUtil = {
       data: {contact: contact},
       success: function (contact) {
         ApiActions.receiveOneContact(contact);
+        ApiActions.receiveNotification({notification : "Contact has been added."});
+
       }
     });
   },
@@ -79,6 +82,8 @@ window.ApiUtil = {
       data: {column: "trashed", category: category || ""},
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
+        ApiActions.receiveNotification({notification : "Your message has been sent."});
+
       }
     });
   },
@@ -90,7 +95,9 @@ window.ApiUtil = {
       data: {change: "trashed"},
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
+        ApiActions.receiveNotification({notification : "The conversation has been moved to the Trash."});
         callback && callback();
+
       }
     });
   },

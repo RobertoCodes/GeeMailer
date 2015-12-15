@@ -1,5 +1,5 @@
 class Email < ActiveRecord::Base
-  validates :subject, :body, :sender_id, :email_type, :category_id, presence: true
+  validates :subject, :body, :email_type, :sender_email, :recipient_email, presence: true
 
   belongs_to :conversation
 

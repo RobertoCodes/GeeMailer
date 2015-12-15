@@ -55,8 +55,8 @@ window.ConversationsIndex = React.createClass({
             if (conversation.read) {
               readClass = "read";
             }
-            return <div className={"inbox-row " + readClass}> <ConversationsIndexItem key={conversation.id}
-              conversation={conversation} category= {category}/></div>;
+            return <div key={conversation.id} className={"inbox-row " + readClass}>
+              <ConversationsIndexItem conversation={conversation} category= {category}/></div>;
           }.bind(this))}
         </ul>
         {this.props.children}

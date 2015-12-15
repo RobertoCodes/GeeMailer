@@ -5,10 +5,8 @@ class Api::EmailsController < ApplicationController
 
   def create
     @email = Email.new(email_params)
-    @email.sender_id = current_user.id
     @email.sender_email = current_user.username
     @email.email_type = "sent"
-    @email.category_id = 1
     if @email.parent_email_id
       @parent_email = Email.find(@email.parent_email_id)
         @email.conversation_id = @parent_email.conversation.id

@@ -24,7 +24,8 @@ window.ContactsIndex = React.createClass({
       <div className="contacts-index">
         <ul>
           {this.state.contacts.map(function (contact) {
-            return (<div className="contact-index-item"> <ContactsIndexItem key={contact.id} contact={contact}/></div>);
+            return (<div key={contact.id} className="contact-index-item"> <ContactsIndexItem
+             contact={contact}/></div>);
           })}
         </ul>
       {this.props.children}

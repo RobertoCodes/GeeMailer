@@ -14,7 +14,7 @@ class Conversation < ActiveRecord::Base
     when "important", "/important"
       current_user.conversations.includes(:emails).where("important = true AND trashed = false")
         .references(:emails)
-    when "/", "inbox", "/inbox", "compose"
+    when "/", "inbox", "/inbox"
       current_user.conversations.includes(:emails).where("email_type = 'received' AND trashed = false")
         .references(:emails)
     when "sent", "/sent"

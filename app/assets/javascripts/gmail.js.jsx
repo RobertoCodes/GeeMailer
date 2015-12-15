@@ -5,6 +5,7 @@ $(function () {
   var RouteHandler = ReactRouter.RouteHandler;
 
   var rootEl = document.getElementById('gmail');
+  if (rootEl !== null) {
     React.render((
       <div className="geemailer">
         <nav className="top-nav group">
@@ -15,6 +16,7 @@ $(function () {
           <h3>{rootEl.dataset.user}</h3>
           <SignOut className="SignOut"/>
         </nav>
+        <Notification/>
         <Router>
           <Route path="/" component={Index}>
             <IndexRoute component={ConversationsIndex}/>
@@ -30,4 +32,5 @@ $(function () {
         </Router>
       </div>
     ), rootEl);
+  }
   });

@@ -64,9 +64,11 @@ window.ApiActions = {
     });
   },
 
-
-
-
-
+  receiveNotification: function (notification) {
+    AppDispatcher.dispatch({
+      actionType: NotificationConstants.RECEIVE_NOTIFICATION,
+      notification: notification
+    });
+  },
 
 };
