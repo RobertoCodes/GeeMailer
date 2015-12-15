@@ -7,10 +7,10 @@ class EmailProcessor
   	@user = User.find_by_username(@email.to[0][:email])
   	if @user
       #Regex expression parses header and returns 'Message-ID' header.
-      message_id = e[/#{"Message-ID"}(.*?)#{"In-Reply-To"}/m, 1][/#{"<"}(.*?)#{">"}/m, 1]
+      message_id = @email.headers[/#{"Message-ID"}(.*?)#{"In-Reply-To"}/m, 1][/#{"<"}(.*?)#{">"}/m, 1]
 
       #Regex expression parses header and returns 'References' header.
-      reerence_message_id = @email.headers[/#{"References"}(.*?)#{"Subject"}/m, 1][/#{"<"}(.*?)#{">"}/m, 1])
+      reference_message_id = @email.headers[/#{"References"}(.*?)#{"Subject"}/m, 1][/#{"<"}(.*?)#{">"}/m, 1]
 
       parent_email = Email.find_by_message_id(reference_message_id)
       if parent_email
