@@ -10,11 +10,6 @@ class Email < ActiveRecord::Base
     Email.where("parent_email_id = ? AND trashed != true", self.id)
   end
 
-  def self.find_by_category(user_emails, category)
-
-  end
-
-
   def self.find_by_user (user_id, username)
     Email.where("sender_id = ? OR recipient_email = ?", user_id, username)
   end

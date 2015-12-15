@@ -42,7 +42,7 @@ window.ApiUtil = {
   fetchSingleConversation: function (id, category) {
       $.ajax({
         url: "/api/conversations/" + id,
-        data: {category: category || ""},
+        data: {category: category || "/inbox"},
         success: function (conversation) {
           ApiActions.receiveOneConversation(conversation);
         }
