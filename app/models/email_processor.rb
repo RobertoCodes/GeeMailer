@@ -12,21 +12,26 @@ class EmailProcessor
       #Regex expression parses header and returns 'References' header.
       reference_message_id = @email.headers["References"]
 
-      parent_email = Email.find_by_message_id(reference_message_id)
-      if parent_email
-        parent_email.conversation.emails.create!(subject: @email.subject,
-        body: @email.body, email_type: "received", read: false,
-        recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
-        sender_name: @email.from[:name],
-        starred: false, trashed: false, message_id: message_id)
+      if reference_message_id != nil
+        parent_email = Email.find_by_message_id(reference_message_id)
+        if parent_email
+          parent_email.conversation.emails.create!(subject: @email.subject,
+          body: @email.body, email_type: "received", read: false,
+          recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
+          sender_name: @email.from[:name],
+          starred: false, trashed: false, message_id: message_id)
+        else
+      		@user.conversations.create!.emails.create!(
+      			subject: @email.subject, body: @email.body, email_type: "received",
+            read: false, recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
+            sender_name: @email.from[:name], starred: false, trashed: false, message_id: message_id)
+          end
       else
-    		@user.conversations.create!.emails.create!(
-    			subject: @email.subject, body: @email.body, email_type: "received",
+        @user.conversations.create!.emails.create!(
+          subject: @email.subject, body: @email.body, email_type: "received",
           read: false, recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
           sender_name: @email.from[:name], starred: false, trashed: false, message_id: message_id)
-      end
-
-	  end
+	    end
   end
 
 end
