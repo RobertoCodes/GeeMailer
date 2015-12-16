@@ -27,8 +27,10 @@ class Api::ConversationsController < ApplicationController
     if params[:change] == "trashed"
       @conversation.emails.update_all(trashed: true)
     elsif params[:change] == "read"
+      ActiveRecord::Base.record_timestamps = false
       @conversation.read = true
       @conversation.save!
+      ActiveRecord::Base.record_timestamps = true
     elsif params[:change] == "restore"
       @conversation.emails.update_all(trashed: false)
     end

@@ -10,25 +10,49 @@ window.ConversationsIndex = React.createClass({
   },
 
   componentDidMount: function () {
+    ConversationStore.addConversationsIndexChangeListener(this._onChange);
+    ConversationStore.addConversationDetailChangeListener(this._onChange);
+
+    var category = this.fetchConversations();
+
+    debugger;
+    if (category === "inbox") {
+      intervalId  = setInterval(this.fetchConversations, 5000);
+      this.setState({intervalId: intervalId});
+    }
+  },
+
+  fetchConversations: function () {
     var category;
     category = this.props.location.pathname.split("/")[1];
     if (category === "") {
       category = "inbox"
     }
-    ConversationStore.addConversationsIndexChangeListener(this._onChange);
-    ConversationStore.addConversationDetailChangeListener(this._onChange);
     var queryParams = this.props.location.query;
     ApiUtil.fetchAllConversations(category, queryParams.page || 1);
+    return category;
   },
 
   componentWillReceiveProps: function (newProps) {
     var queryParams = newProps.location.query;
     ApiUtil.fetchAllConversations(newProps.params.category, queryParams.page || 1);
+    debugger;
+    if (newProps.params.category === "inbox" && this.state.intervalId == false) {
+      intervalId  = setInterval(this.fetchConversations, 5000);
+      this.setState({intervalId: intervalId});
+    } else if (this.state.intervalId != false) {
+      clearInterval(this.state.intervalId);
+      this.setState({intervalId: 0});
+    }
   },
 
   componentWillUnmount: function () {
+
     ConversationStore.removeConversationsIndexChangeListener(this._onChange);
     ConversationStore.removeConversationDetailChangeListener(this._onChange);
+    clearInterval(this.state.intervalId);
+    this.setState({intervalId: 0});
+
   },
 
   render: function () {

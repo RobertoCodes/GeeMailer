@@ -1,7 +1,7 @@
 class Email < ActiveRecord::Base
   validates :subject, :body, :email_type, :sender_email, :recipient_email, presence: true
 
-  belongs_to :conversation, touch: true
+  belongs_to :conversation
 
   include PgSearch
   multisearchable :against => [:subject, :recipient_email, :sender_email]
