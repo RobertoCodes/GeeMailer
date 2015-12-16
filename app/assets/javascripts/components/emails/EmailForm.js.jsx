@@ -23,14 +23,13 @@ window.EmailForm = React.createClass({
 
   createEmail: function (e) {
     e.preventDefault();
+    this.history.goBack();
     var email = {};
     Object.keys(this.state).forEach(function (key) {
       email[key] = this.state[key];
     }.bind(this));
-    ApiUtil.createEmail(email, function () {
-      this.history.goBack();
-    }.bind(this));
     this.setState({ recipient_email: "", subject: "", body: "" });
+    ApiUtil.createEmail(email)
   },
 
   closeForm: function (e) {

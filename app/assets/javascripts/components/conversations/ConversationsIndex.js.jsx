@@ -15,7 +15,6 @@ window.ConversationsIndex = React.createClass({
 
     var category = this.fetchConversations();
 
-    debugger;
     if (category === "inbox") {
       intervalId  = setInterval(this.fetchConversations, 5000);
       this.setState({intervalId: intervalId});
@@ -36,7 +35,6 @@ window.ConversationsIndex = React.createClass({
   componentWillReceiveProps: function (newProps) {
     var queryParams = newProps.location.query;
     ApiUtil.fetchAllConversations(newProps.params.category, queryParams.page || 1);
-    debugger;
     if (newProps.params.category === "inbox" && this.state.intervalId == false) {
       intervalId  = setInterval(this.fetchConversations, 5000);
       this.setState({intervalId: intervalId});
