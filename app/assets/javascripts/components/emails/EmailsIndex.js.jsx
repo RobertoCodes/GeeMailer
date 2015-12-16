@@ -25,9 +25,9 @@ window.EmailsIndex = React.createClass({
               if (email.read) {
                 klass = "read";
               }
-              return <div className={"inbox-row conversation " + klass}> <EmailsIndexItem key={email.id} email={email}/></div>;
+              return <div className={"inbox-row conversation "}> <EmailsIndexItem key={email.id} email={email}/></div>;
             })}
-            <div className={"inbox-row conversation " + lastEmailKlass}> <EmailsIndexItem expand="true"
+            <div className={"inbox-row conversation "}> <EmailsIndexItem expand="true"
               key={lastEmail.id} email={lastEmail}/></div>
           </ul>
           <ReplyForm previousEmail={lastEmail}/>

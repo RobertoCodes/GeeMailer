@@ -147,9 +147,13 @@ window.EmailsIndexItem = React.createClass({
       </div>;
       klass += " expanded"
     } else {
+      var klass = "email-list-item group unexpanded";
+      if (this.props.email.read) {
+        klass += " read";
+      }
       view =
         <div>
-          <div onClick={this.handleClick} className="email-list-item group">
+          <div onClick={this.handleClick} className={klass}>
             <fig className={figClass}></fig>
             {emailSender}
             <span className="date">{this.getDate()}</span>

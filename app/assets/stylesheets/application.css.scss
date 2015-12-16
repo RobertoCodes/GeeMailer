@@ -279,6 +279,16 @@ nav > h3 {
   width: 85%;
 }
 
+.inbox-row.conversation {
+  padding: 0px 0px;
+}
+
+.inbox-row.conversation:first-child {
+  .email-list-item:first-child {
+    border-top: thin solid lightgray
+  }
+}
+
 .inbox-row.conversation:hover {
   background-image: none;
 }
@@ -302,6 +312,10 @@ nav > h3 {
 .email-list-item.expanded {
   background: white;
   border: none;
+}
+
+.email-list-item.unexpanded.read {
+  background: rgba(243,243,243,0.85);
 }
 
 .email-name.index-item {
@@ -370,6 +384,9 @@ nav > h3 {
 .conversation-title {
   font-size: 1.3em;
   margin-left: 10px;
+  margin-top: 4px;
+  margin-bottom: 13px;
+  display: block;
 }
 
 .star_button{
@@ -491,13 +508,22 @@ button.reply_button {
 }
 
 .compose-button {
-  background: #d14836;
   border-radius: 2px;
   border: thin solid #d14836;
-  color: white;
+  color: #fff;
+  font-size: 11px;
   font-weight: bold;
-  width: 100px;
+  width: 115px;
   height: 30px;
+  background-color: #d14836;
+  background-image: -webkit-linear-gradient(top,#dd4b39,#d14836);
+  text-transform: uppercase;
+  text-shadow: 0 1px rgba(0,0,0,0.1);
+}
+
+.compose-button:hover {
+  background-color: #c53727;
+  background-image: -webkit-linear-gradient(top,#dd4b39,#c53727);
 }
 
 .compose-button:focus {
@@ -975,9 +1001,8 @@ button.reply_button {
 .trash-container.conversation {
   position: absolute;
   width: 75px;
-  margin-left: 0;
-  margin-bottom: 5px;
-  margin-top: -50px;
+  margin-left: 75px;
+  margin-top: -92px;
 }
 
 .page-string {
