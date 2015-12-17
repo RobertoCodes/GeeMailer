@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
 
-  # before_action :check_signed_in
-
   def new
-
+    
   end
 
 
   def create
-    @user = User.new(user_params)
+    email_address = user_params[:username].downcase
+    if email_address["@geemailer.com"].nil?
+      email_address += "@geemailer.com"
+    end
+
+    @user = User.new(user_params[:name], email_address, user_params[:password])
     if @user.save
       sign_in(@user)
       redirect_to root_url
@@ -18,13 +21,10 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:name, :username, :password)
   end
-
 
 end

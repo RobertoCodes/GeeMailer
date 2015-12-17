@@ -1,12 +1,19 @@
 window.ContactsIndex = React.createClass({
   getInitialState: function () {
-    return { contacts: ContactStore.all()};
+    return { contacts: ContactStore.all(), selectedContact: null};
   },
 
   _onChange: function () {
     this.setState({ contacts: ContactStore.all()});
   },
 
+  buildEmailForm: function (contact) {
+    this.setState({selectedContact: contact});
+  },
+
+  componentWillReceiveProps: function () {
+    this.setState({selectedContact: null});
+  },
 
   componentDidMount: function () {
     ContactStore.addContactsIndexChangeListener(this._onChange);
@@ -24,10 +31,13 @@ window.ContactsIndex = React.createClass({
       <div className="contacts-index">
         <ul>
           {this.state.contacts.map(function (contact) {
-            return (<div key={contact.id} className="contact-index-item"> <ContactsIndexItem
-             contact={contact}/></div>);
-          })}
+            return (<div key={contact.id} onClick={this.buildEmailForm.bind(null, contact)}
+                      className="contact-index-item">
+                      <a  className="contact-name">{contact.name}</a>
+                    </div>);
+          }.bind(this))}
         </ul>
+        <EmailForm contact={this.state.selectedContact}/>
       {this.props.children}
       </div>
     );

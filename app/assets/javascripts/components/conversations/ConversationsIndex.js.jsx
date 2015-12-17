@@ -45,43 +45,46 @@ window.ConversationsIndex = React.createClass({
   },
 
   componentWillUnmount: function () {
-
     ConversationStore.removeConversationsIndexChangeListener(this._onChange);
     ConversationStore.removeConversationDetailChangeListener(this._onChange);
     clearInterval(this.state.intervalId);
     this.setState({intervalId: 0});
-
   },
 
   render: function () {
     var category = "";
     var pageStr = "";
-    if (this.props.params) {
+    var page;
+    if (this.props.params.category) {
       category = this.props.params.category;
     }
 
     if (this.state.conversations.length > 0) {
-      var startNum = (this.state.conversations[0].page -1) * 3 + 1
+      var page = this.state.conversations[0].page;
+      var startNum = (page -1) * 3 + 1;
       var endNum = startNum + this.state.conversations.length - 1
-
+      var total = this.state.conversations[0].total_count
       pageStr = <span className="page-string"> {startNum + "-" + endNum + " of "}
-        {this.state.conversations[0].total_count}</span>;
+        {total}</span>;
     }
 
     return(
-      <div className="emails-index">
-        {pageStr}
-        <ul>
-          {this.state.conversations.map(function (conversation) {
-            var readClass = "";
-            if (conversation.read) {
-              readClass = "read";
-            }
-            return <div key={conversation.id} className={"inbox-row " + readClass}>
-              <ConversationsIndexItem conversation={conversation} category= {category}/></div>;
-          }.bind(this))}
-        </ul>
-        {this.props.children}
+      <div>
+        <Paginator category= {category} page= {parseInt(page)} countLeft= {total-endNum}></Paginator>
+        <div className="emails-index">
+          {pageStr}
+          <ul>
+            {this.state.conversations.map(function (conversation) {
+              var readClass = "";
+              if (conversation.read) {
+                readClass = "read";
+              }
+              return <div key={conversation.id} className={"inbox-row " + readClass}>
+                <ConversationsIndexItem conversation={conversation} category= {category}/></div>;
+            }.bind(this))}
+          </ul>
+          {this.props.children}
+        </div>
       </div>
     );
   }

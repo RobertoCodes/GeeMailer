@@ -1,15 +1,24 @@
 <h1 class="sign-header">Sign in to continue to GeeMailer</h1>
 <div class="enter_form">
-<figure id="avatar"></figure>
+<figure id="avatar" class="smaller"></figure>
 <br>
 <form action="<%= session_url %>" method="POST">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"></input>
-  <input class="sign_in_input" type="text" value="" name="user[username]" placeholder="Email"></input><br>
+  <input class="sign_in_input" type="text" value="" name="user[username]" placeholder="Username or Email"></input><br>
   <input class="sign_in_input" type="password" value="" name="user[password]" placeholder="Password"></input><br>
   <h3 class="errors"><%= render partial: "layouts/errors"%><h3>
   <p>
   </p>
   <button class="log_button" type="submit" value="Sign In">Sign In</button>
+</form>
+
+<form action="<%= session_url %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"></input>
+  <input type="hidden" type="text" value="kris.kringle" name="user[username]"></input><br>
+  <input type="hidden" value="whitebeard" name="user[password]"></input><br>
+  <p>
+  </p>
+  <button class="log_button santa" value="Sign In as Santa (Tour)">Take a Tour as Santa</button>
 </form>
 <p>
 </p>

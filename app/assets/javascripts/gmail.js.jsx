@@ -16,17 +16,15 @@ $(function () {
           <h3>{rootEl.dataset.user}</h3>
           <SignOut className="SignOut"/>
         </nav>
-        <Notification/>
+        <Notification />
         <Router>
           <Route path="/" component={Index}>
             <IndexRoute component={ConversationsIndex}/>
             <Route path=":category" component={ConversationsIndex}>
-              <Route path="compose" component={EmailForm}/>
             </Route>
             <Route path="compose" component={EmailForm}/>
             <Route path="email/:emailId" component={EmailDetail}/>
             <Route path="conversation/:conversationId" component={ConversationDetail}>
-              <Route path="compose" component={EmailForm}/>
             </Route>
           </Route>
         </Router>

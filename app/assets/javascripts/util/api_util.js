@@ -75,14 +75,27 @@ window.ApiUtil = {
     });
   },
 
-  toggleTrashEmail: function (id, category) {
+  trashEmail: function (id) {
     $.ajax({
       url: "/api/emails/" + id,
       method: "PATCH",
-      data: {column: "trashed", category: category || ""},
+      data: {column: "trashed", category: ""},
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
-        ApiActions.receiveNotification({notification : "Your message has been sent."});
+        ApiActions.receiveNotification({notification : "The message has been moved to the trash."});
+
+      }
+    });
+  },
+
+  restoreEmail: function (id, category) {
+    $.ajax({
+      url: "/api/emails/" + id,
+      method: "PATCH",
+      data: {column: "trashed", category: ""},
+      success: function (conversation) {
+        ApiActions.receiveOneConversation(conversation);
+        ApiActions.receiveNotification({notification : "The message has been restored."});
 
       }
     });
@@ -96,8 +109,6 @@ window.ApiUtil = {
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
         ApiActions.receiveNotification({notification : "The conversation has been moved to the Trash."});
-        callback && callback();
-
       }
     });
   },
@@ -109,6 +120,7 @@ window.ApiUtil = {
       data: {change: "restore"},
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
+        ApiActions.receiveNotification({notification : "The conversation has been restored."});
       }
     });
   },

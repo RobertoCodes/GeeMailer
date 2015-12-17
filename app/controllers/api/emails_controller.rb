@@ -19,7 +19,7 @@ class Api::EmailsController < ApplicationController
         @email.conversation_id = @conversation.id
         @email.save!
     end
-    delivered_email = EmailMailer.send_email(@email).deliver_now
+    delivered_email = EmailMailer.send_email(@email, current_user.name).deliver_now
     @email.message_id = "<" + delivered_email.message_id + ">"
     @email.save!
 

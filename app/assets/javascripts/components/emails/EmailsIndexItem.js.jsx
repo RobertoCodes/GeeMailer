@@ -21,9 +21,9 @@ window.EmailsIndexItem = React.createClass({
   toggleTrashEmail: function (e) {
     e.stopPropagation();
     if (this.props.email.trashed) {
-      ApiUtil.toggleTrashEmail(this.props.email.id, "trash");
+      ApiUtil.restoreEmail(this.props.email.id, "trash");
     } else {
-      ApiUtil.toggleTrashEmail(this.props.email.id);
+      ApiUtil.trashEmail(this.props.email.id);
     }
   },
 
