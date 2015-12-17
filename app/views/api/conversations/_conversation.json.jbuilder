@@ -14,7 +14,7 @@ if show_emails
     end
   end
 else
-  last_email = conversation.emails.last
+  last_email = Conversation.find(conversation.id).emails.last
   if params[:category] == "trash"
     json.num_emails conversation.emails.where("trashed = true").count();
   else

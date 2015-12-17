@@ -34,6 +34,14 @@ window.ConversationsIndexItem = React.createClass({
       email_name += " (" + this.props.conversation.num_emails + ")";
     }
 
+    if (this.props.conversation.last_email) {
+      var subject = this.props.conversation.last_email.subject;
+      if (subject.indexOf("Re:") !== -1) {
+        subject = subject.split("Re:");
+        subject = "Re:" + subject[subject.length-1];
+      }
+    }
+
     // var trashOrRestoreButton = "";
     // if (this.props.conversation.last_email.trashed === false) {
     //   trashOrRestoreButton =   <button className="trash_button" onClick={this.handleTrashed}>Trash</button>;
@@ -61,7 +69,7 @@ window.ConversationsIndexItem = React.createClass({
       <button className={"important_button " + importantClass} onClick={this.toggleImportant}></button>
       <section onClick={this.handleClick} className="email-list-item group">
         <p className="email-name">{email_name}</p>
-        <p className="email-subject">{this.props.conversation.last_email.subject}</p>
+        <p className="email-subject">{subject}</p>
         <p className="email-body-preview">{shortBody}</p>
         <p className="email-date">{emailDate}</p>
       </section>
