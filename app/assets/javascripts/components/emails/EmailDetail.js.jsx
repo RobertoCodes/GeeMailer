@@ -17,8 +17,7 @@ window.EmailDetail = React.createClass({
     }
   },
 
-
-  componentDidMount: function () {
+  componentWillUnmount: function () {
     this._updateReadState();
   },
 
