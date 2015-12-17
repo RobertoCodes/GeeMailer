@@ -32,6 +32,7 @@ class EmailProcessor
           read: false, recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
           sender_name: @email.from[:name], starred: false, trashed: false, message_id: message_id)
 	    end
+    end
   end
 
 end
