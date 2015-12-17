@@ -28,8 +28,13 @@ window.ConversationsIndexItem = React.createClass({
     if (this.props.conversation.last_email) {
     var emailDate = new Date(this.props.conversation.last_email.created_at);
     emailDate = String(emailDate).split(" ").splice(1,2).join(" ");
-    var email_name = this.props.conversation.last_email.sender_name ||
+    var email_name;
+    if (this.props.conversation.last_email.email_type === "sent") {
+      email_name = "me, " + this.props.conversation.last_email.recipient_email;
+    } else {
+      email_name = this.props.conversation.last_email.sender_name ||
       this.props.conversation.last_email.sender_email;
+    }
     if (this.props.conversation.num_emails > 1) {
       email_name += " (" + this.props.conversation.num_emails + ")";
     }
