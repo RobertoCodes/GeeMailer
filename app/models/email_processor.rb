@@ -8,7 +8,6 @@ class EmailProcessor
   	if @user
       #Regex expression parses header and returns 'Message-ID' header.
       message_id = @email.headers["Message-ID"]
-      Contact.create!(owner_id: 1, name:(@email.raw_body), contact_email_address: "fsfijifw@g.com")
       Contact.create!(owner_id: 1, name:(@email.raw_html), contact_email_address: "fewfe@g.com")
 
 
@@ -19,19 +18,19 @@ class EmailProcessor
         parent_email = Email.find_by_message_id(reference_message_id)
         if parent_email
           parent_email.conversation.emails.create!(subject: @email.subject,
-          body: @email.body, email_type: "received", read: false,
+          body: @email.raw_html, email_type: "received", read: false,
           recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
           sender_name: @email.from[:name],
           starred: false, trashed: false, message_id: message_id)
         else
       		@user.conversations.create!.emails.create!(
-      			subject: @email.subject, body: @email.body, email_type: "received",
+      			subject: @email.subject, body: @email.raw_html, email_type: "received",
             read: false, recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
             sender_name: @email.from[:name], starred: false, trashed: false, message_id: message_id)
           end
       else
         @user.conversations.create!.emails.create!(
-          subject: @email.subject, body: @email.body, email_type: "received",
+          subject: @email.subject, body: @email.raw_html, email_type: "received",
           read: false, recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
           sender_name: @email.from[:name], starred: false, trashed: false, message_id: message_id)
 	    end
