@@ -88,7 +88,6 @@ window.EmailsIndexItem = React.createClass({
 
 
   render: function () {
-
     var view = "";
     var klass = "email-list-item group";
     var shortBody = this.props.email.body.split(" ").slice(0,20).join(" ");

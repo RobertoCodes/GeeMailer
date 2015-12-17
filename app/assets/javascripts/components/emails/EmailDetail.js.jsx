@@ -17,30 +17,10 @@ window.EmailDetail = React.createClass({
     }
   },
 
-  // getInitialState: function () {
-  //   return this.getStateFromStore();
-  // },
-
-  // componentWillReceiveProps: function (newProps) {
-  //   ApiUtil.fetchSingleEmail(parseInt(newProps.params.emailId));
-  // },
 
   componentDidMount: function () {
     this._updateReadState();
-    // ApiUtil.fetchSingleEmail(parseInt(this.props.params.emailId));
   },
-
-  // componentWillUnmount: function () {
-  //   EmailStore.removeEmailDetailChangeListener(this._onChange);
-  // },
-
-
-  // deleteConversation: function (e) {
-  //   e.preventDefault();
-  //   ApiUtil.deleteConversation(this.state.email.id, function () {
-  //     this.history.pushState(null, "/", {});
-  //   }.bind(this));
-  // },
 
   render: function () {
 
@@ -55,9 +35,8 @@ window.EmailDetail = React.createClass({
           <h4>{emailReceiver}</h4>
           <br/>
           <br/>
-          <p> {this.props.email.body} </p>
+          <p>{this.props.email.body}</p>
         </div>
       );
   }
 });
-          // <ReplyForm previousEmail={this.props.email}/> <<-- only show if they click reply.

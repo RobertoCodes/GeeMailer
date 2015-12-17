@@ -168,7 +168,8 @@ Conversation.create!(user_id: u1.id).emails.create!(subject: "The mets killin it
 email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
 sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
 
-Conversation.create!(user_id: u1.id).emails.create!(subject: "She cray", body: "Get this girl away!",
+Conversation.create!(user_id: u1.id).emails.create!(subject: "She cray", body:
+"<div dir='ltr'>Yo santa, <div><br></div><div>How&#39;s it hangin dude?</div><div><br></div><div>Yeah, that sounds good to me.</div><div><br></div><div>Call me.</div><div><br></div><div><br></div></div>",
  email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
 sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
 

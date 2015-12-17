@@ -25,7 +25,6 @@ window.ReplyForm = React.createClass({
     this.setState({body: e.currentTarget.value});
   },
 
-
   createReply: function (e) {
     e.preventDefault();
     var email = {};
@@ -33,7 +32,7 @@ window.ReplyForm = React.createClass({
       email[key] = this.state[key];
     }.bind(this));
     ApiUtil.createEmail(email);
-    this.setState({ recipient_email: "", body: "" , expanded: false});
+    this.setState({ body: "" , expanded: false});
   },
 
   clickForm: function (e) {
