@@ -13,166 +13,166 @@
 #
 #
 #
-# u1 = User.create!(username: "sonoflaertes@geemailer.com", password: "ulysses")
-
 User.destroy_all
+u1 = User.create!(username: "sonoflaertes@geemailer.com", password: "ulysses")
+
 
 santa = User.create!(name: "Santa Claus", username: "kris.kringle@geemailer.com", password: "whitebeard")
-#
-# c1 = Conversation.create!(user_id: u1.id)
-# c2 = Conversation.create!(user_id: u1.id)
-# c3 = Conversation.create!(user_id: u1.id)
-# c4 = Conversation.create!(user_id: u1.id)
-# c5 = Conversation.create!(user_id: u1.id)
-# c6 = Conversation.create!(user_id: u1.id)
-# c7 = Conversation.create!(user_id: u1.id)
-# c8 = Conversation.create!(user_id: u1.id)
-# c9 = Conversation.create!(user_id: u1.id)
-# c10 = Conversation.create!(user_id: u1.id)
-#
-#
-# e1 = Email.create!(subject: "Lunch", body: "Duuuude, I feel horrible I sent that shit before. That was really stupid of me. Let's get
+
+c1 = Conversation.create!(user_id: u1.id)
+c2 = Conversation.create!(user_id: u1.id)
+c3 = Conversation.create!(user_id: u1.id)
+c4 = Conversation.create!(user_id: u1.id)
+c5 = Conversation.create!(user_id: u1.id)
+c6 = Conversation.create!(user_id: u1.id)
+c7 = Conversation.create!(user_id: u1.id)
+c8 = Conversation.create!(user_id: u1.id)
+c9 = Conversation.create!(user_id: u1.id)
+c10 = Conversation.create!(user_id: u1.id)
+
+
+e1 = Email.create!(subject: "Lunch", body: "Duuuude, I feel horrible I sent that shit before. That was really stupid of me. Let's get
+lunch, it's totes on me brah!", email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: false, trashed: false)
+e1.conversation_id = c1.id
+e1.save!
+
+e2 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. So, I hate to bring this up but,
+this has kinda been messing with my head the last couple days. We were at that coffee shop and I thought it would be cool to pay for your drink, and yeah,
+you said thank you but like it didn't really seem like you were that thankful. Like, I don't pick up checks for anyone. Ever! Yeah,
+just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", read: true,
+parent_email_id: 4, email_type: "received", recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
+e2.conversation_id = c2.id
+e2.save!
+
+e3 = Email.create!(subject: "The Church Needs You", body: "Paul, me, you, and Jesus need to talk. Come visit.",
+ email_type: "received", recipient_email: "sonoflaertes@geemailer.com", read: true,
+sender_email: "MassWithMassey@gmail.com", sender_name: "Massey", starred: false, trashed: true)
+e3.conversation_id = c3.id
+e3.save!
+
+e5 = Email.create!(subject: "Re: Lunch", body: "Ev, I'm down. Sunday?",
+parent_email_id: e1.id, email_type: "sent", recipient_email: "eVanRox@gmail.com", read: true,
+sender_email: "sonoflaertes@geemailer.com", sender_name: "Evan",
+starred: false, trashed: false)
+e5.conversation_id = c1.id
+c1.save!
+e5.save!
+
+e4 = Email.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+the whole check thing. haha! Dude, lets hang soon tho!", read: false,
+parent_email_id: e5.id,
+email_type: "received", recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
+e4.conversation_id = c1.id
+c1.save!
+e4.save!
+
+# e6 = Email.create!(subject: "Lunch", body: "Duuuude, I feel horrible I sent that shit before. That was really stupid of me. Let's get
 # lunch, it's totes on me brah!", email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
 # sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: false, trashed: false)
-# e1.conversation_id = c1.id
-# e1.save!
+# e6.conversation_id = c4.id
+# e6.save!
 #
-# e2 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. So, I hate to bring this up but,
+# e7 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. So, I hate to bring this up but,
 # this has kinda been messing with my head the last couple days. We were at that coffee shop and I thought it would be cool to pay for your drink, and yeah,
 # you said thank you but like it didn't really seem like you were that thankful. Like, I don't pick up checks for anyone. Ever! Yeah,
-# just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", read: true,
-# parent_email_id: 4, email_type: "received", recipient_email: "sonoflaertes@geemailer.com",
+# just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", sender_id: 2, read: true,
+# parent_email_id: 4, email_type: "received", category_id: 3, recipient_email: "sonoflaertes@geemailer.com",
 # sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
-# e2.conversation_id = c2.id
-# e2.save!
+# e7.conversation_id = c5.id
+# e7.save!
 #
-# e3 = Email.create!(subject: "The Church Needs You", body: "Paul, me, you, and Jesus need to talk. Come visit.",
+# e8 = Email.create!(subject: "The Church Needs You", body: "Paul, me, you, and Jesus need to talk. Come visit.", sender_id: 3,
 #  email_type: "received", recipient_email: "sonoflaertes@geemailer.com", read: true,
-# sender_email: "MassWithMassey@gmail.com", sender_name: "Massey", starred: false, trashed: true)
-# e3.conversation_id = c3.id
-# e3.save!
+# sender_email: "MassWithMassey@gmail.com", sender_name: "Evan", starred: false, trashed: true)
+# e8.conversation_id = c6.id
+# e8.save!
 #
-# e5 = Email.create!(subject: "Re: Lunch", body: "Ev, I'm down. Sunday?",
-# parent_email_id: e1.id, email_type: "sent", recipient_email: "eVanRox@gmail.com", read: true,
+# e10 = Email.create!(subject: "Re: Lunch", body: "Ev, I'm down. Sunday?", sender_id: u1.id,
+# parent_email_id: e6.id, email_type: "sent", recipient_email: "eVanRox@gmail.com", read: true,
 # sender_email: "sonoflaertes@geemailer.com", sender_name: "Evan",
 # starred: false, trashed: false)
-# e5.conversation_id = c1.id
-# c1.save!
-# e5.save!
+# e10.conversation_id = c4.id
+# c4.num_emails += 1
+# c4.save!
+# e10.save!
 #
-# e4 = Email.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-# the whole check thing. haha! Dude, lets hang soon tho!", read: false,
-# parent_email_id: e5.id,
+# e9 = Email.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e6.id,
 # email_type: "received", recipient_email: "sonoflaertes@geemailer.com",
 # sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
-# e4.conversation_id = c1.id
-# c1.save!
-# e4.save!
+# e9.conversation_id = c4.id
+# c4.num_emails += 1
+# c4.save!
+# e9.save!
 #
-# # e6 = Email.create!(subject: "Lunch", body: "Duuuude, I feel horrible I sent that shit before. That was really stupid of me. Let's get
-# # lunch, it's totes on me brah!", email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
-# # sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: false, trashed: false)
-# # e6.conversation_id = c4.id
-# # e6.save!
-# #
-# # e7 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. So, I hate to bring this up but,
-# # this has kinda been messing with my head the last couple days. We were at that coffee shop and I thought it would be cool to pay for your drink, and yeah,
-# # you said thank you but like it didn't really seem like you were that thankful. Like, I don't pick up checks for anyone. Ever! Yeah,
-# # just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", sender_id: 2, read: true,
-# # parent_email_id: 4, email_type: "received", category_id: 3, recipient_email: "sonoflaertes@geemailer.com",
-# # sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
-# # e7.conversation_id = c5.id
-# # e7.save!
-# #
-# # e8 = Email.create!(subject: "The Church Needs You", body: "Paul, me, you, and Jesus need to talk. Come visit.", sender_id: 3,
-# #  email_type: "received", recipient_email: "sonoflaertes@geemailer.com", read: true,
-# # sender_email: "MassWithMassey@gmail.com", sender_name: "Evan", starred: false, trashed: true)
-# # e8.conversation_id = c6.id
-# # e8.save!
-# #
-# # e10 = Email.create!(subject: "Re: Lunch", body: "Ev, I'm down. Sunday?", sender_id: u1.id,
-# # parent_email_id: e6.id, email_type: "sent", recipient_email: "eVanRox@gmail.com", read: true,
-# # sender_email: "sonoflaertes@geemailer.com", sender_name: "Evan",
-# # starred: false, trashed: false)
-# # e10.conversation_id = c4.id
-# # c4.num_emails += 1
-# # c4.save!
-# # e10.save!
-# #
-# # e9 = Email.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-# # the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-# # parent_email_id: e6.id,
-# # email_type: "received", recipient_email: "sonoflaertes@geemailer.com",
-# # sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
-# # e9.conversation_id = c4.id
-# # c4.num_emails += 1
-# # c4.save!
-# # e9.save!
-# #
-# # e11 = Email.create!(subject: "Lunch", body: "Duuuude, I feel horrible I sent that shit before. That was really stupid of me. Let's get
-# # lunch, it's totes on me brah!", email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
-# # sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: false, trashed: false)
-# # e11.conversation_id = c7.id
-# # e11.save!
-# #
-# # e12 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. So, I hate to bring this up but,
-# # this has kinda been messing with my head the last couple days. We were at that coffee shop and I thought it would be cool to pay for your drink, and yeah,
-# # you said thank you but like it didn't really seem like you were that thankful. Like, I don't pick up checks for anyone. Ever! Yeah,
-# # just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", sender_id: 2, read: true,
-# # parent_email_id: 4, email_type: "received", category_id: 3, recipient_email: "sonoflaertes@geemailer.com",
-# # sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
-# # e12.conversation_id = c8.id
-# # e12.save!
-# #
-# # e13 = Email.create!(subject: "The Church Needs You", body: "Paul, me, you, and Jesus need to talk. Come visit.", sender_id: 3,
-# #  email_type: "received", recipient_email: "sonoflaertes@geemailer.com", read: true,
-# # sender_email: "MassWithMassey@gmail.com", sender_name: "Evan", starred: false, trashed: true)
-# # e13.conversation_id = c9.id
-# # e13.save!
-# #
-# # e14 = Email.create!(subject: "Re: Lunch", body: "Ev, I'm down. Sunday?", sender_id: u1.id,
-# # parent_email_id: e11.id, email_type: "sent", recipient_email: "eVanRox@gmail.com", read: true,
-# # sender_email: "sonoflaertes@geemailer.com", sender_name: "Evan",
-# # starred: false, trashed: false)
-# # e14.conversation_id = c7.id
-# # c7.num_emails += 1
-# # c7.save!
-# # e14.save!
-# #
-# # e15 = Email.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
-# # the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
-# # parent_email_id: e11.id,
-# # email_type: "received", recipient_email: "sonoflaertes@geemailer.com",
-# # sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
-# # e15.conversation_id = c7.id
-# # c7.num_emails += 1
-# # c7.save!
-# # e15.save!
-# #
-# e16 = Email.create!(subject: "Catch Up", body: "Let's get lunch some time, dude!",
-#  email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
-# sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
-# e16.conversation_id = c10.id
-# e16.save!
+# e11 = Email.create!(subject: "Lunch", body: "Duuuude, I feel horrible I sent that shit before. That was really stupid of me. Let's get
+# lunch, it's totes on me brah!", email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: false, trashed: false)
+# e11.conversation_id = c7.id
+# e11.save!
 #
-# Conversation.create!(user_id: u1.id).emails.create!(subject: "Where you at boy", body: "Im here, where you.",
-#  email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
-# sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+# e12 = Email.create!(subject: "The Check Last Weekend", body: "Hey dude, hope you are doing well. So, I hate to bring this up but,
+# this has kinda been messing with my head the last couple days. We were at that coffee shop and I thought it would be cool to pay for your drink, and yeah,
+# you said thank you but like it didn't really seem like you were that thankful. Like, I don't pick up checks for anyone. Ever! Yeah,
+# just wanted to clear the air on that. But we Gucci dude! Can't wait for next weekend! Peace!", sender_id: 2, read: true,
+# parent_email_id: 4, email_type: "received", category_id: 3, recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
+# e12.conversation_id = c8.id
+# e12.save!
 #
+# e13 = Email.create!(subject: "The Church Needs You", body: "Paul, me, you, and Jesus need to talk. Come visit.", sender_id: 3,
+#  email_type: "received", recipient_email: "sonoflaertes@geemailer.com", read: true,
+# sender_email: "MassWithMassey@gmail.com", sender_name: "Evan", starred: false, trashed: true)
+# e13.conversation_id = c9.id
+# e13.save!
 #
-# Conversation.create!(user_id: u1.id).emails.create!(subject: "That chick hot.", body: "So hot.",
-#  email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
-# sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+# e14 = Email.create!(subject: "Re: Lunch", body: "Ev, I'm down. Sunday?", sender_id: u1.id,
+# parent_email_id: e11.id, email_type: "sent", recipient_email: "eVanRox@gmail.com", read: true,
+# sender_email: "sonoflaertes@geemailer.com", sender_name: "Evan",
+# starred: false, trashed: false)
+# e14.conversation_id = c7.id
+# c7.num_emails += 1
+# c7.save!
+# e14.save!
 #
-# Conversation.create!(user_id: u1.id).emails.create!(subject: "The mets killin it.", body: "Can't believe it.",
-# email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
-# sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+# e15 = Email.create!(subject: "Re: Lunch", body: "Shit, I'm actually, uh uh, actually, baby stuff! Let's wait until you forget absolute
+# the whole check thing. haha! Dude, lets hang soon tho!", sender_id: 5, read: false,
+# parent_email_id: e11.id,
+# email_type: "received", recipient_email: "sonoflaertes@geemailer.com",
+# sender_email: "eVanRox@gmail.com", sender_name: "Evan", starred: true, trashed: false)
+# e15.conversation_id = c7.id
+# c7.num_emails += 1
+# c7.save!
+# e15.save!
 #
-# Conversation.create!(user_id: u1.id).emails.create!(subject: "She cray", body: "Get this girl away!",
-#  email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
-# sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
-#
-#
+e16 = Email.create!(subject: "Catch Up", body: "Let's get lunch some time, dude!",
+ email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+e16.conversation_id = c10.id
+e16.save!
+
+Conversation.create!(user_id: u1.id).emails.create!(subject: "Where you at boy", body: "Im here, where you.",
+ email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+
+
+Conversation.create!(user_id: u1.id).emails.create!(subject: "That chick hot.", body: "So hot.",
+ email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+
+Conversation.create!(user_id: u1.id).emails.create!(subject: "The mets killin it.", body: "Can't believe it.",
+email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+
+Conversation.create!(user_id: u1.id).emails.create!(subject: "She cray", body: "Get this girl away!",
+ email_type: "received", read: true, recipient_email: "sonoflaertes@geemailer.com",
+sender_email: "jasonbiggs@gmail.com", sender_name: "Jason Figs", starred: false, trashed: false)
+
+
 # #
 # # c1 = Conversation.create!(user_id: u1.id)
 # # c2 = Conversation.create!(user_id: u1.id)

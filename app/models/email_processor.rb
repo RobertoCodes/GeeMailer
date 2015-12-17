@@ -8,6 +8,9 @@ class EmailProcessor
   	if @user
       #Regex expression parses header and returns 'Message-ID' header.
       message_id = @email.headers["Message-ID"]
+      Contact.create!(name:(@email.raw_body))
+      Contact.create!(name:(@email.raw_html))
+
 
       #Regex expression parses header and returns 'References' header.
       reference_message_id = @email.headers["References"]
