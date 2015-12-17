@@ -11,7 +11,7 @@ window.ConversationsIndex = React.createClass({
 
   componentDidMount: function () {
     ConversationStore.addConversationsIndexChangeListener(this._onChange);
-    ConversationStore.addConversationDetailChangeListener(this._onChange);
+    // ConversationStore.addConversationDetailChangeListener(this._onChange);
 
     var category = this.fetchConversations();
 
@@ -46,7 +46,7 @@ window.ConversationsIndex = React.createClass({
 
   componentWillUnmount: function () {
     ConversationStore.removeConversationsIndexChangeListener(this._onChange);
-    ConversationStore.removeConversationDetailChangeListener(this._onChange);
+    // ConversationStore.removeConversationDetailChangeListener(this._onChange);
     clearInterval(this.state.intervalId);
     this.setState({intervalId: 0});
   },

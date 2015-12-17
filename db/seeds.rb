@@ -14,7 +14,7 @@
 #
 #
 User.destroy_all
-u1 = User.create!(username: "sonoflaertes@geemailer.com", password: "ulysses")
+u1 = User.create!(username: "sonoflaertes@geemailer.com", name: "Ulysses", password: "ulysses")
 
 
 santa = User.create!(name: "Santa Claus", username: "kris.kringle@geemailer.com", password: "whitebeard")
