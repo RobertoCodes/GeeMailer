@@ -30,7 +30,7 @@ window.ConversationsIndexItem = React.createClass({
     emailDate = String(emailDate).split(" ").splice(1,2).join(" ");
     var email_name;
     if (this.props.conversation.last_email.email_type === "sent") {
-      email_name = "me, " + this.props.conversation.last_email.recipient_email;
+      email_name = "me";
     } else {
       email_name = this.props.conversation.last_email.sender_name ||
       this.props.conversation.last_email.sender_email;
