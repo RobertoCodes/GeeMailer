@@ -59,7 +59,7 @@ window.ConversationsIndex = React.createClass({
 
     if (this.state.conversations.length > 0) {
       var page = this.state.conversations[0].page;
-      var startNum = (page -1) * 3 + 1;
+      var startNum = (page -1) * 10 + 1;
       var endNum = startNum + this.state.conversations.length - 1
       var total = this.state.conversations[0].total_count
       pageStr = <span className="page-string"> {startNum + "-" + endNum + " of "}

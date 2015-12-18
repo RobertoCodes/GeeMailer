@@ -56,6 +56,8 @@ class Api::EmailsController < ApplicationController
     @email = Email.find(params[:id])
     @email.toggle! params[:column].to_sym
     @conversation = @email.conversation
+    @conversation.read = true
+    @conversation.save!
     render :template => "api/conversations/show"
   end
 

@@ -35,7 +35,7 @@ window.ConversationDetail = React.createClass({
 
   componentWillUnmount: function () {
     ConversationStore.removeConversationDetailChangeListener(this._onChange);
-    this._updateReadState;
+    // this._updateReadState;
   },
 
   deleteConversation: function (e) {

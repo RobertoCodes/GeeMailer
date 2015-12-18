@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def new
-    
+
   end
 
 
@@ -10,8 +10,8 @@ class UsersController < ApplicationController
     if email_address["@geemailer.com"].nil?
       email_address += "@geemailer.com"
     end
-
-    @user = User.new(user_params[:name], email_address, user_params[:password])
+    attrs = {name: user_params[:name], username: email_address, password: user_params[:password]}
+    @user = User.new(attrs)
     if @user.save
       sign_in(@user)
       redirect_to root_url
