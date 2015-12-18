@@ -373,25 +373,23 @@ button.log_button.santa:hover {
   border: none;
   cursor: default;
   font-weight: normal;
-}
-
-
-.email-details > h4 {
-  margin-left: 60px;
+  margin-left: 67px;
 }
 
 .email-details > p {
-  margin-left: 67px;
   white-space: normal;
   line-height: 1.4;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   width: 80%;
+}
+
+.email-details > div {
+  padding-bottom: 10px;
 }
 
 .email-recipient {
   color: #777;
   margin-top: -10px;
-  margin-left: 7px;
 }
 
 .profile-pic {
