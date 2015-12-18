@@ -7,6 +7,8 @@ class Api::EmailsController < ApplicationController
     @email = Email.new(email_params)
     @email.sender_email = current_user.username
     @email.email_type = "sent"
+    @email.body = ActionController::Base.helpers.simple_format(@email.body)
+
     if @email.parent_email_id
       @parent_email = Email.find(@email.parent_email_id)
         @email.conversation_id = @parent_email.conversation.id
