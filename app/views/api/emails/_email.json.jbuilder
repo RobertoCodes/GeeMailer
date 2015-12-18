@@ -1,6 +1,6 @@
 json.extract!(
   email,
-  :id, :subject, :body, :parent_email_id, :email_type, :starred, :important,
+  :id, :subject, :body, :html_body, :parent_email_id, :email_type, :starred, :important,
   :trashed, :sender_email, :recipient_email, :read, :created_at, :sender_name,
   :conversation_id
 )

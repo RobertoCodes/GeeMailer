@@ -34,7 +34,7 @@ window.EmailDetail = React.createClass({
           <h4>{emailReceiver}</h4>
           <br/>
           <br/>
-          <p>{this.props.email.body}</p>
+          <p dangerouslySetInnerHTML={{__html: this.props.email.html_body}} />
         </div>
       );
   }

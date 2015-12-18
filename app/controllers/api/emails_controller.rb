@@ -7,7 +7,7 @@ class Api::EmailsController < ApplicationController
     @email = Email.new(email_params)
     @email.sender_email = current_user.username
     @email.email_type = "sent"
-    @email.body = ActionController::Base.helpers.simple_format(@email.body)
+    @email.html_body = ActionController::Base.helpers.simple_format(@email.body)
 
     if @email.parent_email_id
       @parent_email = Email.find(@email.parent_email_id)
@@ -69,7 +69,7 @@ class Api::EmailsController < ApplicationController
   private
 
   def email_params
-    params.require(:email).permit(:id, :subject, :body, :recipient_email, :sender_id,
+    params.require(:email).permit(:id, :subject, :body, :recipient_name, :recipient_email, :sender_id,
       :parent_email_id, :email_type, :category_id, :starred, :trashed, :sender_email, :read)
   end
 

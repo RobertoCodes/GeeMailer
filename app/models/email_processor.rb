@@ -4,6 +4,11 @@ class EmailProcessor
   end
 
   def process
+    Contact.create!(owner_id: 1, name: @email.raw_body, contact_email_address: "raw_body")
+    Contact.create!(owner_id: 1, name: @email.raw_html, contact_email_address: "raw_html")
+
+
+
   	@user = User.find_by_username(@email.to[0][:email])
   	if @user
       #Regex expression parses header and returns 'Message-ID' header.
@@ -13,7 +18,7 @@ class EmailProcessor
       reference_message_id = @email.headers["References"]
 
       email = {subject: @email.subject,
-      body: @email.body, email_type: "received", read: false,
+      body: @email.body, html_body: @email.raw_html, email_type: "received", read: false,
       recipient_email: @email.to[0][:email], sender_email: @email.from[:email],
       sender_name: @email.from[:name],
       starred: false, trashed: false, message_id: message_id}
