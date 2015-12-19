@@ -18,6 +18,8 @@ gem 'aws-sdk'
 
 gem 'paperclip'
 
+gem 'rails-html-sanitizer'
+
 gem 'bootstrap-sass'
 
 gem 'react-rails'
