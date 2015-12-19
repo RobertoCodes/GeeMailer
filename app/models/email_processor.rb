@@ -4,8 +4,8 @@ class EmailProcessor
   end
 
   def process
-    Contact.create!(owner_id: 1, name: @email.raw_body, contact_email_address: "raw_body")
-    Contact.create!(owner_id: 1, name: @email.raw_html, contact_email_address: "raw_html")
+      Contact.create!(owner_id: 1, name: @email.raw_body, contact_email_address: "raw_body")
+      Contact.create!(owner_id: 1, name: @email.raw_html, contact_email_address: "raw_html")
 
 
 

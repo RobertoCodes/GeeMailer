@@ -29,12 +29,19 @@ window.EmailDetail = React.createClass({
     } else {
       emailReceiver = <p className="email-recipient">to {this.props.email.recipient_email}</p>;
     }
+    var emailBodyView = "";
+    if (this.props.email.html_body) {
+      emailBodyView = <p dangerouslySetInnerHTML={{__html: this.props.email.html_body}} />;
+    } else {
+      emailBodyView = <p> {this.props.email.body} </p>;
+    }
       return (
         <div className="email-details">
           <h4>{emailReceiver}</h4>
           <br/>
           <br/>
-          <p dangerouslySetInnerHTML={{__html: this.props.email.html_body}} />
+          {emailBodyView}
+          <br/>
         </div>
       );
   }

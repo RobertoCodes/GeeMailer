@@ -8,14 +8,11 @@ class Api::EmailsController < ApplicationController
     @email.sender_email = current_user.username
     @email.email_type = "sent"
     @email.html_body = ActionController::Base.helpers.simple_format(@email.body)
-
     if @email.parent_email_id
-      @parent_email = Email.find(@email.parent_email_id)
+        @parent_email = Email.find(@email.parent_email_id)
         @email.conversation_id = @parent_email.conversation.id
         @email.save!
         @conversation = @email.conversation
-        @conversation.read = false
-        @conversation.save!
     else
         @conversation = Conversation.create!(user_id: current_user.id)
         @email.conversation_id = @conversation.id

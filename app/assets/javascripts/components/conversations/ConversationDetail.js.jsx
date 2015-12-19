@@ -20,8 +20,8 @@ window.ConversationDetail = React.createClass({
     ApiUtil.fetchSingleConversation(parseInt(newProps.params.conversationId));
   },
 
-  componentWillUpdate: function () {
-    if (this.state && this.state.conversation.emails.length < 1) {
+  componentWillUpdate: function (prevState, nextState) {
+    if (nextState.conversation.emails.length < 1) {
       this.history.goBack();
     }
   },
@@ -31,11 +31,11 @@ window.ConversationDetail = React.createClass({
     ApiUtil.fetchSingleConversation(parseInt(this.props.params.conversationId),
       this.props.location.query.category);
     this.getStateFromStore();
+    this._updateReadState;
   },
 
   componentWillUnmount: function () {
     ConversationStore.removeConversationDetailChangeListener(this._onChange);
-    // this._updateReadState;
   },
 
   deleteConversation: function (e) {

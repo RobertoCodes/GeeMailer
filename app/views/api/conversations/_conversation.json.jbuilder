@@ -2,6 +2,7 @@ json.extract!(
   conversation,
   :id, :read
 )
+
 if show_emails
   if params[:category] == "trash"
     json.emails conversation.emails.where("trashed = true").order(:created_at) do |email|
