@@ -25,7 +25,7 @@ class EmailProcessor
       starred: false, trashed: false, message_id: message_id}
 
       if reference_message_id != nil
-        email[html_body] = (@email.raw_html.split("</div></div>" + "</div></div>")
+        email[html_body] = (@email.raw_html.split("</div></div>") + "</div></div>")
         parent_email = Email.find_by_message_id(reference_message_id)
         if parent_email
           parent_email.conversation.emails.create!(email)
