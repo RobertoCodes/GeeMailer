@@ -51,6 +51,10 @@ window.ConversationsIndex = React.createClass({
     this.setState({intervalId: 0});
   },
 
+  refresh: function () {
+    location.reload();
+  },
+
   render: function () {
     var category = "";
     var pageStr = "";
@@ -70,6 +74,9 @@ window.ConversationsIndex = React.createClass({
 
     return(
       <div>
+        <button className="refresh-container" onClick={this.refresh}>
+          <figure className="refresh-button"></figure>
+        </button>
         <Paginator category= {category} page= {parseInt(page)} countLeft= {total-endNum} pageStr={pageStr}></Paginator>
         <div className="emails-index">
           <ul>

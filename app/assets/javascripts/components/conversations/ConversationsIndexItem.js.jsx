@@ -21,9 +21,6 @@ window.ConversationsIndexItem = React.createClass({
     this.history.pushState(null, url, {category: this.props.category});
   },
 
-  // send trashemail to database, remove parent_email_id, send back parent_email and
-  // rerender detail view by emitting detail view change
-
   render: function () {
     var klass = "";
     if (this.props.conversation.read) {
@@ -39,8 +36,8 @@ window.ConversationsIndexItem = React.createClass({
         email_name += this.props.conversation.last_email.recipient_name ||
           this.props.conversation.last_email.recipient_email;
       } else {
-        email_name += this.props.conversation.last_email.recipient_name ||
-          this.props.conversation.last_email.recipient_email;
+        email_name += this.props.conversation.last_email.sender_name ||
+          this.props.conversation.last_email.sender_email;
       }
     } else {
       if (this.props.conversation.last_email.email_type === "sent") {

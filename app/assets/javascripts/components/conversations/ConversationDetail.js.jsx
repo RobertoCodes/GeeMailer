@@ -38,6 +38,10 @@ window.ConversationDetail = React.createClass({
     ConversationStore.removeConversationDetailChangeListener(this._onChange);
   },
 
+  goBack: function () {
+    this.history.goBack();
+  },
+
   deleteConversation: function (e) {
     e.preventDefault();
     this.history.goBack();
@@ -64,6 +68,9 @@ window.ConversationDetail = React.createClass({
     if (this.state && this.state.conversation.emails.length > 0) {
       return (
         <div className="emails-index conversation">
+          <button className="back-container" onClick={this.goBack}>
+            <figure className="back-button"></figure>
+          </button>
           <span className="conversation-title">{this.state.conversation.emails[0].subject}</span>
           {trashOrRestoreButton}
           <EmailsIndex emails={this.state.conversation.emails}/>

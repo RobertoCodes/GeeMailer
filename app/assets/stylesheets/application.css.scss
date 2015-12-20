@@ -586,6 +586,7 @@ button.reply_button {
   padding-left: 10px;
   display: block;
   padding-bottom: 20px;
+  margin-right: 50px;
 }
 
 
@@ -628,11 +629,12 @@ button.reply_button {
 }
 
 .Gray-Button:focus {
-  outline: 0;
+  border: 1px solid #4d90fe;
+  outline: none;
 }
 
 .Gray-Button:active {
-  box-shadow: inset 0 0 6px 3px lightgray, 0 1px 0 0 #ededed;
+  box-shadow: inset rgba(0,0,0,0.2) 0 1px 1px;
 }
 
 .Gray-Button.restore.conversation {
@@ -850,7 +852,7 @@ button.reply_button {
 
 .email-reply-placeholder textarea {
   height: 39px;
-  width: 93.8%;
+  width: 92.8%;
   height: 64px;
   resize: none;
   border: thin solid #cfcfcf;
@@ -1048,6 +1050,7 @@ button.reply_button {
   margin-top: 5px;
   margin-left: -20px;
   float:right;
+  border-radius: 2px;
 }
 
 .trash-container:hover {
@@ -1057,10 +1060,11 @@ button.reply_button {
 }
 
 .trash-container:active {
-  box-shadow: inset rgba(0,0,0,0.2) 0 2px 10px;
+  box-shadow: inset rgba(0,0,0,0.2) 0 1px 1px;
 }
 
 .trash-container:focus {
+  border: 1px solid #4d90fe;
   outline: none;
 }
 
@@ -1074,11 +1078,82 @@ button.reply_button {
   opacity: .55;
 }
 
+.refresh-button {
+  background-image: image-url("sprites/arrow_n_trash_icons.png");;
+  background-repeat: no-repeat;
+  background-position: -62px -20px;
+  margin: auto;
+  width: 21px;
+  height: 21px;
+  opacity: .55;
+}
+
+.refresh-container {
+  background: rgba(243, 243, 243, 0.85);
+  position: absolute;
+  width: 75px;
+  margin-left: 35px;
+  margin-top: -40px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.refresh-container:hover {
+  .refresh-button {
+    opacity: 1;
+  }
+}
+
+.refresh-container:focus {
+  border: 1px solid #4d90fe;
+  outline: none;
+}
+
+.refresh-container:active {
+  box-shadow: inset rgba(0,0,0,0.2) 0 1px 1px;
+}
+
+.back-button {
+  background-image: image-url("sprites/arrow_n_trash_icons.png");;
+  background-repeat: no-repeat;
+  background-position: 0px -42px;
+  margin: auto;
+  width: 21px;
+  height: 21px;
+  opacity: .55;
+}
+
+.back-container {
+  background: rgba(243, 243, 243, 0.85);
+  position: absolute;
+  width: 75px;
+  margin-left: 50px;
+  margin-top: -49px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.back-container:hover {
+  .back-button {
+    opacity: 1;
+  }
+}
+
+.back-container:focus {
+  border: 1px solid #4d90fe;
+  outline: none;
+}
+
+.back-container:active {
+  box-shadow: inset rgba(0,0,0,0.2) 0 1px 1px;
+}
+
 .trash-container.conversation {
   position: absolute;
   width: 75px;
-  margin-left: 75px;
-  margin-top: -92px;
+  height: 28px;
+  margin-left: 140px;
+  margin-top: -90px;
 }
 
 .page-string {
