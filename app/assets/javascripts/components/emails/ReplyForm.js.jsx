@@ -4,13 +4,21 @@ window.ReplyForm = React.createClass({
   getInitialState: function () {
     var recipient_email;
     if (this.props.previousEmail.email_type === "received") {
+      recipient_name = this.props.previousEmail.sender_name;
       recipient_email = this.props.previousEmail.sender_email;
     } else {
+      recipient_name = this.props.previousEmail.recipient_name;
       recipient_email = this.props.previousEmail.recipient_email;
     }
+    if (this.props.previousEmail.parent_email_id === undefined) {
+      var subject = "Re: " + this.props.previousEmail.subject;
+    } else {
+      subject = this.props.previousEmail.subject;
+    }
 
-    return ({ recipient_email: recipient_email, subject: "Re: " + this.props.previousEmail.subject,
-              body: "", parent_email_id: this.props.previousEmail.id, expanded: false});
+    return ({ recipient_email: recipient_email, subject: subject,
+              body: "", parent_email_id: this.props.previousEmail.id,
+              recipient_name: recipient_name, expanded: false});
   },
 
   handleToChange: function (e) {

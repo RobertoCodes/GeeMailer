@@ -4,11 +4,6 @@ class EmailProcessor
   end
 
   def process
-    Contact.create!(owner_id: 1, name: @email.raw_body, contact_email_address: "raw_body")
-    Contact.create!(owner_id: 1, name: @email.raw_html, contact_email_address: "raw_html")
-    Contact.create!(owner_id: 1, name: @email.headers["References"])
-
-
 
   	@user = User.find_by_username(@email.to[0][:email])
   	if @user
@@ -28,6 +23,7 @@ class EmailProcessor
         email[html_body] = (@email.raw_html.split("</div></div>") + "</div></div>")
         parent_email = Email.find_by_message_id(reference_message_id)
         if parent_email
+          email[parent_email_id] = parent_email.id
           parent_email.conversation.emails.create!(email)
         else
       		@user.conversations.create!.emails.create!(email)
