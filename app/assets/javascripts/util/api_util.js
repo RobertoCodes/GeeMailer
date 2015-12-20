@@ -92,7 +92,7 @@ window.ApiUtil = {
     $.ajax({
       url: "/api/emails/" + id,
       method: "PATCH",
-      data: {column: "trashed", category: ""},
+      data: {column: "trashed", category: "trash"},
       success: function (conversation) {
         ApiActions.receiveOneConversation(conversation);
         ApiActions.receiveNotification({notification : "The message has been restored."});

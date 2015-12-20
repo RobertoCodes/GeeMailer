@@ -53,6 +53,10 @@ header {
   bottom: 15px;
 }
 
+.main-container {
+  display: flex;
+}
+
 nav {
   width: auto;
   height: 20px;
@@ -145,6 +149,9 @@ ul {
   list-style: none;
 }
 
+.top-nav {
+  display: flex;
+}
 
 nav > a {
   display: block;
@@ -163,14 +170,13 @@ nav > h2 {
 }
 
 nav > h3 {
-  float: left;
-  margin-left: 200px;
+  flex: auto;
+  margin-left: 100px;
   width: 100px;
   height: auto;
   display: block;
   color: gray;
   padding-left: 150px;
-
 }
 
 .signout {
@@ -294,12 +300,8 @@ button.log_button.santa:hover {
 }
 
 .email-index {
-  float: left;
+  flex: auto;
   display: block;
-  margin: auto;
-  width: 1200px;
-  white-space: nowrap;
-
 }
 
 .emails-index {
@@ -344,6 +346,13 @@ button.log_button.santa:hover {
   text-decoration: none;
   font-family: sans-serif;
 
+}
+
+.email-list-item.read {
+    font-weight: normal;
+    .email-body-preview {
+      color: #777;
+    }
 }
 
 .email-list-item.expanded {
@@ -676,7 +685,7 @@ button.reply_button {
 
 .arrows-container {
   float: right;
-  margin-right: 150px;
+  margin-right: 160px;
   margin-top: -40px;
 
 }

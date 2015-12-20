@@ -14,7 +14,7 @@ class Api::EmailsController < ApplicationController
         @email.save!
         @conversation = @email.conversation
     else
-        @conversation = Conversation.create!(user_id: current_user.id)
+        @conversation = Conversation.create!(user_id: current_user.id, read: true)
         @email.conversation_id = @conversation.id
         @email.save!
     end
@@ -55,9 +55,14 @@ class Api::EmailsController < ApplicationController
     @email = Email.find(params[:id])
     @email.toggle! params[:column].to_sym
     @conversation = @email.conversation
-    @conversation.read = true
-    @conversation.save!
-    render :template => "api/conversations/show"
+    if params[:column] == "read" || params[:column] == "trashed"
+      @conversation.read = true
+      @conversation.save!
+      render :template => "api/conversations/show"
+    elsif params[:column] == "starred" || params[:column] == "important"
+      render :template => "api/conversations/show_no_child"
+    end
+
   end
 
   def edit

@@ -77,10 +77,13 @@ window.Paginator = React.createClass({
 		}
 
 	  return (
-						<div className="arrows-container">
-							{prevView}
-							{nextView}
-			      </div>
+						<div className="paginator group">
+							{this.props.pageStr}
+							<div className="arrows-container">
+								{prevView}
+								{nextView}
+				      </div>
+						</div>
 	  			);
 	}
 

@@ -11,6 +11,7 @@ window.ConversationsIndex = React.createClass({
 
   componentDidMount: function () {
     ConversationStore.addConversationsIndexChangeListener(this._onChange);
+    ConversationStore.addConversationDetailChangeListener(this._onChange);
 
     var category = this.fetchConversations();
 
@@ -45,6 +46,7 @@ window.ConversationsIndex = React.createClass({
 
   componentWillUnmount: function () {
     ConversationStore.removeConversationsIndexChangeListener(this._onChange);
+    ConversationStore.removeConversationDetailChangeListener(this._onChange);
     clearInterval(this.state.intervalId);
     this.setState({intervalId: 0});
   },
@@ -68,9 +70,8 @@ window.ConversationsIndex = React.createClass({
 
     return(
       <div>
-        <Paginator category= {category} page= {parseInt(page)} countLeft= {total-endNum}></Paginator>
+        <Paginator category= {category} page= {parseInt(page)} countLeft= {total-endNum} pageStr={pageStr}></Paginator>
         <div className="emails-index">
-          {pageStr}
           <ul>
             {this.state.conversations.map(function (conversation) {
               var readClass = "";

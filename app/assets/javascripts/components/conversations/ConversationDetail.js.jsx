@@ -31,10 +31,10 @@ window.ConversationDetail = React.createClass({
     ApiUtil.fetchSingleConversation(parseInt(this.props.params.conversationId),
       this.props.location.query.category);
     this.getStateFromStore();
-    this._updateReadState;
   },
 
   componentWillUnmount: function () {
+    this._updateReadState(this.props.params.conversationId);
     ConversationStore.removeConversationDetailChangeListener(this._onChange);
   },
 

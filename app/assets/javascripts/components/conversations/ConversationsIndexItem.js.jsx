@@ -25,6 +25,10 @@ window.ConversationsIndexItem = React.createClass({
   // rerender detail view by emitting detail view change
 
   render: function () {
+    var klass = "";
+    if (this.props.conversation.read) {
+      klass = "read";
+    }
     if (this.props.conversation.last_email) {
     var emailDate = new Date(this.props.conversation.last_email.created_at);
     emailDate = String(emailDate).split(" ").splice(1,2).join(" ");
@@ -85,10 +89,10 @@ window.ConversationsIndexItem = React.createClass({
     var shortBody = "- " + this.props.conversation.last_email.body.split(" ").slice(0,16).join(" ");
 
     return(
-      <div className="email-list-item group">
+      <div className={"email-list-item group"}>
       <button className={"star_button " + starClass} onClick={this.toggleStar}></button>
       <button className={"important_button " + importantClass} onClick={this.toggleImportant}></button>
-      <section onClick={this.handleClick} className="email-list-item group">
+      <section onClick={this.handleClick} className={"email-list-item group " + klass}>
         <p className="email-name">{email_name}</p>
         <p className="email-subject">{subject}</p>
         <p className="email-body-preview">{shortBody}</p>
