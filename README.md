@@ -1,8 +1,8 @@
 # GeeMailer
 
-[Heroku link][Live]
+[Live link][Live]
 
-[heroku]: http://www.geemailer.com
+[Live]: http://www.geemailer.com
 
 ## About
 
