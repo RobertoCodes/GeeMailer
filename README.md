@@ -1,6 +1,6 @@
 # GeeMailer
 
-[Live link][Live]
+[Live][Live]
 
 [Live]: http://www.geemailer.com
 
