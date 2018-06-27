@@ -1,11 +1,5 @@
 # GeeMailer
 
-[Live][Live]
-
-[Live]: http://www.geemailer.com
-
-## About
-
 GeeMailer is a web application inspired by Gmail built using Ruby on Rails
 and React.js. GeeMailer allows users to:
 
